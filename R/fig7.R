@@ -17,14 +17,14 @@ chla_water_m2 <- chla %>%
   filter(sample_type == "water") %>% 
   filter(depth_m <= 100) %>% 
   drop_na(conc_mg_m3) %>% 
-  group_by(date) %>% 
+  group_by(mission, date) %>% 
   mutate(n = n()) %>% 
   filter(n >= 3)
 
 ## Integrate over water column
 chla_water_m2 <- chla_water_m2 %>% 
   arrange(depth_m) %>% 
-  group_by(date, sample_type) %>% 
+  group_by(mission, date, sample_type) %>% 
   nest() %>% 
   mutate(tchla_mg_m2 = map_dbl(data, ~pracma::trapz(.$depth_m, .$conc_mg_m3))) %>% # 1 ug L == 1 mg m-3
   select(-data)
@@ -41,7 +41,8 @@ chla_ice_m2 <- chla %>%
   group_by(mission, date) %>% 
   mutate(n = n()) %>% 
   filter(n == 2) %>% 
-  mutate(tchla_mg_m2 = sum(conc_mg_m2))
+  group_by(mission, date, sample_type) %>% 
+  summarise(tchla_mg_m2 = sum(conc_mg_m2))
 
 chla_m2 <- bind_rows(chla_ice_m2, chla_water_m2) %>% 
   mutate(doy = as.numeric(format(date, "%j"))) %>% 
@@ -81,4 +82,12 @@ p <- chla_m2 %>%
 #   geom_text(data = anot, aes(x = x, y = y, label = label), inherit.aes = FALSE, size = 2)
 
 ggsave("graphs/fig7.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
-  
+
+# Stats for the paper -----------------------------------------------------
+
+# Minimum ice chla at the end of the sampling
+
+chla_m2 %>% 
+  group_by(mission, sample_type) %>% 
+  filter(date == max(date))
+
