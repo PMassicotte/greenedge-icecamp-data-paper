@@ -1,4 +1,10 @@
-# chla <- read_csv("../../greenedge-phyto-bac-dom/data/clean/hplc_chla.csv") 
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
+# AUTHOR:       Philippe Massicotte
+#
+# DESCRIPTION:  
+#
+# Figure showing the temporal evolution of chla in both ice and water.
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
 rm(list = ls())
 

@@ -1,3 +1,11 @@
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
+# AUTHOR:       Philippe Massicotte
+#
+# DESCRIPTION:  
+#
+# Temporal evolution of PAR under the ice (1.3 meters).
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
 rm(list = ls())
 
 cops <- read_csv("/mnt/nfs/scratch/mariepieramyot/backup/cops/cops.csv", guess_max = 1e6) %>% 

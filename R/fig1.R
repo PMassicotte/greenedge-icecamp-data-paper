@@ -1,3 +1,11 @@
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
+# AUTHOR:       Philippe Massicotte
+#
+# DESCRIPTION:  
+#
+# Map of the Baffin bay with the ice camp location identified.
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
 library(PlotSvalbard)
 
 rm(list = ls())

@@ -1,3 +1,11 @@
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
+# AUTHOR:       Philippe Massicotte
+#
+# DESCRIPTION:  
+#
+# Temporal evolution of the snow and ice thickness.
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
 rm(list = ls())
 
 df <- read_csv("/mnt/nfs/scratch/mariepieramyot/backup/ice_temp_salinity_thick/greenedge_ice_thick.csv")

@@ -1,6 +1,12 @@
-rm(list = ls())
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
+# AUTHOR:       Philippe Massicotte
+#
+# DESCRIPTION:  
+#
+# Temporal evolution of NO3.
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-library(MBA)
+rm(list = ls())
 
 df <- data.table::fread("/mnt/nfs/scratch/mariepieramyot/backup/nutrients/greenedge_nutrients.csv") %>%
   filter(str_detect(mission, "ice_camp")) %>%

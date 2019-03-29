@@ -1,6 +1,12 @@
-rm(list = ls())
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
+# AUTHOR:       Philippe Massicotte
+#
+# DESCRIPTION:  
+#
+# Temporal evolution of the salinity in the water column.
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
-library(MBA)
+rm(list = ls())
 
 df <- data.table::fread("/mnt/nfs/scratch/mariepieramyot/backup/ctd/greenedge_ctd.csv") %>%
   filter(str_detect(mission, "ice_camp")) %>%
