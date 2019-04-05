@@ -45,8 +45,8 @@ par <- df %>%
 par %>% 
   mutate(yday = lubridate::yday(date)) %>% 
   ggplot(aes(x = yday, y = par_1_3m_ein_m_2_day_1, color = mission)) +
-  geom_line() +
-  geom_point(size = 1, show.legend = FALSE) +
+  geom_line(size = 0.25) +
+  geom_point(show.legend = FALSE, size = 0.5) +
   scale_y_log10() +
   scale_x_continuous(breaks = seq(90, 200, by = 20), limits = c(90, 200)) +
   annotation_logticks(sides = "l") +
