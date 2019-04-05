@@ -51,17 +51,17 @@ mylabels <- c(
 )
 
 p <- df %>%
-  ggplot(aes(x = date, y = pres_decibars, fill = bin)) +
+  ggplot(aes(x = lubridate::yday(date), y = pres_decibars, fill = bin)) +
   geom_raster() +
   scale_y_reverse(expand = c(0, 0)) +
   scale_fill_manual(values = colorRampPalette(viridis::viridis(15, direction = -1))(15)) +
-  scale_x_date(expand = c(0, 0), date_breaks = "1 month", date_labels = "%b") +
-  facet_wrap(~mission, scales = "free", ncol = 1, labeller = labeller(mission = mylabels)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  facet_wrap(~mission, ncol = 1, labeller = labeller(mission = mylabels)) +
   theme(legend.text = element_text(size = 6)) +
   theme(legend.title = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
   labs(fill = "Salinity (PSU)") +
-  xlab("Date") +
+  xlab("Day of the year") +
   ylab("Depth (m)") 
 
 ggsave("graphs/fig3.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)

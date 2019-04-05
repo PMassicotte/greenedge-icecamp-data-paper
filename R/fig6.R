@@ -27,11 +27,12 @@ df <- df %>%
   nest() %>%
   mutate(interpolated_no3 = map(data, function(df) {
     res <- df %>%
-      dplyr::select(date, depth_m, no3_um_l) %>%
-      mutate(date = as.numeric(date, origin = "1970-01-01", tz = "UTC")) %>%
+      mutate(yday = lubridate::yday(date)) %>% 
+      dplyr::select(yday, depth_m, no3_um_l) %>%
+      # mutate(date = as.numeric(date, origin = "1970-01-01", tz = "UTC")) %>%
       mba.surf(500, 500, extend = TRUE)
 
-    res2 <- expand.grid(date = res$xyz.est$x, depth_m = res$xyz.est$y) %>%
+    res2 <- expand.grid(yday = res$xyz.est$x, depth_m = res$xyz.est$y) %>%
       mutate(no3_um_l = as.vector(res$xyz.est$z))
 
     return(res2)
@@ -49,8 +50,10 @@ df <- df %>%
     seq(min(no3_um_l), max(no3_um_l) + 1, by = 0.5),
     include.lowest = TRUE,
     right = TRUE
-  )) %>%
-  mutate(date = as.Date(date, origin = "1970-01-01", tz = "UTC"))
+  ))
+
+# %>%
+#   mutate(date = as.Date(date, origin = "1970-01-01", tz = "UTC"))
 
 mylabels <- c(
   "ice_camp_2015" = "Ice camp 2015",
@@ -58,17 +61,17 @@ mylabels <- c(
 )
 
 p <- df %>%
-  ggplot(aes(x = date, y = depth_m, fill = bin)) +
+  ggplot(aes(x = yday, y = depth_m, fill = bin)) +
   geom_raster() +
   scale_y_reverse(expand = c(0, 0)) +
   scale_fill_manual(values = colorRampPalette(viridis::viridis(16))(16)) +
-  scale_x_date(expand = c(0, 0), date_breaks = "1 month", date_labels = "%b") +
-  facet_wrap(~mission, scales = "free", ncol = 1, labeller = labeller(mission = mylabels)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  facet_wrap(~mission, ncol = 1, labeller = labeller(mission = mylabels)) +
   theme(legend.text = element_text(size = 6)) +
   theme(legend.title = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
   labs(fill = bquote(atop(NO[3^{"-"}], (mu*mol~L^{-1})))) +
-  xlab("Date") +
+  xlab("Day of the year") +
   ylab("Depth (m)")
 
 ggsave("graphs/fig6.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
