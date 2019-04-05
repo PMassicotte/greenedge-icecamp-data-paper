@@ -48,7 +48,9 @@ par %>%
   geom_line(size = 0.25) +
   geom_point(show.legend = FALSE, size = 0.5) +
   scale_y_log10() +
-  scale_x_continuous(breaks = seq(90, 200, by = 20), limits = c(90, 200), labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
+  scale_x_continuous(breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "1 month") %>% lubridate::yday(), 
+                     limits = c(90, 200), 
+                     labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
   annotation_logticks(sides = "l") +
   xlab(NULL) +
   ylab(bquote(PAR~(mol~m^{-2}~d^{-1}))) +

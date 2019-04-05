@@ -65,7 +65,9 @@ p <- df %>%
   geom_raster() +
   scale_y_reverse(expand = c(0, 0)) +
   scale_fill_manual(values = colorRampPalette(viridis::viridis(16))(16)) +
-  scale_x_continuous(expand = c(0, 0), labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
+  scale_x_continuous(breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "1 month") %>% lubridate::yday(),
+                     expand = c(0, 0), 
+                     labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
   facet_wrap(~mission, ncol = 1, labeller = labeller(mission = mylabels)) +
   theme(legend.text = element_text(size = 6)) +
   theme(legend.title = element_text(size = 6)) +
