@@ -71,11 +71,11 @@ p <- chla_m2 %>%
   facet_wrap( ~ year, ncol = 1, labeller = labeller(year = mylabels)) +
   scale_y_log10() +
   annotation_logticks(sides = "l") +
-  xlab("Day of the year") +
+  xlab(NULL) +
   ylab(bquote("Total chlorophyll a ("*mg~m^{-2}*")")) +
   theme(plot.subtitle = element_text(size = 8)) +
   theme(legend.title = element_blank()) +
-  scale_x_continuous(breaks = seq(90, 210, by = 20), limits = c(90, 210)) +
+  scale_x_continuous(breaks = seq(90, 210, by = 20), limits = c(90, 210), labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
   scale_color_brewer(palette = "Set2", breaks = c("ice", "water"), labels = c("Ice", "Water")) +
   theme(legend.justification = c(0, 1), legend.position = c(0.05, 0.99)) +
   theme(legend.text = element_text(size = 8)) +

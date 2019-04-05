@@ -27,9 +27,9 @@ p <- df %>%
   geom_ribbon(aes(ymin = 0, ymax = snow, fill = "Snow")) +
   geom_ribbon(aes(ymin = -ice, ymax = 0, fill = "Ice")) +
   facet_wrap(~mission, ncol = 1, labeller = labeller(mission = mylabels)) +
-  scale_x_continuous(breaks = seq(90, 200, by = 20), limits = c(110, 190)) +
+  scale_x_continuous(breaks = seq(90, 200, by = 20), limits = c(110, 190), labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
   ylab("Thickness (cm)") +
-  xlab("Day of the year") +
+  xlab(NULL) +
   scale_fill_manual(breaks = c("Snow", "Ice"), values = c("Snow" = "#474444", "Ice" = "#5d80b6")) +
   theme(legend.title = element_blank()) +
   theme(legend.text = element_text(size = 6)) +

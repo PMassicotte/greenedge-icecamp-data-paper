@@ -48,9 +48,9 @@ par %>%
   geom_line(size = 0.25) +
   geom_point(show.legend = FALSE, size = 0.5) +
   scale_y_log10() +
-  scale_x_continuous(breaks = seq(90, 200, by = 20), limits = c(90, 200)) +
+  scale_x_continuous(breaks = seq(90, 200, by = 20), limits = c(90, 200), labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
   annotation_logticks(sides = "l") +
-  xlab("Day of the year") +
+  xlab(NULL) +
   ylab(bquote(PAR~(mol~m^{-2}~d^{-1}))) +
   geom_hline(aes(yintercept = 0.415), lty = 2, color = "gray50", size = 0.5) +
   annotate("text", x = 195, y = 0.415, label = "0.415", vjust = -0.5, size = 3, color = "gray50") +

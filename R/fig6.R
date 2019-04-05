@@ -65,13 +65,13 @@ p <- df %>%
   geom_raster() +
   scale_y_reverse(expand = c(0, 0)) +
   scale_fill_manual(values = colorRampPalette(viridis::viridis(16))(16)) +
-  scale_x_continuous(expand = c(0, 0)) +
+  scale_x_continuous(expand = c(0, 0), labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
   facet_wrap(~mission, ncol = 1, labeller = labeller(mission = mylabels)) +
   theme(legend.text = element_text(size = 6)) +
   theme(legend.title = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
   labs(fill = bquote(atop(NO[3^{"-"}], (mu*mol~L^{-1})))) +
-  xlab("Day of the year") +
+  xlab(NULL) +
   ylab("Depth (m)")
 
 ggsave("graphs/fig6.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
