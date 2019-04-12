@@ -48,8 +48,8 @@ df %>%
     }
   ) +
   theme(legend.title = element_blank()) +
-  scale_y_continuous(limits = c(0, 1)) +
-  ylab("Fv/Fm") +
+  scale_y_continuous(limits = c(0, NA)) +
+  ylab(bquote(F[v]*"/"*F[m])) +
   theme(legend.position = c(1, 0.01), legend.justification = c(1.01, -0.01)) +
   theme(legend.text = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
