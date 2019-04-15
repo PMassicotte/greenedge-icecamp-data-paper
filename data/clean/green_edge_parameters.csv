@@ -1,57 +1,67 @@
 parameter,method,sampling,pi,year
-234Th (dissolved),Gamma counting,Rosette,Schmidt S.,2015
-234Th (particulate),Gamma counting,Rosette,Schmidt S.,2015
 Absorption (particulate),Spectrophotometer (filters),Camp ice sample,Matsuoka A. / Bricaud A. / Ferland J.,2015
+Absorption (particulate),Spectrophotometer (filters),Camp ice sample,Ehn J. / Quiring C.,2015
 Absorption (particulate),Spectrophotometer (filters),Camp water sample,Matsuoka A. / Bricaud A. / Ferland J.,2015
+Absorption (particulate),Spectrophotometer (filters),Camp water sample,Ehn J. / Quiring C.,2015
 Absorption coefficient,ACS,In-water profiler,Becu G. / Babin M.,2015
-ADCP (Mooring),,Mooring,Oziel L. / Houssais M.-N. / Babin M.,2015
+ADCP (Mooring),,Mooring,Marec C.,2015
+Aerosol optical depth,Sunphotometer,Surface mode,Belanger S. / Goyens C. / Leymarie E.,2015
+Aerosol relative humidity,Sunphotometer,Surface mode,Belanger S. / Goyens C. / Leymarie E.,2015
 Air Relative Humidity,Humidity Sensor,Meteorological Tower,Massé G.,2015
 Air Temperature,Temperature probe,Meteorological Tower,Massé G.,2015
+Alkalinity total (TA),Potentiometry,Camp water sample,Else B. / Whitehead J.,2015
+Angstrom coefficient,Sunphotometer,Surface mode,Belanger S. / Goyens C. / Leymarie E.,2015
 Attenuation coefficient,ACS,In-water profiler,Becu G. / Babin M.,2015
 Backscattering Coefficient,Wetlabs,In-water profiler,Becu G. / Babin M.,2015
-Bacteria cultures,,Rosette water sample,Joux F.,2015
-Bacterial isolation,DNA isolation kit,Camp water sample,Joux F.,2015
-Bacterial production,Leucine-3H incorporation,Camp water sample,Joux F. / Galindo V.,2015
-Bacterial production,Leucine-3H incorporation,Sea ice core,Joux F. / Galindo V.,2015
+Bacterial sequencing,Sequencing,Air filtration,Amiraux R.,2015
+Bacterial sequencing,Sequencing,Camp water sample,Amiraux R.,2015
+Bacterial sequencing,Sequencing,Ice core,Amiraux R.,2015
+Bacterial sequencing,Sequencing,Sediment trap,Amiraux R.,2015
+Benthic ammonium flux,Incubations - Colorimetry,Box corer,Archambault P.,2015
+Benthic DOC remineralisation,Incubations - wet oxidation,Box corer,Archambault P.,2015
+Benthic nitrate flux,Incubations - Colorimetry- Autoanalyzer,Box corer,Archambault P.,2015
+Benthic nitrite flux,Incubations - Colorimetry- Autoanalyzer,Box corer,Archambault P.,2015
+Benthic phosphate flux,Incubations - Colorimetry- Autoanalyzer,Box corer,Archambault P.,2015
 Brine salinity and volume,Calculated from temperature and salinity,Sea ice core,Galindo V.,2015
 CDOM,Fluorescence (Wetlabs),In-water profiler,Becu G. / Babin M.,2015
-CDOM (Fluorescence),Fluorimetry,Camp water sample,Matsuoka A. / Ferland J.,2015
 CDOM absorption,Ultrapath,Camp water sample,Matsuoka A. / Ferland J. / Babin M.,2015
 Chla,Fluorescence (Wetlabs),In-water profiler,Becu G. / Babin M.,2015
 Chla,Fluorescence (Turner),Sediment Trap,Fortier L. / Lalande C.,2015
 Chlorophyll a and Phaeopigments (concentration),Fluorimetry,Camp water sample,Babin M. / Ferland J.,2015
-Cryptophytes (abundance),Flow cytometry,Camp water sample,Vaulot D.,2015
-CTD,Seabird,In-water profiler,Guillot P. / Lagunas J.,2015
+Chlorophyll a and Phaeopigments (concentration),Fluorimetry,Camp water sample,Rontani J.F. / Raimbault P. / Amiraux R.,2015
+Cryptophytes (abundance),Flow cytometry,Camp water sample,Vaulot D. / Marie D.,2015
 CTD,Seabird,In-water profiler,Becu G. / Babin M.,2015
-Cultures of sorted populations,Sorted by flow cytometry,Camp water sample,Vaulot D.,2015
-Diatoms (bacilliarophyta) abundance,Inverted microscopy,Camp water sample,Leblanc K. / Queguiner B.,2015
-Diatoms (bacilliarophyta) taxonomy,Inverted microscopy,Camp water sample,Leblanc K. / Queguiner B.,2015
+CTD,Seabird,In-water profiler,Guillot P. / Babin M. / Marec C.,2015
 Diffuse attenuation coefficient (Kd),C-OPS,Profile mode,Becu G. / Babin M.,2015
-DOC (HTCO),HTCO,Rosette,Matsuoka A. / Benner R. / Ferland J.,2015
-DOM (Amino acids),HPLC,Rosette,Matsuoka A. / Benner R. / Ferland J.,2015
-DOM (sugars),HPAEC-PAD,Rosette,Panagiotopoulos C.,2015
+Dissolved inorganic Carbon (DIC),Potentiometry,Camp water sample,Else B. / Whitehead J.,2015
+DMS,Gas Chromatography,Camp water sample,Levasseur M.,2015
+DMS,Gas Chromatography,Melt pond water sample,Levasseur M.,2015
+DMS,Gas Chromatography,Sea ice core,Levasseur M.,2015
+DMSP,Gas Chromatography,Camp water sample,Levasseur M.,2015
+DMSP,Gas Chromatography,Melt pond water sample,Levasseur M.,2015
+DMSP,Gas Chromatography,Sea ice core,Levasseur M.,2015
+DOM (sugars),HPAEC-PAD,Rosette,Sempéré R. / Panagiotopoulos C.,2015
 DON (release),Isotopic procedure,Camp water sample,Raimbault P.,2015
-Downwelling irradiance,Radiometer,Surface mode,Lambert-Girard S. / Leymarie E.,2015
-Downwelling irradiance,Radiometer,Surface mode,Belanger S. / Goyens C. / Lambert Girard S.,2015
+Downwelling irradiance,Radiometer,Surface mode,Belanger S. / Goyens C. / Leymarie E.,2015
 Downwelling Irradiance (Ed(z)),C-OPS,Profile mode,Becu G. / Babin M.,2015
 Downwelling Irradiance above the surface (Ed(0+)),C-OPS,Profile mode,Becu G. / Babin M.,2015
 Downwelling Irradiance above the surface (Ed(0+)),SBDART,Surface mode,Babin M. / Gali M.,2015
 Faecal pellets flux,,Sediment Trap,Fortier L. / Lalande C.,2015
-Fluorescence Variable (Phyto),Benchtop PAM,Camp water sample,Galindo V. / Lavaud J.,2015
-Fluorescence Variable (Phyto),Benchtop PAM,Sediment Trap,Galindo V. / Lavaud J.,2015
-Fluorescence Variable (Phyto),Benchtop PAM,Surface mode,Galindo V. / Lavaud J.,2015
-Hemispherical directional reflectance distribution function,Multispectral radiance camera,Surface mode,Belanger S. / Goyens C. / Lambert Girard S.,2015
-Heterotrophic bacteria (abundance),Flow Cytometry,Camp water sample,Vaulot D.,2015
+Fluorescence Variable (Phyto),Benchtop PAM,Camp water sample,Galindo V. / Rysgaard S.,2015
+Fluorescence Variable (Phyto),Benchtop PAM,Sediment Trap,Galindo V. / Rysgaard S.,2015
+Fluorescence Variable (Phyto),Benchtop PAM,Surface mode,Galindo V. / Rysgaard S.,2015
+Hemispherical directional reflectance distribution function,Multispectral radiance camera,Surface mode,Belanger S. / Goyens C. / Leymarie E.,2015
+Hemispherical Directional Reflectance Factor,Hyperspectral spectrometer,Surface mode,Belanger S. / Goyens C. / Leymarie E.,2015
+Heterotrophic bacteria (abundance),Flow Cytometry,Camp water sample,Vaulot D. / Marie D.,2015
 Heterotrophic nanoflagellates,Flow cytometry,Camp water sample,Joux F.,2015
-"Hydro SCAMP (Temp, Salin, Chlorophyll, turb. ...)",SCAMP profiler,In-water profiler,Vladoiu A. / Dumont D.,2015
 Ice and Snow Temperature,Temperature probe,Meteorological Tower,Massé G.,2015
 Ice thickness,Meter,Camp ice sample,Galindo V.,2015
-Irradiance (Downwelling),Radiometer,ROV,Matthes L./Lambert-girard S./ Ehn J./Mundy C.J,2015
-Irradiance (Downwelling),TRIOS radiometer,"Surface-, Ice Bottom-mode",Ehn J. / Matthes L.,2015
 "Irradiance (Downwelling, Upwelling)",TRIOS radiometer,"Surface-, Under-water profile-mode",Ehn J. / Matthes L. / Lambert-girard S.,2015
 Isoprenoid lipids,GC/MS,Camp water sample,Masse G. / Guilmette C.,2015
 Isoprenoid lipids,GC/MS,Sea ice core,Masse G. / Guilmette C.,2015
-Lipid biomarkers,GC/MS,Collected organisms,"Dufour F., Masse G., Ayotte P., Lemire M.",2015
+Lipid biomarqueurs,GC-Flamme Ionization Detection / GC-MS,Box corer,Archambault P.,2015
+Lipid biomarqueurs d13C,GC-Combustion Isotope ratio MS,Box corer,Archambault P.,2015
+Net radiation,Radiometer,Surface mode,Else B.,2015
 NH4,Fluorescence,Camp water sample,Raimbault P.,2015
 NH4 (assimilation),Isotopic dilution 15N,Camp water sample,Raimbault P.,2015
 NH4 (regeneration),Isotopic dilution 15N,Camp water sample,Raimbault P.,2015
@@ -61,65 +71,58 @@ NO2,Colorimetry/Autoanalyser,Sea ice core,Raimbault P.,2015
 NO3,Colorimetry/Autoanalyser,Camp water sample,Raimbault P.,2015
 NO3,Colorimetry/Autoanalyser,Sea ice core,Raimbault P.,2015
 NO3 (assimilation),Isotopic dilution 15N,Camp water sample,Raimbault P.,2015
-Nutrients bioassay,Incubation,Experiment,Delaforge A.,2015
-Nutrients bioassay,Incubation,Experiment,Galindo V.,2015
 PAR,SBDART,Surface mode,Babin M. / Gali M.,2015
 PAR (Photosynthetically Available Radiation),C-OPS,Profile mode,Becu G. / Babin M.,2015
 Particle Size Distribution,LISST,In-water profiler,Becu G. / Babin M.,2015
 Particulate Carbon (PC),CHN,Camp water sample,Babin M. / Ferland J.,2015
 Particulate mass,Dry Weight,Sediment Trap,Fortier L. / Lalande C.,2015
 Particulate Nitrogen (PN),CHN,Camp water sample,Babin M. / Ferland J.,2015
-Particulate Organic Matter (POM) photodegradation,GC/MS,Camp water sample,Rontani J.-F. / Amiraux R.,2015
-Particulate Organic Matter (POM) photodegradation,GC/MS,Sea ice core,Rontani J.-F. / Amiraux R.,2015
-Particulate Organic Matter (POM) photodegradation,GC/MS,Sediment Trap,Rontani J.-F. / Amiraux R.,2015
-Particulate Organic Phosphorus (POP),Wet oxidation,Camp water sample,Raimbault P.,2015
-PDMPO uptake,Spectrophotometry / Spectrofluorometry,Camp water sample,Leblanc K. / Queguiner B.,2015
-PDMPO uptake per species,Microscopy,Camp water sample,Leblanc K. / Queguiner B.,2015
-Photo Eukaryotes (morphology),Scanning Electron Microscopy,Camp water sample,Vaulot D.,2015
-Photo Eukaryotes sorted (morphology),Scanning Electron Microscopy,Camp water sample,Vaulot D.,2015
-Photosynthetic nanoeukaryotes (abundance),Flow cytometry,Camp water sample,Vaulot D.,2015
+Particulate Organic Phosphorus (POP),Wet oxidation,Camp water sample,Tremblay J. E. / Raimbault P.,2015
+PDMPO uptake,Spectrophotometry / Spectrofluorometry,Camp water sample,Leynaert A.,2015
+PDMPO uptake per species,Microscopy,Camp water sample,Leynaert A.,2015
+photo-oxidation,CHN,Camp water sample,Rontani J.F. / Raimbault P. / Amiraux R.,2015
+Photosynthetic nanoeukaryotes (abundance),Flow cytometry,Camp water sample,Vaulot D. / Marie D.,2015
 Photosynthetic parameters,14C P vs. E curve,Camp water sample,Ferland J. / Babin M.,2015
-Photosynthetic picoeukaryotes (abundance),Flow cytometry,Camp water sample,Vaulot D.,2015
+Photosynthetic picoeukaryotes (abundance),Flow cytometry,Camp water sample,Vaulot D. / Marie D.,2015
 Phytoplankton,Imaging flowcytobot,Camp water sample,Ferland J. / Grondin P.L. / Babin M.,2015
 Phytoplankton (taxonomy),Inverted microscope,Sediment Trap,Fortier L. / Lalande C.,2015
+Pigments,HPLC,Camp water sample,Galindo V. / Rysgaard S.,2015
 Pigments,HPLC,Camp water sample,Ras J. / Claustre H.,2015
 PN,CHN,Sediment Trap,Fortier L. / Lalande C.,2015
 PO4,Colorimetry/Autoanalyser,Camp water sample,Raimbault P.,2015
 PO4,Colorimetry/Autoanalyser,Sea ice core,Raimbault P.,2015
-POC,Wet oxidation,Camp water sample,Raimbault P.,2015
+POC,Wet oxidation,Camp water sample,Tremblay J. E. / Raimbault P.,2015
 POC,CHN,Sediment Trap,Fortier L. / Lalande C.,2015
-PON,Wet oxidation,Camp water sample,Raimbault P.,2015
+PON,Wet oxidation,Camp water sample,Tremblay J. E. / Raimbault P.,2015
 Production (Primary Production),13C labeling,Camp water sample,Raimbault P.,2015
-Relative abundances of bacteria and eukaryotes,DNA/RNA extraction,Camp water sample,Vaulot D.,2015
 Rrs (0+),C-OPS,Profile mode,Becu G. / Babin M.,2015
 Salinity,Conductivity meter,Sea ice core,Galindo V. / Rysgaard S.,2015
+Salinity-induced bacterial biomarker,GCMS,Ice core,Amiraux R.,2015
+Salinity-induced bacterial biomarker,GCMS,Sediment trap,Amiraux R.,2015
 Sea ice concentration,Satellite,Surface mode,Massicotte P.,2015
-Selenium,HPLC-ICP-MS,Collected organisms,"Dufour F., Masse G., Ayotte P., Lemire M.",2015
+Si(OH)4,Colorimetry/Autoanalyzer,Camp water sample,Leynaert A.,2015
 Si(OH)4,Colorimetry/Autoanalyzer,Camp water sample,Raimbault P.,2015
-Si(OH)4,Colorimetry/Autoanalyzer,Camp water sample,Leynaert A. / Moriceau B.,2015
 Si(OH)4,Colorimetry/Autoanalyzer,Sea ice core,Raimbault P.,2015
 Silica (uptake rate),32Si absorption,Camp water sample,Leynaert A.,2015
-Silica Biogenic (BSi),BSi extraction,Camp water sample,Leynaert A./Moriceau B./ Leblanc K./Queguiner B.,2015
-Silica Biogenic (BSi) dissolution rate,dissolution in filtered sea water,Camp water sample,Moriceau B.,2015
-Silica Lithogenic (LSi),LSi extraction,Camp water sample,Leynaert A./Moriceau B./ Leblanc K./Queguiner B.,2015
+Silica Biogenic (BSi),BSi extraction,Camp water sample,Leynaert A.,2015
+Silica Biogenic (BSi) dissolution rate,dissolution in filtered sea water,Camp water sample,Leynaert A.,2015
 Silicate Si(OH)4 - absorption kinetics,32Si absorption - incubation,Camp water sample,Leynaert A.,2015
 Snow depth,Meter,Camp snow sample,Galindo V.,2015
 Snow depth,Sonic ranger,Meteorological Tower,Massé G.,2015
-Spectral downwelling irradiance,Camera Luminance,Under-water sensor,Lambert-Girard S. / Leymarie E.,2015
-Spectral downwelling radiance angular distribution,Camera Luminance,Under-water sensor,Lambert-Girard S. / Leymarie E.,2015
 SPM (Suspended Particulate Material),dry weight (gravimetry),Camp water sample,Babin M. / Ferland J.,2015
+Sugars,HPLC,Sediment Trap,Sempéré R. / Panagiotopoulos C.,2015
 Surface Albedo,SOLALB (LGGE),Surface mode,Verin G.,2015
 Swimmers,,Sediment Trap,Fortier L. / Lalande C.,2015
-Synechococcus (abundance),Flow cytometry,Camp water sample,Vaulot D.,2015
+Synechococcus (abundance),Flow cytometry,Camp water sample,Vaulot D. / Marie D.,2015
 Temperature,Temperature probe,Sea ice core,Galindo V. / Rysgaard S.,2015
-TOC,HTCO,Rosette,Panagiotopoulos C.,2015
+TOC,HTCO,Rosette,Sempéré R. / Panagiotopoulos C.,2015
 Total Organic Carbon (TOC),Wet oxidation,Camp water sample,Raimbault P.,2015
 Total Organic Nitrogen (TON),Wet oxidation,Camp water sample,Raimbault P.,2015
 Total Organic Phosphorus (TOP),Wet oxidation,Camp water sample,Raimbault P.,2015
 Transmittance through ice,SOLALB (LGGE),Surface mode,Verin G.,2015
 Under-ice export fluxes of biogenic matter (fresh),"CHN, Fluorimetry, ...",Sediment Trap,Fortier L. / Lalande C.,2015
 Upwelling Irradiance (Eu(z)),C-OPS,Profile mode,Becu G. / Babin M.,2015
-Upwelling radiance,Multispectral radiance camera,Surface mode,Belanger S. / Goyens C. / Lambert Girard S.,2015
+Upwelling radiance,Multispectral radiance camera,Surface mode,Belanger S. / Goyens C. / Leymarie E.,2015
 Upwelling radiance (Lu),C-OPS,Profile mode,Becu G. / Babin M.,2015
 Vertical profile of snow density,volume/mass,Surface mode,Verin G.,2015
 Vertical profile of Specific Surface Area,DUFISSS (LGGE),Surface mode,Verin G.,2015
@@ -127,9 +130,9 @@ Virus (abundance),Flow Cytometry,Camp water sample,Joux F.,2015
 Wind Direction,Wind monitor,Meteorological Tower,Massé G.,2015
 Wind Speed,Wind monitor,Meteorological Tower,Massé G.,2015
 Zooplancton (Abundances),Ring net,Plankton net,Fortier L. / Lalande C.,2015
+Zooplancton (Abundances),Vertical plankton net 200 µm,Plankton net,Fortier L. / Lalande C.,2015
 Zooplancton (Taxonomy),Ring net,Plankton Net,Fortier L. / Lalande C.,2015
-Zooplancton fecal pellet production rate,,Plankton net,Fortier L. / Lalande C.,2015
-Zooplancton grazing rate,,Plankton net,Fortier L. / Lalande C.,2015
+Zooplancton (Taxonomy),Vertical plankton net 200 µm,Plankton net,Fortier L. / Lalande C.,2015
 234Th (dissolved),Gamma counting,Rosette,Schmidt S.,2016
 234Th (particulate),Gamma counting,Rosette,Schmidt S.,2016
 Absorption (particulate),Spectrophotometer (filters),Camp ice sample,Matsuoka A. / Bricaud A. / Ferland J.,2016

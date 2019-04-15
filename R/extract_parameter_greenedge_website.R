@@ -13,7 +13,7 @@ library(rvest)
 rm(list = ls())
 
 extract_parameters_cyber_website <- function(file) {
-  df <- read_html("data/raw/Green Edge Parameters_2016.html")
+  df <- read_html(file)
 
   res <- df %>%
     html_nodes("table") %>%
