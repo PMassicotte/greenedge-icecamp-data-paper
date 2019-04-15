@@ -6,6 +6,8 @@
 # Temporal evolution of NO3.
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
+library(ggisoband)
+
 rm(list = ls())
 
 df <- data.table::fread("/mnt/nfs/scratch/mariepieramyot/backup/nutrients/greenedge_nutrients.csv") %>%
@@ -61,10 +63,12 @@ mylabels <- c(
 )
 
 p <- df %>%
-  ggplot(aes(x = yday, y = depth_m, fill = bin)) +
+  ggplot(aes(x = yday, y = depth_m, fill = no3_um_l, z = no3_um_l)) +
   geom_raster() +
+  scale_fill_viridis_c() +
+  geom_isobands(color = NA, breaks = seq(0, 8, by = 0.5)) +
   scale_y_reverse(expand = c(0, 0)) +
-  scale_fill_manual(values = colorRampPalette(viridis::viridis(16))(16)) +
+  # scale_fill_manual(values = colorRampPalette(viridis::viridis(16))(16)) +
   scale_x_continuous(breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "1 month") %>% lubridate::yday(),
                      expand = c(0, 0), 
                      labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
