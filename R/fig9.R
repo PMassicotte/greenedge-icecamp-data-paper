@@ -35,6 +35,11 @@ df <- list_of_dfs %>%
     type == "water_60_m_depth" ~ "60 m"
   ))
 
+# Remove 60 m data because we do not have a lot of observation at that depth
+
+df <- df %>% 
+  filter(str_detect(type, "60", negate = TRUE))
+
 df %>%
   ggplot(aes(x = julian, y = measure, color = type2)) +
   geom_line(size = 0.25) +
