@@ -42,15 +42,19 @@ par <- df %>%
     
   }))
 
-par %>% 
-  mutate(yday = lubridate::yday(date)) %>% 
+par %>%
+  mutate(yday = lubridate::yday(date)) %>%
   ggplot(aes(x = yday, y = par_1_3m_ein_m_2_day_1, color = mission)) +
   geom_line(size = 0.25) +
   geom_point(show.legend = FALSE, size = 0.5) +
   scale_y_log10() +
-  scale_x_continuous(breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "1 month") %>% lubridate::yday(), 
-                     limits = c(90, 200), 
-                     labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
+  scale_x_continuous(
+    breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "1 month") %>% lubridate::yday(),
+    limits = c(90, 200),
+    labels = function(x) {
+      as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")
+    }
+  ) +
   annotation_logticks(sides = "l") +
   xlab(NULL) +
   ylab(bquote(PAR~(mol~m^{-2}~d^{-1}))) +
@@ -58,6 +62,8 @@ par %>%
   annotate("text", x = 195, y = 0.415, label = "0.415", vjust = -0.5, size = 3, color = "gray50") +
   theme(legend.position = c(1, 0), legend.justification = c(1.01, -0.01)) +
   theme(legend.title = element_blank()) +
-  scale_color_brewer(palette = "Set2", breaks = c("ice_camp_2015", "ice_camp_2016"), labels = c("2015", "2016"))
+  scale_color_brewer(palette = "Set2", breaks = c("ice_camp_2015", "ice_camp_2016"), labels = c("2015", "2016")) +
+  theme(legend.key.size = unit(0.35, "cm")) + 
+  guides(color = guide_legend(override.aes = list(size = 0.5)))
 
 ggsave("graphs/fig4.pdf", width = 8, height = 6, units = "cm", device = cairo_pdf)
