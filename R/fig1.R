@@ -1,28 +1,51 @@
-# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # AUTHOR:       Philippe Massicotte
 #
-# DESCRIPTION:  
+# DESCRIPTION:
 #
-# Map of the Baffin bay with the ice camp location identified.
+# Make a map of the sampling location.
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-library(PlotSvalbard)
 
 rm(list = ls())
 
-coords <- sf::st_as_sf(tibble(lon = c(-50, -35), lat = c(50, 90)), coords = c("lon", "lat"), crs = 4326) %>%
-  sf::st_transform(crs = "+proj=stere +lat_0=90 +lat_ts=71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0")
+# ne_ocean <- rnaturalearth::ne_download(category = "physical", type = "ocean", returnclass = "sf", scale = "large")
+ne_land <- rnaturalearth::ne_download(category = "physical", type = "land", returnclass = "sf", scale = "medium")
 
-station_coords <- sf::st_as_sf(tibble(lon = c(-63.78953333), lat = c(67.47973333)), coords = c("lon", "lat"), crs = 4326) %>%
-  sf::st_transform(crs = "+proj=stere +lat_0=90 +lat_ts=71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0")
 
-p <- basemap("panarctic", limits = sf::st_bbox(coords)[c(1, 3, 2, 4)], bathymetry = TRUE, bathy.detailed = TRUE, land.size = 0.01, base_size = 10) +
-  geom_point(aes(x = -2222852, y = -1094283), color = "red", size = 0.25) +
-  theme(legend.text = element_text(size = 6)) +
-  theme(legend.title = element_text(size = 8)) +
-  theme(legend.key.size = unit(0.25, "cm"))
-  
+# plot --------------------------------------------------------------------
+
+arrow <- tibble(
+  x = -65,
+  xend = -62.5,
+  y = 73,
+  yend = 68
+)
+
+station_coords <- tibble(lon = c(-63.78953333), lat = c(67.47973333))
+
+p <- ggplot() +
+  # geom_sf(data = ne_ocean, size = 0.25) +
+  geom_sf(data = ne_land, size = 0.15) +
+  coord_sf(xlim = c(-90, 0), ylim = c(55, 85)) +
+  geom_point(data = station_coords, aes(x = lon, y = lat), inherit.aes = FALSE, color = "red", size = 1) +
+  # annotation_north_arrow(location = "tr", which_north = "true", pad_x = unit(0.75, "in"), pad_y = unit(0.5, "in"), style = north_arrow_fancy_orienteering) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm")) +
+  theme(axis.title = element_blank()) +
+  annotate(geom = "text", x = -74, y = 72, label = "Qikiqtarjuaq\nIsland", vjust = -0.25, hjust = 0, size = 2, family = "IBM Plex Sans") +
+  annotate(geom = "text", x = -53, y = 78, label = "Greenland", vjust = 0, hjust = 0, size = 3, family = "Roboto Mono") +
+  theme(panel.grid.major = element_line(color = gray(0.75), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue")) +
+geom_curve(
+  data = arrow,
+  aes(
+    x = x,
+    xend = xend,
+    y = y,
+    yend = yend
+  ),
+  curvature = -0.3,
+  size = 0.2,
+  arrow = arrow(length = unit(0.05, "inch"))
+)
 ggsave("graphs/fig1.pdf", width = 8, height = 8, units = "cm", device = cairo_pdf)
-system("pdfcrop graphs/fig1.pdf graphs/fig1.pdf")
 
-detach("package:PlotSvalbard", unload = TRUE)
+# annotate(geom = "text", x = 1, y = 78, label = "Greenland Sea", vjust = 0, hjust = 0, size = 4, family = "IBM Plex Sans") +
