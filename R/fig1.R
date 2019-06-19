@@ -31,9 +31,9 @@ p <- ggplot() +
   # annotation_north_arrow(location = "tr", which_north = "true", pad_x = unit(0.75, "in"), pad_y = unit(0.5, "in"), style = north_arrow_fancy_orienteering) +
   annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm")) +
   theme(axis.title = element_blank()) +
-  annotate(geom = "text", x = -74, y = 72, label = "Qikiqtarjuaq\nIsland", vjust = -0.25, hjust = 0, size = 2, family = "IBM Plex Sans") +
-  annotate(geom = "text", x = -53, y = 78, label = "Greenland", vjust = 0, hjust = 0, size = 3, family = "Roboto Mono") +
-  theme(panel.grid.major = element_line(color = gray(0.75), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue")) +
+  annotate(geom = "text", x = -75, y = 72, label = "Qikiqtarjuaq\nIsland", vjust = -0.25, hjust = 0, size = 2) +
+  annotate(geom = "text", x = -53, y = 78, label = "Greenland", vjust = 0, hjust = 0, size = 3) +
+  theme(panel.grid.major = element_line(color = gray(0.75), linetype = "dashed", size = 0.25), panel.background = element_rect(fill = "aliceblue")) +
 geom_curve(
   data = arrow,
   aes(
@@ -46,6 +46,7 @@ geom_curve(
   size = 0.2,
   arrow = arrow(length = unit(0.05, "inch"))
 )
+
 ggsave("graphs/fig1.pdf", width = 8, height = 8, units = "cm", device = cairo_pdf)
 
 # annotate(geom = "text", x = 1, y = 78, label = "Greenland Sea", vjust = 0, hjust = 0, size = 4, family = "IBM Plex Sans") +

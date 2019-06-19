@@ -21,7 +21,7 @@ chla <- read_csv("/mnt/nfs/scratch/mariepieramyot/backup/pigments/greenedge_pigm
 ## Keep profiles with at least measures at 3 different depths
 chla_water_m2 <- chla %>% 
   filter(sample_type == "water") %>% 
-  filter(depth_m <= 100) %>% 
+  filter(depth_m <= 100) %>% # Should we use 40m?
   drop_na(conc_mg_m3) %>% 
   group_by(mission, date) %>% 
   mutate(n = n()) %>% 
@@ -75,11 +75,15 @@ p <- chla_m2 %>%
   ylab(bquote("Total chlorophyll a ("*mg~m^{-2}*")")) +
   theme(plot.subtitle = element_text(size = 8)) +
   theme(legend.title = element_blank()) +
-  scale_x_continuous(breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "1 month") %>% lubridate::yday(),
-                     limits = c(90, 210),
-                     labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
+  scale_x_continuous(
+    breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "1 month") %>% lubridate::yday(),
+    limits = c(90, 210),
+    labels = function(x) {
+      as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")
+    }
+  ) +
   scale_color_brewer(palette = "Set2", breaks = c("ice", "water"), labels = c("Ice", "Water")) +
-  theme(legend.justification = c(0, 1), legend.position = c(0.05, 0.99)) +
+  theme(legend.justification = c(0, 1), legend.position = c(0.07, 0.99)) +
   theme(legend.text = element_text(size = 8)) +
   theme(legend.key.size = unit(0.3, "cm")) +
   guides(color = guide_legend(override.aes = list(size = 0.5)))
@@ -99,3 +103,4 @@ chla_m2 %>%
   group_by(mission, sample_type) %>% 
   filter(date == max(date))
 
+  

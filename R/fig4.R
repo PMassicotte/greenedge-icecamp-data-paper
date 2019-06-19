@@ -60,7 +60,7 @@ par %>%
   ylab(bquote(PAR~(mol~m^{-2}~d^{-1}))) +
   geom_hline(aes(yintercept = 0.415), lty = 2, color = "gray50", size = 0.5) +
   annotate("text", x = 195, y = 0.415, label = "0.415", vjust = -0.5, size = 3, color = "gray50") +
-  theme(legend.position = c(1, 0), legend.justification = c(1.01, -0.01)) +
+  theme(legend.position = c(1, 0), legend.justification = c(1.01, -0.02)) +
   theme(legend.title = element_blank()) +
   scale_color_brewer(palette = "Set2", breaks = c("ice_camp_2015", "ice_camp_2016"), labels = c("2015", "2016")) +
   theme(legend.key.size = unit(0.35, "cm")) + 

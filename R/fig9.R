@@ -33,20 +33,22 @@ df <- list_of_dfs %>%
     type == "water_10_m_depth" ~ "10 m",
     type == "water_40_m_depth" ~ "40 m",
     type == "water_60_m_depth" ~ "60 m"
-  ))
+  )) %>% 
+  mutate(type2 = fct_relevel(type2, "Ice algae", "1.5 m", "10 m", "40 m", "60 m"))
 
 # Remove 60 m data because we do not have a lot of observation at that depth
 
-df <- df %>% 
-  filter(str_detect(type, "60", negate = TRUE))
+# df <- df %>% 
+#   filter(str_detect(type, "60", negate = TRUE))
 
 df %>%
   ggplot(aes(x = julian, y = measure, color = type2)) +
+  annotate("rect", xmin = -Inf, xmax = Inf, ymin = 0.50, ymax = 0.75, fill = "gray85", alpha = 0.5) +
   geom_line(size = 0.25) +
   geom_pointrange(aes(ymin = measure - sd, ymax = measure + sd), show.legend = FALSE, size = 0.1) +
   xlab(NULL) +
   scale_x_continuous(
-    breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "2 weeks") %>% lubridate::yday(),
+    breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "3 weeks") %>% lubridate::yday(),
     # limits = c(125, 190),
     labels = function(x) {
       as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b-%d")
@@ -58,7 +60,10 @@ df %>%
   theme(legend.position = c(1, 0.01), legend.justification = c(1.01, -0.01)) +
   theme(legend.text = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
-  theme(legend.direction = "horizontal") +
-  scale_color_brewer(palette = "Set2", breaks = c("Ice algae", "1.5 m", "10 m", "40 m", "60 m"))
+  theme(legend.direction = "horizontal") + 
+  guides(color = guide_legend(override.aes = list(size = 0.5), nrow = 2)) +
+  scale_color_manual(values = pals::brewer.set1(n = length(unique(df$type2))))
+
+  # scale_color_brewer(palette = "Set2", breaks = c("Ice algae", "1.5 m", "10 m", "40 m", "60 m"))
 
 ggsave("graphs/fig9.pdf", width = 8, height = 6, units = "cm", device = cairo_pdf)

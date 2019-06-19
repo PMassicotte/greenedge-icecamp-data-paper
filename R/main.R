@@ -11,6 +11,9 @@
 library(extrafont)
 library(tidyverse)
 library(MBA) # For grid interpolation
+library(magick) # For images
+library(rnaturalearth)
+library(ggspatial)
 
 rm(list = ls())
 graphics.off()
@@ -18,8 +21,13 @@ graphics.off()
 ## Set default ggplot2 font size and font familly
 
 loadfonts(quiet = TRUE)
-theme_set(theme_bw(base_size = 10, base_family = "IBM Plex Sans"))
-
+theme_set(theme_light(base_size = 12, base_family = "Poppins"))
+theme_update(
+  strip.text = element_text(colour = "#414141"),
+  strip.background = element_rect(fill = "#CFCFCF")
+)
+update_geom_defaults("text", list(family = "Poppins"))
+  
 # Figures -----------------------------------------------------------------
 
 source("R/fig1.R")
@@ -29,3 +37,6 @@ source("R/fig4.R")
 source("R/fig5.R")
 source("R/fig6.R")
 source("R/fig7.R")
+source("R/fig8.R")
+source("R/fig9.R")
+source("R/fig10.R")

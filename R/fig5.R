@@ -44,7 +44,10 @@ ggsave("graphs/fig5.pdf", width = 8, height = 10, units = "cm", device = cairo_p
 
 # Stats for the paper -----------------------------------------------------
 
+# Do use the clean GE data, not the one in the kd project because, there I am
+# not using all wavelengths
 iop %>% 
-  select(wavelength, mean_c) %>% 
+  select(wavelength, mean_bbp) %>% 
   drop_na() %>% 
+  distinct(wavelength) %>% 
   View

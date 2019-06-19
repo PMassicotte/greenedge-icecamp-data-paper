@@ -1,24 +1,21 @@
 library(rmatio)
-library(ggisoband)
+library(ggisoband) # devtools::install_github("clauswilke/ggisoband")
 
 rm(list = ls())
 
 read_sal <- function(file) {
-  
   mat <- read.mat(file)
-  
+
   df <- expand.grid(
     depth = mat$yyi[, 1],
     yday = mat$xxi[1, ]
-  ) %>% 
-    mutate(date = as.POSIXct((yday - 719529)*86400, origin = "1970-01-01", tz = "UTC")) %>% 
-    mutate(yday = lubridate::yday(date)) %>% 
-    mutate(sal = as.vector(mat$SAL_INTERP)) %>% 
-    filter(depth <= 100) %>% 
+  ) %>%
+    mutate(date = as.POSIXct((yday - 719529) * 86400, origin = "1970-01-01", tz = "UTC")) %>%
+    mutate(yday = lubridate::yday(date)) %>%
+    mutate(sal = as.vector(mat$SAL_INTERP)) %>%
+    filter(depth <= 100) %>%
     mutate(year = lubridate::year(date))
-  
 }
-
 
 files <- list(
   "data/raw/GE2015_CTD_INTERPv2.mat",
@@ -32,9 +29,19 @@ mylabels <- c(
   "2016" = "Ice camp 2016"
 )
 
+# Check min and max
+data.table::fread("/mnt/nfs/scratch/mariepieramyot/backup/ctd/greenedge_ctd.csv") %>%
+  filter(str_detect(mission, "ice_camp")) %>%
+  drop_na(psal_psu) %>%
+  mutate(date = as.Date(date)) %>%
+  group_by(mission, pres_decibars, date) %>%
+  summarise(asal_g_kg = mean(asal_g_kg), n = n()) %>%
+  filter(pres_decibars <= 100) %>%
+  group_by(mission) %>%
+  filter(asal_g_kg == min(asal_g_kg) | asal_g_kg == max(asal_g_kg))
 
 df %>%
-  drop_na() %>% 
+  drop_na() %>%
   ggplot(aes(
     x = yday,
     y = depth,
@@ -61,8 +68,8 @@ df %>%
   xlab(NULL) +
   ylab("Depth (m)") +
   labs(fill = "Salinity\n(g/kg)") +
-  theme(legend.text = element_text(size = 6)) +
-  theme(legend.title = element_text(size = 6)) +
-  theme(legend.key.size = unit(0.25, "cm")) +
+  theme(legend.text = element_text(size = 8)) +
+  theme(legend.title = element_text(size = 8)) +
+  theme(legend.key.size = unit(0.25, "cm"))
 
 ggsave("graphs/fig3.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
