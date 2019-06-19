@@ -344,3 +344,8 @@ vignettes/*.pdf
 
 # End of https://www.gitignore.io/api/r,latex,libreoffice,microsoftoffice,visualstudiocode
 .Rproj.user
+
+
+### Large files
+data/raw/bathy.tiff
+data/raw/ecotaxa_export_801_20190523_1437.tsv
