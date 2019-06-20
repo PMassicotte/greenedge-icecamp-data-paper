@@ -347,5 +347,5 @@ vignettes/*.pdf
 
 
 ### Large files
-data/raw/bathy.tiff
-data/raw/ecotaxa_export_801_20190523_1437.tsv
+#data/raw/bathy.tiff
+#data/raw/ecotaxa_export_801_20190523_1437.tsv
