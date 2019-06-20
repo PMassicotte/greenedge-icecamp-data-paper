@@ -112,7 +112,7 @@ p <- res %>%
   scale_y_continuous(expand = c(0, 0)) +
   scale_x_datetime(expand = c(0, 10), date_breaks = "3 weeks", date_labels = "%b-%d") +
   xlab(NULL) +
-  ylab(bquote("Abundance" ~ (ind~m^{-3}))) +
+  ylab(bquote("Average abundance" ~ (ind~m^{-3}))) +
   theme(legend.position = "bottom") +
   theme(legend.title = element_blank()) +
   theme(legend.text = element_text(size = 6)) +
@@ -126,25 +126,25 @@ ggsave("graphs/fig10.pdf", width = 8, height = 12, units = "cm", device = cairo_
 
 # Relative abundance ------------------------------------------------------
 
-res %>%
-  mutate(year = lubridate::year(sampling_date)) %>% 
-  filter(year == 2016) %>% 
-  mutate(i = case_when(is.na(i) ~ "Other", TRUE ~ i)) %>%
-  mutate(i = fct_relevel(i, "Other", after = Inf)) %>% 
-  group_by(object_depth_max, sampling_date) %>% 
-  mutate(relative_n = concentration_ind_m3 / sum(concentration_ind_m3)) %>% 
-  ggplot(aes(x = sampling_date, y = relative_n, fill = i)) +
-  geom_area() +
-  facet_wrap(~ object_depth_max, labeller = labeller(object_depth_max = mylabel), ncol = 1) +
-  scale_y_continuous(expand = c(0, 0), labels = scales::percent) +
-  scale_x_datetime(expand = c(0, 10), date_breaks = "3 weeks", date_labels = "%b-%d") +
-  xlab(NULL) +
-  ylab(bquote("Abundance" ~ (ind~L^{-1}))) +
-  theme(legend.position = "bottom") +
-  theme(legend.title = element_blank()) +
-  theme(legend.text = element_text(size = 5)) +
-  theme(legend.key.size = unit(0.25, "cm")) +
-  guides(fill = guide_legend(ncol = 3)) +
-  scale_fill_manual(values = pals::brewer.accent(length(unique(res$i))))
-
-ggsave("graphs/fig10_relative.pdf", width = 8, height = 12, units = "cm", device = cairo_pdf)
+# res %>%
+#   mutate(year = lubridate::year(sampling_date)) %>% 
+#   filter(year == 2016) %>% 
+#   mutate(i = case_when(is.na(i) ~ "Other", TRUE ~ i)) %>%
+#   mutate(i = fct_relevel(i, "Other", after = Inf)) %>% 
+#   group_by(object_depth_max, sampling_date) %>% 
+#   mutate(relative_n = concentration_ind_m3 / sum(concentration_ind_m3)) %>% 
+#   ggplot(aes(x = sampling_date, y = relative_n, fill = i)) +
+#   geom_area() +
+#   facet_wrap(~ object_depth_max, labeller = labeller(object_depth_max = mylabel), ncol = 1) +
+#   scale_y_continuous(expand = c(0, 0), labels = scales::percent) +
+#   scale_x_datetime(expand = c(0, 10), date_breaks = "3 weeks", date_labels = "%b-%d") +
+#   xlab(NULL) +
+#   ylab(bquote("Average abundance" ~ (ind~L^{-1}))) +
+#   theme(legend.position = "bottom") +
+#   theme(legend.title = element_blank()) +
+#   theme(legend.text = element_text(size = 5)) +
+#   theme(legend.key.size = unit(0.25, "cm")) +
+#   guides(fill = guide_legend(ncol = 3)) +
+#   scale_fill_manual(values = pals::brewer.accent(length(unique(res$i))))
+# 
+# ggsave("graphs/fig10_relative.pdf", width = 8, height = 12, units = "cm", device = cairo_pdf)
