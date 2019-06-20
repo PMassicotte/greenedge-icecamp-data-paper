@@ -27,7 +27,7 @@ theme_update(
   strip.background = element_rect(fill = "#CFCFCF")
 )
 update_geom_defaults("text", list(family = "Poppins"))
-  
+
 # Figures -----------------------------------------------------------------
 
 source("R/fig1.R")

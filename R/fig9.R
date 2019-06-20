@@ -34,33 +34,47 @@ df <- list_of_dfs %>%
     type == "water_40_m_depth" ~ "40 m",
     type == "water_60_m_depth" ~ "60 m"
   )) %>% 
-  mutate(type2 = fct_relevel(type2, "Ice algae", "1.5 m", "10 m", "40 m", "60 m"))
+  mutate(type2 = fct_relevel(type2, "Ice algae", "1.5 m", "10 m", "40 m", "60 m")) %>% 
+  mutate(date = as.Date(paste0("2016-", julian), "%Y-%j"))
 
 # Remove 60 m data because we do not have a lot of observation at that depth
 
-# df <- df %>% 
+# df <- df %>%
 #   filter(str_detect(type, "60", negate = TRUE))
 
 df %>%
-  ggplot(aes(x = julian, y = measure, color = type2)) +
-  annotate("rect", xmin = -Inf, xmax = Inf, ymin = 0.50, ymax = 0.75, fill = "gray85", alpha = 0.5) +
+  ggplot(aes(x = date, y = measure, color = type2)) +
+  annotate(
+    "rect",
+    xmin = min(df$date) - 5,
+    xmax = max(df$date) + 5,
+    ymin = 0.50,
+    ymax = 0.75,
+    fill = "gray85",
+    alpha = 0.5
+  ) +
   geom_line(size = 0.25) +
-  geom_pointrange(aes(ymin = measure - sd, ymax = measure + sd), show.legend = FALSE, size = 0.1) +
+  geom_pointrange(aes(ymin = measure - sd, ymax = measure + sd),
+    show.legend = FALSE,
+    size = 0.1
+  ) +
   xlab(NULL) +
-  scale_x_continuous(
-    breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "3 weeks") %>% lubridate::yday(),
-    # limits = c(125, 190),
-    labels = function(x) {
-      as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b-%d")
-    }
+  scale_x_date(
+    breaks = seq(as.Date("2016-01-01"), as.Date("2016-12-31"), by = "3 weeks"),
+    date_labels = "%b %d",
+    limits = c(min(df$date) - 5, max(df$date) + 5),
+    expand = c(0, 0)
   ) +
   theme(legend.title = element_blank()) +
   scale_y_continuous(limits = c(0, NA)) +
-  ylab(bquote(F[v]*"/"*F[m])) +
-  theme(legend.position = c(1, 0.01), legend.justification = c(1.01, -0.01)) +
+  ylab(bquote(F[v] * "/" * F[m])) +
+  theme(
+    legend.position = c(1, 0.01),
+    legend.justification = c(1.01, -0.01)
+  ) +
   theme(legend.text = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
-  theme(legend.direction = "horizontal") + 
+  theme(legend.direction = "horizontal") +
   guides(color = guide_legend(override.aes = list(size = 0.5), nrow = 2)) +
   scale_color_manual(values = pals::brewer.set1(n = length(unique(df$type2))))
 
