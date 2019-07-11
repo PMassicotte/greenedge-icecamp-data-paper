@@ -18,9 +18,8 @@ df <- data.table::fread("/mnt/nfs/scratch/mariepieramyot/backup/nutrients/greene
   mutate(date = as.Date(date)) %>%
   group_by(mission, depth_m, date) %>%
   summarise(no3_um_l = mean(no3_um_l), n = n()) %>%
-  filter(depth_m <= 60)
-# %>% 
-#   filter(no3_um_l <= 6)
+  filter(depth_m <= 60) %>% 
+  filter(no3_um_l != max(no3_um_l)) # There is 1 outlier in 2016, remove it
 
 hist(df$no3_um_l)
 
@@ -64,19 +63,27 @@ mylabels <- c(
 
 p <- df %>%
   ggplot(aes(x = yday, y = depth_m, fill = no3_um_l, z = no3_um_l)) +
-  geom_raster() +
+  geom_tile() +
   scale_fill_viridis_c() +
   geom_isobands(color = NA, breaks = seq(0, 8, by = 0.5)) +
   scale_y_reverse(expand = c(0, 0)) +
   # scale_fill_manual(values = colorRampPalette(viridis::viridis(16))(16)) +
-  scale_x_continuous(breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "1 month") %>% lubridate::yday(),
-                     expand = c(0, 0), 
-                     labels = function(x) {as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")}) +
+  scale_x_continuous(
+    breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "1 month") %>% lubridate::yday(),
+    expand = c(0, 0),
+    labels = function(x) {
+      as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")
+    }
+  ) +
   facet_wrap(~mission, ncol = 1, labeller = labeller(mission = mylabels)) +
   theme(legend.text = element_text(size = 6)) +
   theme(legend.title = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
-  labs(fill = bquote(atop(NO[3^{"-"}], (mu*mol~L^{-1})))) +
+  labs(fill = bquote(atop(NO[3^{
+    "-"
+  }], (mu * mol ~ L^{
+    -1
+  })))) +
   xlab(NULL) +
   ylab("Depth (m)")
 
