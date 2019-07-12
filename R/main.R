@@ -14,6 +14,8 @@ library(MBA) # For grid interpolation
 library(magick) # For images
 library(rnaturalearth)
 library(ggspatial)
+library(ggpmthemes)
+library(ggisoband)
 
 rm(list = ls())
 graphics.off()
@@ -21,12 +23,7 @@ graphics.off()
 ## Set default ggplot2 font size and font familly
 
 loadfonts(quiet = TRUE)
-theme_set(theme_light(base_size = 12, base_family = "Poppins"))
-theme_update(
-  strip.text = element_text(colour = "#414141"),
-  strip.background = element_rect(fill = "#CFCFCF")
-)
-update_geom_defaults("text", list(family = "Poppins"))
+theme_set(theme_poppins())
 
 # Figures -----------------------------------------------------------------
 
@@ -40,3 +37,4 @@ source("R/fig7.R")
 source("R/fig8.R")
 source("R/fig9.R")
 source("R/fig10.R")
+source("R/fig11.R")

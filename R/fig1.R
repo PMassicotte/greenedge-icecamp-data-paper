@@ -3,7 +3,7 @@
 #
 # DESCRIPTION:
 #
-# Make a map of the sampling location.
+# Make a map of the sampling locations.
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
 rm(list = ls())
@@ -27,25 +27,57 @@ p <- ggplot() +
   # geom_sf(data = ne_ocean, size = 0.25) +
   geom_sf(data = ne_land, size = 0.15) +
   coord_sf(xlim = c(-90, 0), ylim = c(55, 85)) +
-  geom_point(data = station_coords, aes(x = lon, y = lat), inherit.aes = FALSE, color = "red", size = 1) +
-  # annotation_north_arrow(location = "tr", which_north = "true", pad_x = unit(0.75, "in"), pad_y = unit(0.5, "in"), style = north_arrow_fancy_orienteering) +
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm")) +
+  geom_point(
+    data = station_coords,
+    aes(x = lon, y = lat),
+    inherit.aes = FALSE,
+    color = "red",
+    size = 1
+  ) +
+  annotation_scale(
+    location = "bl",
+    width_hint = 0.5,
+    height = unit(0.1, "cm")
+  ) +
   theme(axis.title = element_blank()) +
-  annotate(geom = "text", x = -75, y = 72, label = "Qikiqtarjuaq\nIsland", vjust = -0.25, hjust = 0, size = 2) +
-  annotate(geom = "text", x = -53, y = 78, label = "Greenland", vjust = 0, hjust = 0, size = 3) +
-  theme(panel.grid.major = element_line(color = gray(0.75), linetype = "dashed", size = 0.25), panel.background = element_rect(fill = "aliceblue")) +
-geom_curve(
-  data = arrow,
-  aes(
-    x = x,
-    xend = xend,
-    y = y,
-    yend = yend
-  ),
-  curvature = -0.3,
-  size = 0.2,
-  arrow = arrow(length = unit(0.05, "inch"))
-)
+  annotate(
+    geom = "text",
+    x = -76,
+    y = 73.5,
+    label = "Qikiqtarjuaq",
+    vjust = -0.25,
+    hjust = 0,
+    size = 2
+  ) +
+  annotate(
+    geom = "text",
+    x = -53,
+    y = 78,
+    label = "Greenland",
+    vjust = 0,
+    hjust = 0,
+    size = 3
+  ) +
+  theme(
+    panel.grid.major = element_line(
+      color = gray(0.75),
+      linetype = "dashed",
+      size = 0.25
+    ),
+    panel.background = element_rect(fill = "aliceblue")
+  ) +
+  geom_curve(
+    data = arrow,
+    aes(
+      x = x,
+      xend = xend,
+      y = y,
+      yend = yend
+    ),
+    curvature = -0.3,
+    size = 0.2,
+    arrow = arrow(length = unit(0.05, "inch"))
+  )
 
 ggsave("graphs/fig1.pdf", width = 8, height = 8, units = "cm", device = cairo_pdf)
 

@@ -1,7 +1,7 @@
-# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # AUTHOR:       Philippe Massicotte
 #
-# DESCRIPTION:  
+# DESCRIPTION:
 #
 # Temporal evolution of NO3.
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
@@ -18,7 +18,7 @@ df <- data.table::fread("/mnt/nfs/scratch/mariepieramyot/backup/nutrients/greene
   mutate(date = as.Date(date)) %>%
   group_by(mission, depth_m, date) %>%
   summarise(no3_um_l = mean(no3_um_l), n = n()) %>%
-  filter(depth_m <= 60) %>% 
+  filter(depth_m <= 60) %>%
   filter(no3_um_l != max(no3_um_l)) # There is 1 outlier in 2016, remove it
 
 hist(df$no3_um_l)
@@ -28,7 +28,7 @@ df <- df %>%
   nest() %>%
   mutate(interpolated_no3 = map(data, function(df) {
     res <- df %>%
-      mutate(yday = lubridate::yday(date)) %>% 
+      mutate(yday = lubridate::yday(date)) %>%
       dplyr::select(yday, depth_m, no3_um_l) %>%
       # mutate(date = as.numeric(date, origin = "1970-01-01", tz = "UTC")) %>%
       mba.surf(500, 500, extend = TRUE)
@@ -37,10 +37,7 @@ df <- df %>%
       mutate(no3_um_l = as.vector(res$xyz.est$z))
 
     return(res2)
-
-
   }))
-
 
 df <- df %>%
   unnest(interpolated_no3) %>%
@@ -79,17 +76,8 @@ p <- df %>%
   theme(legend.text = element_text(size = 6)) +
   theme(legend.title = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
-  labs(fill = bquote(atop(NO[3^{
-    "-"
-  }], (mu * mol ~ L^{
-    -1
-  })))) +
+  labs(fill = bquote(atop(NO[3^{"-"}], (mu * mol ~ L^{-16})))) +
   xlab(NULL) +
   ylab("Depth (m)")
 
 ggsave("graphs/fig6.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
-
-
-# +
-#   geom_point(data = df, aes(x = as.numeric(date), y = depth_m), inherit.aes = FALSE, size = 0.25)
-#

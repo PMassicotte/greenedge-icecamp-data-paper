@@ -36,7 +36,7 @@ p <- iop %>%
     breaks = seq(400, 800, by = 50), limits = c(400, 750)
   ) +
   ylab("Depth (m)") +
-  xlab(bquote("Beam attenuation coefficient" ~ (m^{-1}))) +
+  xlab(bquote("Beam attenuation" ~ (m^{-1}))) +
   labs(color = bquote(lambda*(nm))) +
   guides(colour = guide_colourbar(barwidth = 0.5))
 
@@ -49,5 +49,4 @@ ggsave("graphs/fig5.pdf", width = 8, height = 10, units = "cm", device = cairo_p
 iop %>% 
   select(wavelength, mean_bbp) %>% 
   drop_na() %>% 
-  distinct(wavelength) %>% 
-  View
+  distinct(wavelength) 
