@@ -1,83 +1,52 @@
-# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+# <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
 # AUTHOR:       Philippe Massicotte
 #
-# DESCRIPTION:
+# DESCRIPTION:  
 #
-# Temporal evolution of NO3.
+# Showing IOPs before and during the bloom.
 # <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
-library(ggisoband)
 
 rm(list = ls())
 
-df <- data.table::fread("/mnt/nfs/scratch/mariepieramyot/backup/nutrients/greenedge_nutrients.csv") %>%
-  filter(str_detect(mission, "ice_camp")) %>%
-  drop_na(no3_um_l) %>%
-  filter(sample_source == "niskin") %>%
-  filter(filter_type == "gff") %>%
-  mutate(date = as.Date(date)) %>%
-  group_by(mission, depth_m, date) %>%
-  summarise(no3_um_l = mean(no3_um_l), n = n()) %>%
-  filter(depth_m <= 60) %>%
-  filter(no3_um_l != max(no3_um_l)) # There is 1 outlier in 2016, remove it
+source("https://gist.githubusercontent.com/friendly/67a7df339aa999e2bcfcfec88311abfc/raw/761a7688fba3668a84b2dfe42a655a1b246ca193/wavelength_to_rgb.R")
 
-hist(df$no3_um_l)
+iop <- feather::read_feather("../../greenedge-underice-kd/data/clean/iop.feather") %>% 
+  filter(date %in% as.Date(c("2016-06-17", "2016-06-29"))) %>% 
+  drop_na(mean_c)
 
-df <- df %>%
-  group_by(mission) %>%
-  nest() %>%
-  mutate(interpolated_no3 = map(data, function(df) {
-    res <- df %>%
-      mutate(yday = lubridate::yday(date)) %>%
-      dplyr::select(yday, depth_m, no3_um_l) %>%
-      # mutate(date = as.numeric(date, origin = "1970-01-01", tz = "UTC")) %>%
-      mba.surf(500, 500, extend = TRUE)
+# Plots -------------------------------------------------------------------
 
-    res2 <- expand.grid(yday = res$xyz.est$x, depth_m = res$xyz.est$y) %>%
-      mutate(no3_um_l = as.vector(res$xyz.est$z))
-
-    return(res2)
-  }))
-
-df <- df %>%
-  unnest(interpolated_no3) %>%
-  drop_na(no3_um_l) %>%
-  mutate(no3_um_l = ifelse(no3_um_l < 0, 0, no3_um_l)) %>%
-  mutate(bin = cut(
-    no3_um_l,
-    seq(min(no3_um_l), max(no3_um_l) + 1, by = 0.5),
-    include.lowest = TRUE,
-    right = TRUE
-  ))
-
-# %>%
-#   mutate(date = as.Date(date, origin = "1970-01-01", tz = "UTC"))
+color <- lapply(unique(iop$wavelength), wavelength_to_rgb) %>% unlist()
+color <- setNames(color, unique(iop$wavelength))
 
 mylabels <- c(
-  "ice_camp_2015" = "Ice camp 2015",
-  "ice_camp_2016" = "Ice camp 2016"
+  "2016-06-17" = "2016-06-17\nPre-bloom conditions",
+  "2016-06-29" = "2016-06-29\nBloom conditions"
 )
 
-p <- df %>%
-  ggplot(aes(x = yday, y = depth_m, fill = no3_um_l, z = no3_um_l)) +
-  geom_tile() +
-  scale_fill_viridis_c() +
-  geom_isobands(color = NA, breaks = seq(0, 8, by = 0.5)) +
-  scale_y_reverse(expand = c(0, 0)) +
-  # scale_fill_manual(values = colorRampPalette(viridis::viridis(16))(16)) +
-  scale_x_continuous(
-    breaks = seq(as.Date("2015-01-01"), as.Date("2015-12-31"), by = "1 month") %>% lubridate::yday(),
-    expand = c(0, 0),
-    labels = function(x) {
-      as.Date(paste0("2015-", x), "%Y-%j") %>% format("%b")
-    }
+## Attenuation
+p <- iop %>%
+  ggplot(aes(x = mean_c, y = depth_grid, color = wavelength, group = wavelength)) +
+  geom_path(size = 0.25) +
+  facet_wrap(~date, labeller = labeller(date = mylabels), ncol = 1) +
+  scale_y_reverse() +
+  scale_x_continuous(expand = c(0.05, 0.05)) +
+  scale_colour_gradientn(
+    colours = color,
+    breaks = seq(400, 800, by = 50), limits = c(400, 750)
   ) +
-  facet_wrap(~mission, ncol = 1, labeller = labeller(mission = mylabels)) +
-  theme(legend.text = element_text(size = 6)) +
-  theme(legend.title = element_text(size = 6)) +
-  theme(legend.key.size = unit(0.25, "cm")) +
-  labs(fill = bquote(atop(NO[3^{"-"}], (mu * mol ~ L^{-16})))) +
-  xlab(NULL) +
-  ylab("Depth (m)")
+  ylab("Depth (m)") +
+  xlab(bquote("Beam attenuation" ~ (m^{-1}))) +
+  labs(color = bquote(lambda*(nm))) +
+  guides(colour = guide_colourbar(barwidth = 0.5))
 
 ggsave("graphs/fig6.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
+
+# Stats for the paper -----------------------------------------------------
+
+# Do use the clean GE data, not the one in the kd project because, there I am
+# not using all wavelengths
+iop %>% 
+  select(wavelength, mean_bbp) %>% 
+  drop_na() %>% 
+  distinct(wavelength) 

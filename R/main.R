@@ -16,6 +16,8 @@ library(rnaturalearth)
 library(ggspatial)
 library(ggpmthemes)
 library(ggisoband)
+library(readxl)
+library(patchwork)
 
 rm(list = ls())
 graphics.off()
