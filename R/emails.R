@@ -46,6 +46,7 @@ c(
   "joux@obs-banyuls.fr",
   "leo.lacour@takuvik.ulaval.ca",
   "Thomas.Lacour@ifremer.fr",
+  "augustin.lafond@mio.osupytheas.fr",
   "Jose-Luis.Lagunas@takuvik.ulaval.ca",
   "catherine.lalande@takuvik.ulaval.ca",
   "julienlaliberte@gmail.com",
@@ -64,6 +65,7 @@ c(
   "antonio.lourenco@locean-ipsl.upmc.fr",
   "Claudie.Marec@takuvik.ulaval.ca",
   "marie@sb-roscoff.fr",
+  NA,
   "constance.marty@hotmail.fr",
   "sabine.marty@niva.no",
   "guillaume.Massé@locean-ipsl.upmc.fr",
@@ -93,6 +95,8 @@ c(
   "sabine.schmidt@u-bordeaux.fr",
   "makoto.sampei@fish.hokudai.ac.jp",
   "richard.sempere@univ-amu.fr",
+  "caroline.sevigny@gmail.com",
+  "yuan187@gmail.com",
   "Blanche.Saint-Beat@takuvik.ulaval.ca",
   "margo.tragin@gmail.com",
   "jean-eric.tremblay@bio.ulaval.ca",
@@ -101,6 +105,7 @@ c(
   "fvi@locean-ipsl.upmc.fr",
   "anda.vladoiu@locean.upmc.fr",
   "jeremy.whitehead@ucalgary.ca",
-  "laurent.arnaud@univ-grenoble-alpes.fr"
-) %>% 
+  "laurent.arnaud@univ-grenoble-alpes.fr",
+  "DMAH002@e.ntu.edu.sg"
+) %>%
   cat(sep = ";")
