@@ -108,4 +108,5 @@ c(
   "laurent.arnaud@univ-grenoble-alpes.fr",
   "DMAH002@e.ntu.edu.sg"
 ) %>%
+  na.omit() %>%
   cat(sep = ";")

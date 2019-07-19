@@ -76,7 +76,7 @@ p <- df %>%
   theme(legend.text = element_text(size = 6)) +
   theme(legend.title = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
-  labs(fill = bquote(atop(NO[3^{"-"}], (mu * mol ~ L^{-16})))) +
+  labs(fill = bquote(atop(NO[3^{"-"}], (mu * mol ~ L^{-1})))) +
   xlab(NULL) +
   ylab("Depth (m)")
 
