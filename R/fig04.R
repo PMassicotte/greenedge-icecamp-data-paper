@@ -184,14 +184,3 @@ p5 <- p1 + p2 + p3 + p4 +
 
 # ggsave("~/Desktop/figxxx.pdf", width = 16, height = 18, units = "cm", device = cairo_pdf)
 ggsave("graphs/fig04.png", width = 16, height = 18, units = "cm", dpi = 300)
-  
-tide <- tibble(
-  hour = 0:23,
-  height = c(0.8, 0.7, 0.7, 0.7, 0.8, 0.9, 1.0, 1.1, 1.1, 1.0, 0.9, 0.7, 0.5, 0.3, 0.2, 0.3, 0.3, 0.5, 0.7, 0.9, 1.0, 1.1, 1.1, 1.0)
-)
-
-tide %>% 
-  filter(between(hour, 8, 21)) %>% 
-  ggplot(aes(x = hour, y = height)) +
-  geom_line() +
-  geom_point()
