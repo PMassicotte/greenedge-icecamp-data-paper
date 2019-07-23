@@ -79,6 +79,6 @@ p <- ggplot() +
     arrow = arrow(length = unit(0.05, "inch"))
   )
 
-ggsave("graphs/fig1.pdf", width = 8, height = 8, units = "cm", device = cairo_pdf)
+ggsave("graphs/fig01.pdf", width = 8, height = 8, units = "cm", device = cairo_pdf)
 
 # annotate(geom = "text", x = 1, y = 78, label = "Greenland Sea", vjust = 0, hjust = 0, size = 4, family = "IBM Plex Sans") +

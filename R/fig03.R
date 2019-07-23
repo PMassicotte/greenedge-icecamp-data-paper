@@ -72,4 +72,4 @@ df %>%
   theme(legend.title = element_text(size = 8)) +
   theme(legend.key.size = unit(0.25, "cm"))
 
-ggsave("graphs/fig3.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
+ggsave("graphs/fig03.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)

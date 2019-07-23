@@ -90,4 +90,4 @@ p1 +
     tag_levels = "A"
   )
 
-ggsave("graphs/fig5.pdf", width = 16, height = 18, units = "cm", device = cairo_pdf)
+ggsave("graphs/fig06.pdf", width = 16, height = 18, units = "cm", device = cairo_pdf)

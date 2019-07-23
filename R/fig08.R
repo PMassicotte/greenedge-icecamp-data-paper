@@ -80,4 +80,4 @@ p <- df %>%
   xlab(NULL) +
   ylab("Depth (m)")
 
-ggsave("graphs/fig7.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
+ggsave("graphs/fig08.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)

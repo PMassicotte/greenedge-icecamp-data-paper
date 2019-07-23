@@ -75,4 +75,4 @@ scale_fill_viridis_c(
 # +
 #   geom_contour(breaks = seq(1e5, 8e5, by = 1e5 / 2), color = "black", size = 0.05)
 
-ggsave("graphs/fig8.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
+ggsave("graphs/fig09.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)

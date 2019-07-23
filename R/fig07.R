@@ -40,7 +40,7 @@ p <- iop %>%
   labs(color = bquote(lambda*(nm))) +
   guides(colour = guide_colourbar(barwidth = 0.5))
 
-ggsave("graphs/fig6.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
+ggsave("graphs/fig07.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
 
 # Stats for the paper -----------------------------------------------------
 

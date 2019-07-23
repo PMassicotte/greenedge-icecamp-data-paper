@@ -42,7 +42,7 @@ p <- df %>%
   theme(legend.key.size = unit(0.25, "cm")) +
   geom_hline(yintercept = 0, lty = 2, size = 0.25)
 
-ggsave("graphs/fig2.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
+ggsave("graphs/fig02.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
 
 # Stats for the paper -----------------------------------------------------
 

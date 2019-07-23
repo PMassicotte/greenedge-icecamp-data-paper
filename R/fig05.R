@@ -66,4 +66,4 @@ par %>%
   theme(legend.key.size = unit(0.35, "cm")) + 
   guides(color = guide_legend(override.aes = list(size = 0.5)))
 
-ggsave("graphs/fig4.pdf", width = 8, height = 6, units = "cm", device = cairo_pdf)
+ggsave("graphs/fig05.pdf", width = 8, height = 6, units = "cm", device = cairo_pdf)
