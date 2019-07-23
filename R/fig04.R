@@ -73,7 +73,8 @@ p1 <- df %>%
     aes(x = date_time, y = depth_m, z = density),
     color = "black",
     binwidth = 0.1,
-    inherit.aes = FALSE
+    inherit.aes = FALSE,
+    size = 0.25
   ) +
   metR::geom_text_contour(
     data = isoline,
@@ -142,7 +143,7 @@ p3 <- df %>%
   xlab(NULL) +
   ylab(bquote(sigma[theta]~(kg~m^{-3}))) +
   labs(fill = "Temperature (°C)") +
-  geom_hline(yintercept = seq(26.1, 27.1, by = 0.1)) +
+  geom_hline(yintercept = seq(26.1, 27.1, by = 0.1), size = 0.25) +
   theme(legend.position = "bottom") +
   theme(legend.text = element_text(size = 8)) +
   theme(legend.key.size = unit(0.3, "cm")) +
@@ -165,7 +166,7 @@ p4 <- df %>%
   xlab(NULL) +
   ylab(bquote(sigma[theta]~(kg~m^{-3}))) +
   labs(fill = "CDOM fluorescence (ppb)") +
-  geom_hline(yintercept = seq(26.1, 27.1, by = 0.1)) +
+  geom_hline(yintercept = seq(26.1, 27.1, by = 0.1), size = 0.25) +
   theme(legend.position = "bottom") +
   theme(legend.text = element_text(size = 8)) +
   theme(legend.key.size = unit(0.3, "cm")) +
