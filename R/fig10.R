@@ -91,7 +91,7 @@ p <- chla_m2 %>%
   geom_mark_circle(
     aes(
       label = glue("{date}"),
-      description = "Approximate date of bloom initiation",
+      description = "Approximate date of\nphytoplankton bloom initiation",
       filter = doy %in% c(159, 148) & sample_type == "water"
     ),
     expand = unit(0.75, "mm"),
@@ -102,9 +102,10 @@ p <- chla_m2 %>%
     size = 0.25,
     con.size = 0.25, 
     label.hjust = 1,
-    label.margin = margin(1, 1, 1, 1, "mm")
+    label.margin = margin(1, 1, 1, 1, "mm"),
+    label.minwidth = unit(100, "mm")
   )
-  
+    
 
 # anot <- tibble(x = 150, y = 50, depth_level = "ice", label = "sadsdf", year = 2015)
 # 
