@@ -86,7 +86,25 @@ p <- chla_m2 %>%
   theme(legend.justification = c(0, 1), legend.position = c(0.07, 0.99)) +
   theme(legend.text = element_text(size = 8)) +
   theme(legend.key.size = unit(0.3, "cm")) +
-  guides(color = guide_legend(override.aes = list(size = 0.5)))
+  theme(legend.margin = margin(t = 0, r = 0, b = 0, l = 0, unit = "cm")) +
+  guides(color = guide_legend(override.aes = list(size = 0.5))) +
+  geom_mark_circle(
+    aes(
+      label = glue("{date}"),
+      description = "Approximate date of bloom initiation",
+      filter = doy %in% c(159, 148) & sample_type == "water"
+    ),
+    expand = unit(0.75, "mm"),
+    label.family = "Poppins",
+    label.fontsize = 4,
+    label.buffer = unit(1, "mm"),
+    color = "black",
+    size = 0.25,
+    con.size = 0.25, 
+    label.hjust = 1,
+    label.margin = margin(1, 1, 1, 1, "mm")
+  )
+  
 
 # anot <- tibble(x = 150, y = 50, depth_level = "ice", label = "sadsdf", year = 2015)
 # 

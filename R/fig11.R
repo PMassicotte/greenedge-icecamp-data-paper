@@ -46,6 +46,7 @@ df %>%
   theme(legend.justification = c(1, 1), legend.position = c(0.99, 0.99)) +
   theme(legend.text = element_text(size = 8)) +
   theme(legend.key.size = unit(0.3, "cm")) +
+  theme(legend.margin = margin(t = 0, r = 0, b = 0, l = 0, unit = "cm")) +
   guides(color = guide_legend(override.aes = list(size = 0.5)))
 
 ggsave("graphs/fig11.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
