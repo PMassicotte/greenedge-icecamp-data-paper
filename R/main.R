@@ -28,7 +28,7 @@ graphics.off()
 ## Set default ggplot2 font size and font familly
 
 loadfonts(quiet = TRUE)
-theme_set(theme_poppins())
+theme_set(theme_poppins(base_size = 10))
 
 # Figures -----------------------------------------------------------------
 
