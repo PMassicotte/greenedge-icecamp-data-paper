@@ -184,7 +184,8 @@ p <- res %>%
   theme(legend.text = element_text(size = 4)) +
   theme(legend.key.size = unit(0.25, "cm")) +
   guides(fill = guide_legend(ncol = 3)) +
-  scale_fill_manual(values = pals::brewer.accent(length(unique(res$l)))) +
+  scale_fill_brewer(palette = "Set2") +
+  # scale_fill_manual(values = pals::brewer.accent(length(unique(res$l)))) +
   theme(legend.margin = margin(6, 60, 6, 6))
 
 ggsave("graphs/fig14.pdf", width = 8, height = 12, units = "cm", device = cairo_pdf)
