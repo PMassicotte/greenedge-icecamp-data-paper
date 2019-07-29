@@ -165,7 +165,12 @@ mylabel <- c(
 )
 
 p <- res %>%
-  filter(lubridate::year(sampling_date) == 2016) %>% 
+  filter(lubridate::year(sampling_date) == 2016) %>%
+  group_by(l) %>% 
+  add_tally(concentration_ind_m3) %>% 
+  ungroup() %>% 
+  filter(dense_rank(desc(n)) <= 6) %>%
+  mutate(l = fct_reorder(l, -concentration_ind_m3, .fun = sum)) %>%
   # filter(str_detect(i, "Copepoda", negate = TRUE)) %>%
   ggplot(aes(x = sampling_date, y = concentration_ind_m3, fill = l)) +
   geom_area() +
