@@ -32,7 +32,7 @@ df %>%
   scale_y_log10() +
   annotation_logticks(sides = "l") +
   xlab(NULL) +
-  ylab(bquote("Primary production ("*mmoles~C~m^{-2}~d^{-1}*")")) +
+  ylab(bquote("Primary production ("*mmol~C~m^{-2}~d^{-1}*")")) +
   theme(plot.subtitle = element_text(size = 8)) +
   theme(legend.title = element_blank()) +
   scale_x_continuous(
