@@ -43,6 +43,6 @@ source("R/fig08.R")
 source("R/fig09.R")
 source("R/fig10.R")
 source("R/fig11.R")
-source("R/fig12.R")
+# source("R/fig12.R") # Fig 12 is a mosaic created by hand
 source("R/fig13.R")
 source("R/fig14.R")

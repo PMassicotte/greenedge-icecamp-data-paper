@@ -176,21 +176,20 @@ p <- res %>%
   geom_area() +
   facet_wrap(~ object_depth_max, labeller = labeller(object_depth_max = mylabel), ncol = 1, scales = "free_y") +
   scale_y_continuous(expand = c(0, 0)) +
-  scale_x_datetime(expand = c(0, 10), date_breaks = "3 weeks", date_labels = "%b-%d") +
+  scale_x_datetime(expand = c(0.05, 10), date_breaks = "2 weeks", date_labels = "%b-%d") +
   xlab(NULL) +
   ylab(bquote("Abundance" ~ (ind~m^{-3}))) +
   theme(legend.position = "bottom") +
   theme(legend.title = element_blank()) +
-  theme(legend.text = element_text(size = 4)) +
+  theme(legend.text = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
-  guides(fill = guide_legend(ncol = 3)) +
+  guides(fill = guide_legend(ncol = 2)) +
   scale_fill_brewer(palette = "Set2") +
-  # scale_fill_manual(values = pals::brewer.accent(length(unique(res$l)))) +
   theme(legend.margin = margin(6, 60, 6, 6))
 
 ggsave("graphs/fig14.pdf", width = 8, height = 12, units = "cm", device = cairo_pdf)
 
-# Relative abundance ------------------------------------------------------
+  # Relative abundance ------------------------------------------------------
 
 # res %>%
 #   mutate(year = lubridate::year(sampling_date)) %>% 
@@ -214,3 +213,11 @@ ggsave("graphs/fig14.pdf", width = 8, height = 12, units = "cm", device = cairo_
 #   scale_fill_manual(values = pals::brewer.accent(length(unique(res$i))))
 # 
 # ggsave("graphs/fig10_relative.pdf", width = 8, height = 12, units = "cm", device = cairo_pdf)
+
+# Some stats for the paper
+
+res %>% 
+  select(sampling_date, object_depth_max) %>% 
+  group_by(year = lubridate::year(sampling_date)) %>% 
+  skimr::skim()
+  
