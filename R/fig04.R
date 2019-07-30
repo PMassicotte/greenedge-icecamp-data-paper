@@ -137,7 +137,7 @@ p3 <- df %>%
   drop_na(temperature) %>% 
   ggplot(aes(x = date_time, y = depth_m, fill = temperature, z = temperature)) +
   geom_isobands(binwidth = 0.1, color = NA) +
-  scale_y_reverse(expand = c(0, 0), breaks = seq(26.1, 27.1, by = 0.1))  +
+  scale_y_reverse(expand = c(0, 0), breaks = seq(26.1, 27.1, by = 0.2))  +
   scale_x_datetime(expand = c(0, 0)) +
   scale_fill_gradientn(colours = color) +
   xlab(NULL) +
@@ -157,7 +157,7 @@ p4 <- df %>%
   drop_na(cdom) %>%
   ggplot(aes(x = date_time, y = depth_m, fill = cdom, z = cdom)) +
   geom_isobands(binwidth = 0.1, color = NA) +
-  scale_y_reverse(expand = c(0, 0), breaks = seq(26.1, 27.1, by = 0.1)) +
+  scale_y_reverse(expand = c(0, 0), breaks = seq(26.1, 27.1, by = 0.2)) +
   scale_x_datetime(expand = c(0, 0)) +
   scale_fill_gradientn(colours = color, limits = c(6, 11), oob = scales::squish, guide = guide_legend(
     direction = "horizontal",
@@ -183,4 +183,4 @@ p5 <- p1 + p2 + p3 + p4 +
   plot_annotation(tag_levels = "A")
 
 # ggsave("~/Desktop/figxxx.pdf", width = 16, height = 18, units = "cm", device = cairo_pdf)
-ggsave("graphs/fig04.png", width = 16, height = 18, units = "cm", dpi = 300)
+ggsave("graphs/fig04.png", width = 12, height = 10, units = "cm", dpi = 300)
