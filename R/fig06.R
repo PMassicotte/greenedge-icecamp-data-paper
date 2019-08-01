@@ -34,7 +34,7 @@ p1 <- df %>%
   geom_path(aes(x = planar_irradiance, linetype = "Planar irradiance"), size = 0.25) +
   geom_path(aes(x = scalar_irradiance, linetype = "Scalar irradiance"), size = 0.25) +
   scale_y_reverse(limits = c(NA, 0)) +
-  scale_x_log10() +
+  scale_x_log10(expand = c(0, 0.1)) +
   annotation_logticks(sides = "b") +
   facet_wrap(~filename, scales = "free_x", labeller = labeller(filename = mylabel), ncol = 1) +
   xlab("Downwelling irradiance") +
@@ -49,7 +49,7 @@ p1 <- df %>%
   theme(legend.key.size = unit(0.3, "cm")) +
   guides(color = guide_legend(override.aes = list(size = 0.5))) +
   theme(legend.position = "bottom") +
-  guides(color = guide_legend(override.aes = list(size = 0.5), nrow = 2)) +
+  guides(color = guide_legend(override.aes = list(size = 0.5), nrow = 3)) +
   guides(linetype = guide_legend(override.aes = list(size = 0.5), nrow = 2)) +
   theme(
     legend.justification = "right",
@@ -70,7 +70,7 @@ p2 <- df %>%
   geom_path(aes(x = average_cosine), size = 0.25) +
   # geom_path(aes(x = scalar_irradiance, linetype = "Scalar irradiance")) +
   scale_y_reverse(limits = c(NA, 0)) +
-  scale_x_continuous(labels = function(x) format(round(x, digits = 2), nsmall = 2), expand = c(0.1, 0), breaks = equal_breaks(n = 4, s = 0.05)) +
+  scale_x_continuous(labels = function(x) format(round(x, digits = 2), nsmall = 2), breaks = equal_breaks(n = 4, s = 0.05)) +
   # scale_x_log10() +
   # annotation_logticks(sides = "b") +
   facet_wrap(~filename, labeller = labeller(filename = mylabel), ncol = 1, scales = "free_x") +
@@ -81,7 +81,7 @@ p2 <- df %>%
     labels = c(bquote("442 nm"~(mW~m^{-2}~nm^{-1})), bquote("532 nm"~(mW~m^{-2}~nm^{-1})), bquote("PAR"~(mu*mol~m^{-2}~s^{-1})))
   ) +
   theme(legend.position = "none") +
-  ylab("Depth (m)") 
+  ylab("Depth (m)")
 
 p1 +
   p2 +
@@ -90,4 +90,4 @@ p1 +
     tag_levels = "A"
   )
 
-ggsave("graphs/fig06.pdf", width = 16, height = 18, units = "cm", device = cairo_pdf)
+ggsave("graphs/fig06.pdf", width = 13, height = 18, units = "cm", device = cairo_pdf)

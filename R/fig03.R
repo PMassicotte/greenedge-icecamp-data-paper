@@ -36,7 +36,7 @@ data.table::fread("/mnt/nfs/scratch/mariepieramyot/backup/ctd/greenedge_ctd.csv"
   mutate(date = as.Date(date)) %>%
   group_by(mission, pres_decibars, date) %>%
   summarise(asal_g_kg = mean(asal_g_kg), n = n()) %>%
-  filter(pres_decibars <= 100) %>%
+  # filter(pres_decibars <= 100) %>%
   group_by(mission) %>%
   filter(asal_g_kg == min(asal_g_kg) | asal_g_kg == max(asal_g_kg))
 
