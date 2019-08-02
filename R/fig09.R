@@ -32,7 +32,7 @@ ge_fcm_ic <- ge_fcm_ic %>%
       mutate(yday = lubridate::yday(date)) %>%
       dplyr::select(yday, depth_m, bact_m_l) %>%
       # mutate(date = as.numeric(date, origin = "1970-01-01", tz = "UTC")) %>%
-      mba.surf(500, 500, extend = TRUE, h = 5)
+      mba.surf(500, 500, extend = TRUE, h = 5.5)
     
     res2 <- expand.grid(yday = res$xyz.est$x, depth_m = res$xyz.est$y) %>%
       mutate(bact_m_l = as.vector(res$xyz.est$z))
