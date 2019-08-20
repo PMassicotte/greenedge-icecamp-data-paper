@@ -10,6 +10,9 @@ rm(list = ls())
 
 library(data.table)
 
+
+# Plot PAM ----------------------------------------------------------------
+
 df <- readxl::read_excel(
   "data/raw/Fv-Fm ice camp Green Edge 2016_Pour Philippe.xlsx",
   sheet = "Total",
@@ -42,7 +45,7 @@ df <- list_of_dfs %>%
 # df <- df %>%
 #   filter(str_detect(type, "60", negate = TRUE))
 
-df %>%
+p1 <- df %>%
   ggplot(aes(x = date, y = measure, color = type2)) +
   annotate(
     "rect",
@@ -78,6 +81,51 @@ df %>%
   guides(color = guide_legend(override.aes = list(size = 0.5), nrow = 2)) +
   scale_color_manual(values = pals::brewer.set1(n = length(unique(df$type2))))
 
-  # scale_color_brewer(palette = "Set2", breaks = c("Ice algae", "1.5 m", "10 m", "40 m", "60 m"))
 
-ggsave("graphs/fig13.pdf", width = 8, height = 6, units = "cm", device = cairo_pdf)
+
+# Plot PvsE ---------------------------------------------------------------
+
+pvse <- read_csv("/media/data4tb/greenedge/clean/pvse/greenedge_pvse.csv")
+
+pvse <- pvse %>%
+  filter(mission == "ice_camp_2016") %>%
+  filter(sample_type == "water") %>%
+  filter(depth_m != "interface") %>%
+  mutate(depth_m = parse_number(depth_m))
+
+p2 <- pvse %>%
+  drop_na(alpha) %>%
+  filter(depth_m %in% c(1.5, 5, 10)) %>%
+  mutate(depth_m = paste(depth_m, "m")) %>% 
+  mutate(depth_m = fct_relevel(depth_m, c("1.5 m", "5 m", "10 m"))) %>% 
+  ggplot(aes(x = date, y = alpha, color = depth_m)) +
+  geom_point(size = 1, show.legend = FALSE) +
+  geom_line(size = 0.25) +
+  scale_y_log10() +
+  annotation_logticks(sides = "l", size = 0.25) +
+  ylab(bquote("Photosynthetic efficiency" ~(alpha))) +
+  xlab(NULL) +
+  theme(
+    legend.position = c(1, 0.01),
+    legend.justification = c(1.01, -0.01),
+    legend.title = element_blank(),
+    legend.text = element_text(size = 6),
+    legend.key.size = unit(0.25, "cm"),
+    legend.direction = "horizontal"
+  ) +
+  guides(color = guide_legend(override.aes = list(size = 0.5), nrow = 1)) +
+  scale_color_manual(values = pals::brewer.set1(n = 3))
+
+
+# Save --------------------------------------------------------------------
+
+p <- p1 / p2 +
+  plot_annotation(
+    tag_levels = "A"
+  )
+
+ggsave("graphs/fig13.pdf", width = 8, height = 12, units = "cm", device = cairo_pdf)
+
+# Stats -------------------------------------------------------------------
+
+range(pvse$date)
