@@ -93,17 +93,20 @@ pvse <- pvse %>%
   filter(depth_m != "interface") %>%
   mutate(depth_m = parse_number(depth_m))
 
+# Clear outlier
+pvse$ek[pvse$depth_m == 1.5][1] <- NA
+
 p2 <- pvse %>%
-  drop_na(alpha) %>%
+  drop_na(ek) %>%
   filter(depth_m %in% c(1.5, 5, 10)) %>%
   mutate(depth_m = paste(depth_m, "m")) %>% 
   mutate(depth_m = fct_relevel(depth_m, c("1.5 m", "5 m", "10 m"))) %>% 
-  ggplot(aes(x = date, y = alpha, color = depth_m)) +
+  ggplot(aes(x = date, y = ek, color = depth_m)) +
   geom_point(size = 1, show.legend = FALSE) +
   geom_line(size = 0.25) +
   scale_y_log10() +
   annotation_logticks(sides = "l", size = 0.25) +
-  ylab(bquote("Photosynthetic efficiency" ~(alpha))) +
+  ylab(bquote(E[k] ~ (mu*mol~m^{-2}~s^{-1}))) +
   xlab(NULL) +
   theme(
     legend.position = c(1, 0.01),
@@ -115,7 +118,6 @@ p2 <- pvse %>%
   ) +
   guides(color = guide_legend(override.aes = list(size = 0.5), nrow = 1)) +
   scale_color_manual(values = pals::brewer.set1(n = 3))
-
 
 # Save --------------------------------------------------------------------
 
