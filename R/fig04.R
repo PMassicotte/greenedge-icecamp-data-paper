@@ -23,7 +23,7 @@ interpolate <- function(data, var) {
 
 # mat data -------------------------------------------------------------
 
-mat <- rmatio::read.mat("/media/data4tb/greenedge/DATA/not-on-cyber-yet/tida-survey/SemiDiurnal2015_Pcoord.mat")
+mat <- rmatio::read.mat("/media/data4tb/greenedge/DATA/not-on-cyber-yet/tidal-survey/SemiDiurnal2015_Pcoord.mat")
 
 df <- tibble(
   date_time = as.vector(mat$tq),
@@ -120,7 +120,7 @@ p2 <- df %>%
 
 # s0coord data ------------------------------------------------------------
 
-mat <- rmatio::read.mat("/media/data4tb/greenedge/DATA/not-on-cyber-yet/tida-survey/SemiDiurnal2015_S0coord.mat")
+mat <- rmatio::read.mat("/media/data4tb/greenedge/DATA/not-on-cyber-yet/tidal-survey/SemiDiurnal2015_S0coord.mat")
 
 df <- tibble(
   date_time = as.vector(mat$tq),
