@@ -29,15 +29,15 @@ df <- list_of_dfs %>%
   map(~ .[complete.cases(.), ]) %>%
   map(~ mutate(., type = grep("^sea|^water", names(.), value = TRUE))) %>%
   map(setNames, nm = c("julian", "measure", "sd", "type")) %>%
-  bind_rows() %>% 
+  bind_rows() %>%
   mutate(type2 = case_when(
     str_detect(type, "sea") ~ "Ice algae",
     type == "water_1_5_m_depth" ~ "1.5 m",
     type == "water_10_m_depth" ~ "10 m",
     type == "water_40_m_depth" ~ "40 m",
     type == "water_60_m_depth" ~ "60 m"
-  )) %>% 
-  mutate(type2 = fct_relevel(type2, "Ice algae", "1.5 m", "10 m", "40 m", "60 m")) %>% 
+  )) %>%
+  mutate(type2 = fct_relevel(type2, "Ice algae", "1.5 m", "10 m", "40 m", "60 m")) %>%
   mutate(date = as.Date(paste0("2016-", julian), "%Y-%j"))
 
 # Remove 60 m data because we do not have a lot of observation at that depth
@@ -99,14 +99,18 @@ pvse$ek[pvse$depth_m == 1.5][1] <- NA
 p2 <- pvse %>%
   drop_na(ek) %>%
   filter(depth_m %in% c(1.5, 5, 10)) %>%
-  mutate(depth_m = paste(depth_m, "m")) %>% 
-  mutate(depth_m = fct_relevel(depth_m, c("1.5 m", "5 m", "10 m"))) %>% 
+  mutate(depth_m = paste(depth_m, "m")) %>%
+  mutate(depth_m = fct_relevel(depth_m, c("1.5 m", "5 m", "10 m"))) %>%
   ggplot(aes(x = date, y = ek, color = depth_m)) +
   geom_point(size = 1, show.legend = FALSE) +
   geom_line(size = 0.25) +
   scale_y_log10() +
   annotation_logticks(sides = "l", size = 0.25) +
-  ylab(bquote(E[k] ~ (mu*mol~m^{-2}~s^{-1}))) +
+  ylab(bquote(E[k] ~ (mu * mol ~ m^{
+    -2
+  } ~ s^{
+    -1
+  }))) +
   xlab(NULL) +
   theme(
     legend.position = c(1, 0.01),
@@ -117,7 +121,11 @@ p2 <- pvse %>%
     legend.direction = "horizontal"
   ) +
   guides(color = guide_legend(override.aes = list(size = 0.5), nrow = 1)) +
-  scale_color_manual(values = pals::brewer.set1(n = 3))
+  scale_color_manual(values = c(
+    "1.5 m" = pals::brewer.set1(n = 10)[8],
+    "5 m" = pals::brewer.set1(n = 10)[9],
+    "10 m" = pals::brewer.set1(n = 10)[3]
+  ))
 
 # Save --------------------------------------------------------------------
 
@@ -131,3 +139,13 @@ ggsave("graphs/fig13.pdf", width = 8, height = 12, units = "cm", device = cairo_
 # Stats -------------------------------------------------------------------
 
 range(pvse$date)
+
+pvse %>%
+  filter(depth_m %in% c(1.5, 5, 10)) %>%
+  select(depth_m, ek) %>%
+  group_by(depth_m) %>%
+  summarise(min(ek, na.rm = TRUE), max(ek, na.rm = TRUE))
+
+pvse %>%
+  # filter(depth_m %in% c(1.5, 5, 10)) %>%
+  summarise(mean(ek, na.rm = TRUE), sd(ek, na.rm = TRUE), n = n())
