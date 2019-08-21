@@ -103,7 +103,7 @@ p2 <- pvse %>%
   geom_point(size = 1, show.legend = FALSE) +
   geom_line(size = 0.25) +
   scale_y_log10() +
-  annotation_logticks(sides = "l", size = 0.25) +
+  annotation_logticks(sides = "l") +
   ylab(bquote(E[k] ~ (mu * mol ~ m^{
     -2
   } ~ s^{
