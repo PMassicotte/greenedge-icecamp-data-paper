@@ -68,20 +68,18 @@ p1 <- df %>%
     limits = c(min(df$date) - 5, max(df$date) + 5),
     expand = c(0, 0)
   ) +
-  theme(legend.title = element_blank()) +
   scale_y_continuous(limits = c(0, NA)) +
   ylab(bquote(F[v] * "/" * F[m])) +
+  guides(color = guide_legend(override.aes = list(size = 0.5), nrow = 2)) +
+  scale_color_manual(values = pals::brewer.set1(n = length(unique(df$type2)))) +
   theme(
     legend.position = c(1, 0.01),
-    legend.justification = c(1.01, -0.01)
-  ) +
-  theme(legend.text = element_text(size = 6)) +
-  theme(legend.key.size = unit(0.25, "cm")) +
-  theme(legend.direction = "horizontal") +
-  guides(color = guide_legend(override.aes = list(size = 0.5), nrow = 2)) +
-  scale_color_manual(values = pals::brewer.set1(n = length(unique(df$type2))))
-
-
+    legend.justification = c(1.01, -0.01),
+    legend.title = element_blank(),
+    legend.text = element_text(size = 6),
+    legend.key.size = unit(0.25, "cm"),
+    legend.direction = "horizontal"
+  ) 
 
 # Plot PvsE ---------------------------------------------------------------
 
