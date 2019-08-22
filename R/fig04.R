@@ -84,7 +84,7 @@ p1 <- df %>%
     stroke = 0.2,
     check_overlap = TRUE,
     family = "Poppins",
-    size = 3
+    size = 2
   ) +
   theme(legend.position = "none") 
 
@@ -114,7 +114,7 @@ p2 <- df %>%
     stroke = 0.2,
     check_overlap = TRUE,
     family = "Poppins",
-    size = 3
+    size = 2
   ) +
   theme(legend.position = "none")
 
