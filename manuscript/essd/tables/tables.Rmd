@@ -37,11 +37,11 @@ tibble(
     'Origin of the water ("water", "ice", "meltpond").',
     'Source of the water ("niskin", "underice" "0-1 cm", "0-3 cm", "3-10 cm", "rosette" ).',
     "Depth at which measurement was made.",
-    'Qualitative value discribing the snow cover under which measurement was made ("thin_snow", "thick_snow").',
-    'Misson identifier ("ice_camp_2015", "ice_camp_2016")',
+    'Qualitative value describing the snow cover under which measurement was made ("thin_snow", "thick_snow").',
+    'Mission identifier ("ice_camp_2015", "ice_camp_2016")',
     "Name(s) of the principal investigator(s) responsible of the measured variable."
   )) %>%
-  kable("latex", longtable = TRUE, booktabs = TRUE, caption = "Descriptions of the minimal variables included in each dataset (i.e. in each CSV file).") %>%
+  kable("latex", longtable = TRUE, booktabs = TRUE, caption = "Descriptions of the minimal variables included in each data set (i.e. in each CSV file).") %>%
   kable_styling(latex_options = c("repeat_header"), font_size = 10)
 
 ```
