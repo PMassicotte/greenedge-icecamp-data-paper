@@ -52,14 +52,14 @@ tibble(
 df <- gs_title("table2") %>%
   gs_read(ws = "parameters") %>%
   janitor::clean_names() %>%
-  arrange(year, parameter) %>%
-  select(Year = year, Parameter = parameter, `Sampling method` = sampling, `Principal investigators` = p_i, Processed = r_script) %>% 
+  arrange(year, parameter_for_table_2) %>%
+  select(Year = year, Parameter = parameter_for_table_2, `Sampling method` = sampling, `Principal investigators` = p_i, Processed = r_script) %>% 
   mutate(Processed = case_when(
     Processed == "NODATA" ~ "Data not available yet",
     TRUE ~ "Available"
   ))
 
-kable(df, "latex", longtable = TRUE, booktabs = TRUE, caption = "Parameters measured during the Green Edge ice camp surveys.") %>%
+kable(df, "latex", longtable = TRUE, booktabs = TRUE, caption = "Parameters measured during the Green Edge ice camp surveys. Parameters are ordered by alphabetical order and sampling year.") %>%
   kable_styling(latex_options = c("repeat_header"), font_size = 10) %>%
   # row_spec(c(0), bold = TRUE) %>%
   landscape()
