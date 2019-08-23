@@ -1,0 +1,67 @@
+---
+title: "Tables"
+output: 
+  pdf_document: 
+    latex_engine: xelatex
+    keep_tex: true
+mainfont: Open Sans
+sansfont: Open Sans
+monofont: Open Sans
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(knitr)
+library(kableExtra)
+library(googlesheets)
+library(tidyverse)
+```
+
+```{r table1}
+tibble(
+  Variable = c(
+    "date",
+    "latitude",
+    "longitude",
+    "sample_type",
+    "sample_source",
+    "depth_m",
+    "snow_thickness",
+    "mission",
+    "pi"
+  ),
+  Description = c(
+    "Sampling date (UTC)",
+    "Latitude of the sampling location (degree decimals).",
+    "Longitude of the sampling location (degree decimals).",
+    'Origin of the water ("water", "ice", "meltpond").',
+    'Source of the water ("niskin", "underice" "0-1 cm", "0-3 cm", "3-10 cm", "rosette" ).',
+    "Depth at which measurement was made.",
+    'Qualitative value discribing the snow cover under which measurement was made ("thin_snow", "thick_snow").',
+    'Misson identifier ("ice_camp_2015", "ice_camp_2016")',
+    "Name(s) of the principal investigator(s) responsible of the measured variable."
+  )) %>%
+  kable("latex", longtable = TRUE, booktabs = TRUE, caption = "Descriptions of the minimal variables included in each dataset (i.e. in each CSV file).") %>%
+  kable_styling(latex_options = c("repeat_header"), font_size = 10)
+
+```
+
+
+
+```{r table2}
+df <- gs_title("table2") %>%
+  gs_read(ws = "parameters") %>%
+  janitor::clean_names() %>%
+  arrange(year, parameter) %>%
+  select(Year = year, Parameter = parameter, `Sampling method` = sampling, `Principal investigators` = p_i, Processed = r_script) %>% 
+  mutate(Processed = case_when(
+    Processed == "NODATA" ~ "Data not available yet",
+    TRUE ~ "Available"
+  ))
+
+kable(df, "latex", longtable = TRUE, booktabs = TRUE, caption = "Parameters measured during the Green Edge ice camp surveys.") %>%
+  kable_styling(latex_options = c("repeat_header"), font_size = 10) %>%
+  # row_spec(c(0), bold = TRUE) %>%
+  landscape()
+```
+
