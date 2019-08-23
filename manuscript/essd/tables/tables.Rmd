@@ -48,19 +48,50 @@ tibble(
 
 
 
+
 ```{r table2}
 df <- gs_title("table2") %>%
   gs_read(ws = "parameters") %>%
   janitor::clean_names() %>%
-  arrange(year, parameter_for_table_2) %>%
-  select(Year = year, Parameter = parameter_for_table_2, `Sampling method` = sampling, `Principal investigators` = p_i, Processed = r_script) %>% 
+  arrange(year, parameter_for_table_2)
+
+df2 <- df %>%
+  select(
+    Year = year,
+    Parameter = parameter_for_table_2,
+    `Sampling method` = sampling,
+    `Principal investigators` = p_i,
+    Processed = r_script
+  ) %>%
   mutate(Processed = case_when(
     Processed == "NODATA" ~ "Data not available yet",
     TRUE ~ "Available"
-  ))
+  )) %>% 
+  mutate(
+    Parameter = str_replace_all(Parameter, "\\(Lu\\(z\\)\\)", "($L_u(z)$)"),
+    Parameter = str_replace_all(Parameter, "\\(Eu\\(z\\)\\)", "($E_u(z)$)"),
+    Parameter = str_replace_all(Parameter, "\\(Ed\\(z\\)\\)", "($E_d(z)$)"),
+    Parameter = str_replace_all(Parameter, "Ed\\(0\\+\\)", "$E_d(0^+)$"),
+    Parameter = str_replace_all(Parameter, "NH4", "NH$^+_4$"),
+    Parameter = str_replace_all(Parameter, "NO3", "NO$^-_3$"),
+    Parameter = str_replace_all(Parameter, "NO2", "NO$^-_2$"),
+    Parameter = str_replace_all(Parameter, "\\(0\\+\\)", "($0^+$)"),
+    Parameter = str_replace_all(Parameter, "Si\\(OH\\)4", "$Si(OH)_4$"),
+    Parameter = str_replace_all(Parameter, "PO4", "(PO$_4)^{3-}$"),
+  )
 
-kable(df, "latex", longtable = TRUE, booktabs = TRUE, caption = "Parameters measured during the Green Edge ice camp surveys. Parameters are ordered by alphabetical order and sampling year.") %>%
-  kable_styling(latex_options = c("repeat_header"), font_size = 10) %>%
+kable(
+  df2,
+  "latex",
+  longtable = TRUE,
+  booktabs = TRUE,
+  caption = "Parameters measured during the Green Edge ice camp surveys. Parameters are ordered by alphabetical order and sampling year.",
+  escape = FALSE
+) %>%
+  kable_styling(
+    latex_options = c("repeat_header"),
+    font_size = 10
+  ) %>%
   # row_spec(c(0), bold = TRUE) %>%
   landscape()
 ```
