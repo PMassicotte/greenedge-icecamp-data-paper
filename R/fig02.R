@@ -52,3 +52,6 @@ df %>%
   group_by(mission) %>% 
   skimr::skim()
 
+df %>% 
+  group_by(mission) %>% 
+  summarise_if(is.numeric, .funs = list("min" = min, "max" = max, "avg" = mean))
