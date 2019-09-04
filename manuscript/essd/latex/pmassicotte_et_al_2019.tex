@@ -1,0 +1,694 @@
+%% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
+%% ---------------------------------
+%% This template should be used for copernicus.cls
+%% The class file and some style files are bundled in the Copernicus Latex Package, which can be downloaded from the different journal webpages.
+%% For further assistance please contact Copernicus Publications at: production@copernicus.org
+%% https://publications.copernicus.org/for_authors/manuscript_preparation.html
+
+
+%% Please use the following documentclass and journal abbreviations for discussion papers and final revised papers.
+
+%% 2-column papers and discussion papers
+\documentclass[essd, manuscript]{copernicus}
+
+\usepackage[default, scale=0.95]{opensans}
+\usepackage[section]{placeins}
+\usepackage{amsmath}
+
+%% Journal abbreviations (please use the same for discussion papers and final revised papers)
+
+
+% Advances in Geosciences (adgeo)
+% Advances in Radio Science (ars)
+% Advances in Science and Research (asr)
+% Advances in Statistical Climatology, Meteorology and Oceanography (ascmo)
+% Annales Geophysicae (angeo)
+% Archives Animal Breeding (aab)
+% ASTRA Proceedings (ap)
+% Atmospheric Chemistry and Physics (acp)
+% Atmospheric Measurement Techniques (amt)
+% Biogeosciences (bg)
+% Climate of the Past (cp)
+% DEUQUA Special Publications (deuquasp)
+% Drinking Water Engineering and Science (dwes)
+% Earth Surface Dynamics (esurf)
+% Earth System Dynamics (esd)
+% Earth System Science Data (essd)
+% E&G Quaternary Science Journal (egqsj)
+% Fossil Record (fr)
+% Geochronology (gchron)
+% Geographica Helvetica (gh)
+% Geoscience Communication (gc)
+% Geoscientific Instrumentation, Methods and Data Systems (gi)
+% Geoscientific Model Development (gmd)
+% History of Geo- and Space Sciences (hgss)
+% Hydrology and Earth System Sciences (hess)
+% Journal of Micropalaeontology (jm)
+% Journal of Sensors and Sensor Systems (jsss)
+% Mechanical Sciences (ms)
+% Natural Hazards and Earth System Sciences (nhess)
+% Nonlinear Processes in Geophysics (npg)
+% Ocean Science (os)
+% Primate Biology (pb)
+% Proceedings of the International Association of Hydrological Sciences (piahs)
+% Scientific Drilling (sd)
+% SOIL (soil)
+% Solid Earth (se)
+% The Cryosphere (tc)
+% Web Ecology (we)
+% Wind Energy Science (wes)
+
+
+%% \usepackage commands included in the copernicus.cls:
+%\usepackage[german, english]{babel}
+%\usepackage{tabularx}
+%\usepackage{cancel}
+%\usepackage{multirow}
+%\usepackage{supertabular}
+%\usepackage{algorithmic}
+%\usepackage{algorithm}
+%\usepackage{amsthm}
+%\usepackage{float}
+%\usepackage{subfig}
+%\usepackage{rotating}
+
+
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Green Edge ice camp campaigns: understanding the processes controlling the under-ice Arctic phytoplankton spring bloom}
+
+% \Author[affil]{given_name}{surname}
+
+\Author[1]{Philippe}{Massicotte}
+\Author[1,2]{Rémi}{Amiraux}
+\Author[1]{Marie-Pier}{Amyot}
+\Author[1,3]{Philippe}{Archambault}
+\Author[4,5]{Mathieu}{Ardyna}
+\Author[6]{Laurent}{Arnaud}
+\Author[7]{Lise}{Artigue}
+\Author[1]{Cyril}{Aubry}
+\Author[8,9,10]{Pierre}{Ayotte}
+\Author[1]{Guislain}{Bécu}
+\Author[11]{Simon}{Bélanger}
+\Author[12]{Ronald}{Benner}
+\Author[4,13]{Henry C.}{Bittig}
+\Author[4]{Annick}{Bricaud}
+\Author[14]{Éric}{Brossier}
+\Author[1]{Flavienne}{Bruyant}
+\Author[2]{Laurent}{Chauvaud}
+\Author[15]{Debra}{Christiansen-Stowe}
+\Author[4]{Hervé}{Claustre}
+\Author[16]{Véronique}{Cornet-Barthaux}
+\Author[1]{Pierre}{Coupel}
+\Author[14]{Christine}{Cox}
+\Author[17]{Aurelie}{Delaforge}
+\Author[1]{Thibaud}{Dezutter}
+\Author[18]{Céline}{Dimier}
+\Author[1]{Florent}{Dominé}
+\Author[1]{Francis}{Dufour}
+\Author[19,20,3]{Christiane}{Dufresne}
+\Author[19,20,3]{Dany}{Dumont}
+\Author[17]{Jens}{Ehn}
+\Author[21]{Brent}{Else}
+\Author[1]{Joannie}{Ferland}
+\Author[1]{Marie-Hélène}{Forget}
+\Author[1]{Louis}{Fortier}
+\Author[1]{Martí}{Galí}
+\Author[19,20,3]{Virginie}{Galindo}
+\Author[2]{Morgane}{Gallinari}
+\Author[16]{Nicole}{Garcia}
+\Author[22,23]{Catherine}{Gérikas-Ribeiro}
+\Author[1]{Margaux}{Gourdal}
+\Author[24]{Priscilla}{Gourvil}
+\Author[25]{Clemence}{Goyens}
+\Author[1]{Pierre-Luc}{Grondin}
+\Author[26]{Pascal}{Guillot}
+\Author[1]{Caroline}{Guilmette}
+\Author[27]{Marie-Noëlle}{Houssais}
+\Author[28]{Fabien}{Joux}
+\Author[1]{Léo}{Lacour}
+\Author[29]{Thomas}{Lacour}
+\Author[16]{Augustin}{Lafond}
+\Author[1]{José}{Lagunas}
+\Author[1]{Catherine}{Lalande}
+\Author[1]{Julien}{Laliberté}
+\Author[1]{Simon}{Lambert-Girard}
+\Author[1]{Jade}{Larivière}
+\Author[1]{Johann}{Lavaud}
+\Author[1]{Anita}{LeBaron}
+\Author[16]{Karine}{Leblanc}
+\Author[22]{Florence}{Le Gall}
+\Author[16]{Justine}{Legras}
+\Author[8,30,10]{Mélanie}{Lemire}
+\Author[1,3]{Maurice}{Levasseur}
+\Author[4]{Edouard}{Leymarie}
+\Author[2]{Aude}{Leynaert}
+\Author[31]{Adriana}{Lopes dos Santos}
+\Author[32]{Antonio}{Lourenço}
+\Author[31]{David}{Mah}
+\Author[1,33]{Claudie}{Marec}
+\Author[34]{Dominique}{Marie}
+\Author[32]{Nicolas}{Martin}
+\Author[14]{Constance}{Marty}
+\Author[35]{Sabine}{Marty}
+\Author[1]{Guillaume}{Massé}
+\Author[1]{Atsushi}{Matsuoka}
+\Author[17]{Lisa}{Matthes}
+\Author[2]{Brivaela}{Moriceau}
+\Author[14]{Pierre-Emmanuel}{Muller}
+\Author[17]{C.J.}{Mundy}
+\Author[1,4]{Griet}{Neukermans}
+\Author[1,4]{Laurent}{Oziel}
+\Author[16]{Christos}{Panagiotopoulos}
+\Author[14]{Jean-Jacques}{Pangazi}
+\Author[36]{Ghislain}{Picard}
+\Author[4]{Marc}{Picheral}
+\Author[14]{France}{Pinczon du Sel}
+\Author[17]{Nicole}{Pogorzelec}
+\Author[24]{Ian}{Probert}
+\Author[16]{Bernard}{Queguiner}
+\Author[16]{Patrick}{Raimbault}
+\Author[4]{Joséphine}{Ras}
+\Author[1]{Eric}{Rehm}
+\Author[1]{Erin}{Reimer}
+\Author[16]{Jean-François}{Rontani}
+\Author[17]{Søren}{Rysgaard}
+\Author[1]{Blanche}{Saint-Béat}
+\Author[37]{Makoto}{Sampei}
+\Author[1]{Julie}{Sansoulet}
+\Author[38]{Sabine}{Schmidt}
+\Author[16]{Richard}{Sempéré}
+\Author[39]{Caroline}{Sévigny}
+\Author[40,41]{Yuan}{Shen}
+\Author[34]{Margot}{Tragin}
+\Author[1]{Jean-Éric}{Tremblay}
+\Author[34,31]{Daniel}{Vaulot}
+\Author[1]{Gauthier}{Verin}
+\Author[32]{Frédéric}{Vivier}
+\Author[42,43]{Anda}{Vladoiu}
+\Author[21]{Jeremy}{Whitehead}
+\Author[1]{Marcel}{Babin}
+    
+\affil[1]{UMI Takuvik, CNRS/Université Laval, Québec, QC Canada}
+\affil[2]{Univ Brest, CNRS, IRD, Ifremer, LEMAR, F-29280 Plouzane, France}
+\affil[3]{Québec-Océan}
+\affil[4]{Sorbonne Université, CNRS, Laboratoire d'Océanographie de Villefranche, LOV, F-06230 Villefranche-sur-Mer, France}
+\affil[5]{Department of Earth System Science, Stanford University, Stanford, CA, 94305, USA}
+\affil[6]{UMR 5001, IGE, CNRS, Grenoble, France}
+\affil[7]{LEGOS, University of Toulouse, CNRS, CNES, IRD, UPS, 31400 Toulouse, France}
+\affil[8]{Axe Santé des populations et pratiques optimales en santé, Centre de recherche du CHU de Québec - Université Laval}
+\affil[9]{Centre de toxicologie du Québec, INSPQ}
+\affil[10]{Département de médecine sociale et préventive, Université Laval, Québec QC Canada}
+\affil[11]{Département de Biologie, Chimie et Géographie (groupes BORÉAS et Québec-Océan), Université du Québec à Rimouski, 300 allé des Ursulines, Rimouski, QC, G5L 3A1}
+\affil[12]{University of South Carolina, Department of Biological sciences, Columbia, SC 29208 USA}
+\affil[13]{Leibniz Institute for Baltic Sea Research Warnemünde, IOW, Rostock-Warnemünde, Germany}
+\affil[14]{Independent collaborator}
+\affil[15]{Institut nordique du Québec, Université Laval, Québec, QC Canada}
+\affil[16]{Aix-Marseille Univ., Université de Toulon, CNRS, IRD, MIO, UM110, Marseille, 13288, France}
+\affil[17]{Centre for Earth Observation Science, University of Manitoba, Winnipeg, Manitoba, Canada}
+\affil[18]{FR3761, Institut de la Mer de Villefranche, CNRS, 06230 Villefranche-sur-mer, France}
+\affil[19]{Institut des sciences de la mer de Rimouski}
+\affil[20]{Université du Québec à Rimouski}
+\affil[21]{Department of Geography, University of Calgary, Calgary, Alberta, Canada}
+\affil[22]{CNRS, Sorbonne Université, UMR7144, Team ECOMAP, Station Biologique de Roscoff,Roscoff, France}
+\affil[23]{GEMA Center for Genomics, Ecology \& Environment, Universidad Mayor, Camino La Pirámide, 5750, Huechuraba, Santiago, Chile}
+\affil[24]{Sorbonne Université, CNRS, FR2424, Centre de Ressources Biologiques Marines, Station Biologique de Roscoff, France}
+\affil[25]{Royal Belgian Institute of Natural Sciences (RBINS), Operational Directorate Natural Environment, 29 Rue Vautierstraat, 1000 Brussels, Belgium}
+\affil[26]{Québec Océan \& Amundsen Science, Université Laval, Québec, QC Canada}
+\affil[27]{LOCEAN, CNRS/Sorbonne Université/IRD/MNHN, 4 place Jussieu, F-75005 Paris, France}
+\affil[28]{Sorbonne Université, CNRS, Laboratoire d’Océanographie Microbienne (LOMIC), Observatoire Océanologique de Banyuls, 66650 Banyuls/mer, France}
+\affil[29]{IFREMER, Physiology and Biotechnology of Algae Laboratory, rue de l’Ile d’Yeu, 44311, Nantes, France}
+\affil[30]{Institut de biologie intégrative et des systèmes}
+\affil[31]{Asian School of the Environment, Nanyang Technological University, 50 Nanyang Avenue, Singapore 639798}
+\affil[32]{LOCEAN-IPSL,CNRS, Sorbonne Université, Paris, France}
+\affil[33]{Univ Brest, CNRS, IUEM, UMS3113, F-29280 Plouzane, France}
+\affil[34]{UMR 7144, Sorbonne Université and CNRS, Station Biologique, 29680 Roscoff, France}
+\affil[35]{Norwegian institute for water research, Gaustadalleen 21, 0349 Oslo, Norway}
+\affil[36]{Institut des Géosciences de l'Environnement 54, rue Molière 38402 - Saint Martin d'Hères, France}
+\affil[37]{Faculty of fisheries sciences, Hokkaido University, Hakodate, Japan}
+\affil[38]{UMR CNRS 5805 EPOC - OASU, Université de Bordeaux, 33615 PESSAC CEDEX, FRANCE}
+\affil[39]{Environnement et changement climatique Canada}
+\affil[40]{School of the Earth, Ocean and Environment, University of South Carolina, Columbia, South Carolina, 29208, USA}
+\affil[41]{Present address: Ocean Sciences Department, University of California, Santa Cruz, California, 95064, USA}
+\affil[42]{LOCEAN-IPSL, Sorbonne Université, Paris, France}
+\affil[43]{Applied Physics Laboratory, University of Washington, Seattle, Washington, USA}
+
+%% The [] brackets identify the author with the corresponding affiliation. 1, 2, 3, etc. should be inserted.
+
+\runningtitle{The Green Edge ice camp campaigns: an overview}
+
+\runningauthor{Massicotte et al.}
+
+\correspondence{Philippe Massicotte (philippe.massicotte@takuvik.ulaval.ca)}
+
+\received{}
+\pubdiscuss{} %% only important for two-stage journals
+\revised{}
+\accepted{}
+\published{}
+
+%% These dates will be inserted by Copernicus Publications during the typesetting process.
+
+\firstpage{1}
+
+\maketitle
+
+\begin{abstract}
+	The Green Edge initiative was developed to investigate the processes controlling the primary productivity and the fate of organic matter produced during the Arctic phytoplankton spring bloom (PSB) and to determine its role in the ecosystem. Two field campaigns were conducted in 2015 and 2016 at an ice camp located on landfast sea ice southeast of Qikiqtarjuaq Island in Baffin Bay (67.4797N, 63.7895W). During both expeditions, a large suite of physical, chemical and biological variables was measured beneath a consolidated sea ice cover from the surface to the bottom at 360 m depth to better understand the factors driving the PSB. Key variables such as temperature, salinity, radiance, irradiance, nutrient concentrations, chlorophyll-a concentration, bacteria, phytoplankton and zooplankton abundance and taxonomy, carbon stocks and fluxes were routinely measured at the ice camp. Here, we present the results of a joint effort to tidy and standardize the collected data sets that will facilitate their reuse in other Arctic studies.
+\end{abstract}
+
+
+%\copyrightstatement{TEXT}
+
+\introduction  %% \introduction[modified heading if necessary]
+
+In the Arctic Ocean, the phytoplankton spring bloom (PSB) initiates the period of highest biomass primary production of the year \citep{Sakshaug2004, Perrette2011, Ardyna2013}. Although it was discovered that the PSB may occur more extensively and more frequently beneath a consolidated ice-pack \citep{Arrigo2012, Arrigo2014, Assmy2017}, only a small number of research initiatives \citep[e.g.,][]{Fortier2002, Galindo2014, Mundy2009, Mundy2014, Wassmann1999, Gosselin1997} have been investigating the processes controlling the Arctic PSB in the ice-covered water column. Additionally, ice algal communities play an important role within the Arctic food web and for the carbon export to the benthos during the winter-spring transition \citep{Leu2015}. However, primary production within the Arctic ice-pack is still poorly understood. The Green Edge project was conceived in an effort to better understand the Arctic PSB from the level of fundamental physical, chemical and biological processes to that of their interactions within the ecosystem, and at spatial scales ranging from local to pan-Arctic. Besides studying each major component of the processes controlling Arctic PSB,  another objective of Green Edge was to investigate its impact on the nutrient and carbon dynamics within the ecosystem. A total of three Green Edge campaigns were conducted: two ice camp campaigns on landfast sea ice in 2015 and 2016, and an oceanographic cruise aboard the \textit{CCGS Amundsen} in Baffin Bay in 2016. In this article, we present an overview of an extensive and comprehensive data set acquired during two surveys conducted at the Green Edge ice camp.
+
+\section{Study area, environmental conditions and sampling strategy}
+
+The field campaigns were conducted on landfast sea ice southeast of the Qikiqtarjuaq Island in Baffin Bay (67.4797N, 63.7895W, Fig. 1) in 2015 (April 24 - July 17) and in 2016 (April 20 to July 27). These periods were chosen in order to capture the dynamics of the sea-ice algae and phytoplankton spring blooms, from bloom initiation to termination. The field operations took place at a location (the "ice camp") south of the Qikiqtarjuaq Island where the water depth is 360 m. Continuous records of wind speed and air temperature were made with a meteorological station (Automated Meteo Mat equipped with temperature (HC2S3) and wind (05305-L) sensors (Campbell Scientific) positioned near (< 100 m) the tent (Polarhaven, Weatherhaven) in which water sampling was carried out. During the sampling periods, the study site experienced changes in snow cover and ice thickness (Fig. 2). In 2015, the snow and ice thickness varied between 2-40 cm (mean = 21 cm) and 103-136 cm (mean = 121) respectively. In 2016, the snow and ice thickness varied between 0.3-49 cm (mean = 19 cm) and 106-149 cm (mean = 128 cm) respectively. For both years, snowmelt began at the beginning of June and lasted for approximately two to three weeks \citep{Oziel2019}. Water sampling was usually carried out every two days through a 1$\times$1 m hole in the ice pack shielded by the tent. For the analysis of nutrient concentration, photosynthetic parameters, primary production, chlorophyll a (chl a), phytoplankton taxonomy and carbon stocks such as dissolved organic carbon (DOC), particulate organic carbon (POC), water samples were collected at 1.5, 5, 10, 20, 40 and 60 m using 10 or 20-L Niskin bottles. Details about specific measurements such as zooplankton and bacteria abundances are provided in the following sections.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig01.pdf}
+	\caption{Location of the ice camp located near the Qikiqtarjuaq Island in the Baffin Bay. Projection used: EPSG-4326.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig02.pdf}
+	\caption{Temporal evolution of the snow and sea-ice thickness for both ice camp missions. The dashed horizontal line represents the snow/ice interface.}
+\end{figure}
+
+\section{Data quality control and data processing}
+
+Different quality control procedures were adopted to ensure the integrity of the data. First, the raw data were visually screened to eliminate errors originating from the measurement devices, including sensors (systematic or random) and errors inherent from measurement procedures and methods. Statistical summaries such as average, standard deviation and range were computed to detect and remove anomalous values in the data. Then, data were checked for duplicates and remaining outliers. Once raw measurements were cleaned, data were structured and regrouped into plain text comma-separated (CSV) files. Each of these files was constructed to gather variables of the same nature (ex.: nutrients). In each of these files, a minimum number of variables (columns) were always included so the different data sets can be easily merged together (Table 1). More than 120 different variables have been measured during the Green Edge landfast-ice expeditions. The complete list of variables is presented in Table 2 and detailed metadata information can be found on the LEFE-CYBER online repository \url{http://www.obs-vlfr.fr/proof/php/GREENEDGE/greenedge.php}. In the following sections, we present a subset of these variables along with the methods used to collect and measure them. For each of these variables, time series or vertical profiles are used to describe the data. Data cleaning and visualization were performed with R 3.6.1 \citep{RCoreTeam2019}. The code used to produce the figures and the analysis presented in this paper is available under the GNU GPLv3 licence \url{https://github.com/PMassicotte/greenedge-icecamp-data-paper}. The code used to process and tidy the data provided by each researcher is also publicly available \url{https://gitlab.com/Takuvik/greenedge-database} under the GNU GPLv3 licence.
+
+\section{Data description: an overview}
+
+\subsection{Physical data}
+
+Conductivity, temperature and depth (CTD) vertical profiles were measured using a Sea-Bird SBE19plusV2 CTD system (factory calibrated prior to the expedition) deployed from inside the Polarhaven tent between the surface and a 350 m depth. The data were post-processed according to the standard procedures recommended by the manufacturer and averaged into 1-m vertical bins. During the sampling periods, salinity was generally greater than 31.5 g kg\textsuperscript{-1} (range: 4--34.4 g kg\textsuperscript{-1}). Flushes of freshwater at the ocean surface due to snow/ice melt started slowly at the beginning of June with the largest peaks/pulses taking place late June when salinity decreased to approximately 4 g kg\textsuperscript{-1} (Fig. 3). 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig03.pdf}
+	\caption{Temporal evolution of the salinity in the first 100 meters of the water column for both campaigns. Note that for visualization, salinity below 31.5 g kg\textsuperscript{-1} have been binned to 31.5 g kg\textsuperscript{-1}. Note that salinity as low as 4 g kg\textsuperscript{-1} was observed during flushes of freshwater at the ocean surface due to snow/ice melt (dark blue color in the figure).}
+\end{figure}
+
+Ocean current profiles in the water column were measured using a downward-looking 300 kHz Sentinel Workhorse Acoustic Doppler Current Profiler (ADCP, RDI Teledyne) mounted directly beneath the sea ice bottom. The study site was dominated by seawater originating from the Arctic Ocean modulated by spring-neap tidal cycles (14 days) and semidiurnal M2 periods ($\approx$12.4 hours). Vertical profiles of water column turbulence were measured on June 23 of 2016 during a spring tidal cycle ($\approx$12.4) using a self-contained autonomous microprofiler (SCAMP, Precision Measurement Engineering, California, U.S.A.). The turbulence profile (i.e. a median profile of the rate of dissipation of turbulent kinetic energy, $\epsilon$) showed a mixing layer depth of about 20–25 m characterized by an elevated dissipation rate with values above 10\textsuperscript{-8} W kg\textsuperscript{-1}. The reader is referred to the paper by \citet{Oziel2019} for detailed methods, visualization and discussion of the CTD, SCAMP and ADCP data. 
+
+Vertical profiles (surface to 200 m) of CTD and bio-optical properties were measured every hour during a M2 tidal cycle measured on June 9, 2016 (an example of modelled surface tidal height versus time is shown in supplementary Fig. A1). These observations (Fig. 4) illustrate that internal tidal waves caused large vertical isopycnal displacements (20-30 m) of all observed physical and biogeochemical properties below 50 m depth across the semi-diurnal M2 period. Hence, as vertical profiles of physical and bio-optical variables were measured at approximately the same time each day, properties (assuming they follow a conservative mixing behaviour) will appear to be vertically displaced. Therefore, when comparing properties from vertical profiles taken at the ice camp, we suggest that comparisons of profile variables should be made on isopycnal (constant density) coordinates, rather than depth coordinates (Fig. 4).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig04.png}
+	\caption{Temporal evolution of physical (temperature) and bio-optical (CDOM fluorescence) variables with superimposed lines of potential density anomaly ($\sigma_\theta$, kg m\textsuperscript{-3}) during a 13-h tidal cycle. Surface tidal height versus time at Qikiqtarjuaq is shown in blue. (\textbf{A-B}) Plotted versus pressure coordinates (equivalent to depth in meters). (\textbf{C-D}) The same data plotted versus potential density anomaly $\sigma_\theta$ coordinates (kg m\textsuperscript{-3}). The tidal survey was performed on 2015-06-09.}
+\end{figure}
+
+\subsection{Underwater bio-optical data}
+
+\subsubsection{Radiance and irradiance measurements with ICE-Pro}
+
+A total of 173 and 89 vertical light profiles were measured in 2015 and 2016, respectively, using a factory-calibrated ICE-Pro (an ice-floe version of the C-OPS, or Compact-Optical Profiling System, from Biospherical Instruments Inc.). The ICE-Pro was equipped with radiometers for both downward plane irradiance ($E_d$, W m\textsuperscript{-2} nm\textsuperscript{-1}) and either upward irradiance ($E_u$, W m\textsuperscript{-2} nm\textsuperscript{-1}) in 2015 or upward radiance ($L_u$, W m\textsuperscript{-2} sr\textsuperscript{-1} nm\textsuperscript{-1}) in 2016. The profiles were taken at two sites, separated by approximately 40 m. In order to perform the profiles, the ICE-Pro was deployed through auger holes that had been drilled at distances of 82 and 113  m from the tent and cleaned of ice chunks. Once the ICE-Pro was underneath the ice layer, fresh clean snow was shovelled back into the hole to avoid, as much as possible, having a bright spot above the sensors (see supplementary Fig. B1 and Table B1). The frame was then manually lowered at a rate of approximately 0.3 m s\textsuperscript{-1}. The above-surface reference sensor was fixed on a steady tripod installed approximately 2 m above the ice surface and above all neighbouring camp features. Data processing and validation were performed using a protocol inspired by that of Smith1984, which is now used by several space agencies. Measurements were taken between 380 and 875 nm at 19 discrete spectral wavebands. Vertical profiles were usually measured in duplicates or triplicates. Time series of daily photosynthetically active radiation (PAR) at the sea-ice/water interface (1.3 m depth) are shown in Fig. 5. In 2016, PAR started to increase rapidly in the second week of May, compared to early June in 2015. Overall, PAR at 1.3 m in the water column was also greater in 2016 than in 2015 and reached the threshold of 0.415 mol of photons m\textsuperscript{-2} d\textsuperscript{-1}, above which light is sufficient for net growth \citep{Letelier2004}, a few days earlier. Further information about in situ underwater irradiance and radiance measurements can be found in \citet{Massicotte2018}. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig05.pdf}
+	\caption{Temporal evolution of daily photosynthetically available radiation (PAR) at the sea-ice/water interface (1.3 m depth) for both ice camp missions. The horizontal dashed line shows the 0.415 mol photons m\textsuperscript{-2} d\textsuperscript{-1} threshold often used in the literature as the minimum light requirement for primary production.}
+\end{figure}
+
+\subsubsection{Underwater photos and videos of ice bottom}
+
+Several vertical profiles to 30 m were performed using a GoPro Hero 4 camera mounted on the ICE-Pro and pointing up, towards the ice bottom (see Fig. B1 and Table B1). Still images were captured every five seconds during descent, as well as a video was taken of the complete descent. These photos and videos were used for a qualitative assessment of the pronounced spatial and temporal heterogeneity of the under-ice environment and the associated water column nekton community between the two profiling locations.
+
+\subsubsection{Irradiance measurements with TriOS}
+
+To quantify the impact of the heterogeneous radiation field under sea ice on irradiance measurements, replicated spectral irradiance profiles were collected beneath landfast sea ice from 5 May to 8 June 2015 and from 14 June to 4 July 2016. The replicates were made on each sampling day, under different surface conditions. In 2015, measurements were performed prior to melt onset, under different snow depths. In 2016, measurements began after the onset of snowmelt and were performed beneath sea ice with a wet snow cover, shallow melt ponds and white ice. The deployed sensor array consisted of a surface reference radiometer, which recorded incident downwelling planar irradiance, $E_d(0,\phi)$, and three radiometers attached to a custom-built double-hinged aluminum pole (under-ice L-arm) to measure downwelling planar irradiance, $E_d(z,\phi)$, downwelling scalar irradiance, $\mathring{E}_d(z,\phi)$, and upwelling scalar irradiance, $\mathring{E}_u(z,\phi)$. These four hyperspectral radiometers (two planar RAMSES-ACC and two scalars RAMSES-ASC, TriOS GmbH, Germany) measured pressure and tilt internally and recorded irradiance spectra in the wavelength range from 320 to 950 nm at a resolution of 3.3 nm (190 channels). Transmitted irradiance was recorded along with vertical profiles by lowering the L-arm manually through a 20-inches auger hole with a winch and 1.5-m aluminum poles extensions. In 2015, 17 vertical profiles were collected in 0.4 - 0.5-m depth steps from the ice bottom to a water depth of 18 m. In 2016, 11 profiles were recorded to a depth of 20 m under different sea ice surface conditions. Differences between planar and scalar PAR measurements were used to derive the downwelling average cosine, \textmu d, an index of the angular structure of the downwelling under-ice radiation field which, in practice, can be used to convert between downwelling scalar, $\mathring{E}_d$, and planar, $E_d$, irradiance. The average cosine was smaller prior to snowmelt in 2015 compared to after snowmelt ($\approx$0.6 vs. 0.7), when melt ponds covered the ice surface in 2016 (Fig. 6). Further details about the sampling procedure, data processing and results can be found in \citet{Matthes2019}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig06.pdf}
+	\caption{(\textbf{A}) Under-ice vertical profiles of downwelling planar and scalar irradiance at 442 nm, 532 nm and for PAR. Note the log scale for the irradiance measurements. (\textbf{B}) Calculated downwelling average cosine (unitless) was measured beneath snow-covered sea ice on 16 May 2015, beneath bare ice on 20 June 2016 and beneath a melt pond on 4 July 2016.}
+\end{figure}
+
+\subsubsection{Inherent optical properties (IOP)}
+
+IOPs measurements were made using an optical frame equipped with the physical and bio-optical sensors that were factory calibrated before each field campaign. A Seabird SBE-9 CTD measured temperature, salinity, and pressure. A WetLabs AC-S was used for spectral beam attenuation ($c$, m\textsuperscript{-1}) and total absorption ($a$, m\textsuperscript{-1}) between 405 and 740 nm, and a BB9 (WetLabs) and a BB3 (WetLabs) were utilized for backscattering coefficients ($bb$, m\textsuperscript{-1}) between 440 and 870 nm. During both campaigns, pure water calibration was performed for the AC-S sensor on each sampling day and linear regression as a function of time was computed for each wavelength of absorption and attenuation signals. Then, the offset applied during the data processing was taken on this linear regression at the exact date of the measurement. Figure 7 shows two vertical profiles of attenuation coefficients at different wavelengths acquired during pre-bloom and bloom conditions in 2016. One can see that during the bloom, attenuation increased markedly in the 0-50 m surface layer due to higher phytoplankton biomass.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig07.pdf}
+	\caption{Beam attenuation coefficients ($c$, m\textsuperscript{-1}) measured in 2016 using an ACS before and during the phytoplankton bloom. Note that the colors of the lines correspond to wavelength frequencies.}
+\end{figure}
+
+\subsubsection{Other optical measurements}
+
+Other optical variables measured during both field campaigns included absorbance of particulate matter, absorbance of dissolved organic matter, snow and sea-ice transmittance, snow/ice hyperspectral and hyperangular hemispherical-directional-reflectance \citep{Goyens2018} and surface spectral albedo (Table 2). Downwelling spectral irradiance above the surface ($1^{\circ} \times 1^{\circ}$) spatial resolution, daily temporal resolution, interpolated hourly) was also computed based on the radiative transfer model SBDART \citep{Ricchiazzi1998} as described in \citet{Laliberte2016} and \citet{Randelhoff2019}.
+
+\subsection{Nutrients}
+
+Nitrate, nitrite, phosphate and silicate concentrations were measured from water filtered through 0.7 \textmu m Whatman GF/F filters and through 0.2 \textmu m cellulose acetate membranes. Filtrates were collected into sterile 20 mL polyethylene vials, poisoned with 100 \textmu L of mercuric chloride (60 mg L\textsuperscript{-1}) and subsequently stored in the dark prior to analysis. Nutrient concentrations were determined using an automated colorimetric procedure described in \citet{Aminot2007}. Figure 8 shows an overview of the dynamics of nitrate which is often the limiting nutrient for phytoplankton growth in the ocean \citep{Tremblay2009}. It can be seen that the depletion of the nitrates started approximately mid-June for both years, coinciding with the initiation of the phytoplankton bloom. However, the depletion was observed deeper in the water column in 2016 compared to 2015 due to stronger currents and a longer sampling period in 2016 \citep{Oziel2019}. Other nutrients such as dissolved organic and inorganic carbon (DOC/DIC), particulate organic and inorganic carbon (POC/PIC), total organic carbon (TOC), phosphate (PO4), orthosilicic acid (Si(OH)\textsubscript{4}), and ammonium (NH\textsubscript{4}), were also measured during both campaigns (Table 2). Detailed information about analytical procedures can be found in the LEFE-CYBER online repository. A comprehensive discussion about nutrient dynamics during the Green Edge missions can be found in \citet{Grondin2019}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig08.pdf}
+	\caption{Temporal evolution of the nitrates in the first 60 m of the water column for both ice camp missions.}
+\end{figure}
+
+\subsection{Bacteria and Phytoplankton}
+
+\subsubsection{Flow cytometry}
+
+The abundances of pico-phytoplankton, nano-phytoplankton and bacteria were measured by flow cytometry. Samples (1.5 mL) were preserved with a mix of glutaraldehyde and Pluronic \citep{Marie2014} and frozen at -80$^{\circ}$C. Samples were analyzed on a FACS Canto flow cytometer (Becton Dickinson) in the laboratory at the Station Biologique de Roscoff. The abundance (cells mL\textsuperscript{-1}) of phytoplankton populations was determined on unstained samples and cells were discriminated by their red chlorophyll autofluorescence. Bacterial abundance was determined based on the fluorescence of SYBR Green-stained DNA \citep{Marie1997}. In both 2015 and 2016, bacteria concentrations were initially low, of the order of 100 000 cells mL\textsuperscript{-1}, and quite uniform throughout the water column. During the bloom, bacterial abundance increased continuously,  reaching values of one million cells mL\textsuperscript{-1} (Fig. 9). Simultaneously, the distribution of highest abundance became stratified with a higher concentration found near the surface in early July before it moved down to the subsurface (between 10 and 20 m) later in July (Fig. 9). In 2015, the sampling period did not extend long enough to capture the full progression of bacterial community development.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig09.pdf}
+	\caption{Concentration of bacteria in the water column at the ice camp in 2015 and 2016.}
+\end{figure}
+
+\subsection{Phytoplankton}
+
+\subsubsection{Chlorophyll a}
+
+Chl a and accessory pigments concentrations were determined by high-performance liquid chromatography (HPLC) following Ras2008. Concentrations were measured using volumes between 0.1 and 1 L of melted ice and volumes between 1 and 2.5 L of seawater. Water was filtered onto Whatman GF/F 25 mm filters and stored at -80$^{\circ}$C until analysis. Filters were extracted in 100\% methanol, disrupted by sonication and clarified by filtration. Pigments were analyzed using an Agilent Technologies 1200 Series system with a narrow reversed-phase C8 Zorbax Eclipse XDB column (150 $\times$ 3 mm, 3.5 \textmu m particle size) which was maintained at 60$^{\circ}$C. Figure 10 shows the temporal evolution of surface integrated chl a in the bottom 10 cm of the ice cover and the water column for both years. At the beginning of the sampling periods in 2015 and 2016, total chl a concentrations in the bottom of the ice and the water column were of approximately the same magnitude ($\approx$5 mg m\textsuperscript{-2}). Later in the season, when the snowpack and the ice sheet started to melt (between June and July), and at the onset of the PSB, chl a in the water column increased rapidly to reach concentrations of 145 mg m\textsuperscript{-2} in 2015 and 113 mg m\textsuperscript{-2} in 2016. At the same time, or slightly before, chl a in the ice bottom started to decrease rapidly to concentrations varying between 0.1 and 0.3 mg m\textsuperscript{-2}. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig10.pdf}
+	\caption{Temporal evolution of chlorophyll a in ice and water (depth-integrated) for both ice camp missions. Note that the water chlorophyll a have been integrated over the first 100 m of the water column whereas the ice chlorophyll a was measured on the bottom 0-10 cm of the ice cores. The details of the calculations to determine the approximate dates of phytoplankton bloom initiation can be found in Oziel et al. (2019).}
+\end{figure}
+
+Primary production during the phytoplankton bloom was incompletely sampled in 2015, while in 2016 it was monitored from the onset under melting sea ice in May to its termination in July (Fig. 11). During the ice-covered period in 2015, primary production, as well as nitrate assimilation (rNO\textsubscript{3}), occurred at very low but detectable rates reaching 8 and 0.4 mmol m\textsuperscript{-2} d\textsuperscript{-1}, respectively. Phytoplankton production rates were higher in the ice than in the water column, representing approximately 80\% and 40\% for primary production and rNO\textsubscript{3}, respectively. Estimated assimilated concentrations of total carbon and nitrate within the ice cover were 30-96 and 1.4–4.6 mmol m-2 during this period.  The break-up of the sea ice cover was characterized by a rapid increase in primary production and rNO\textsubscript{3}. During this period of high light transmission through the melting ice cover (day 169 to 190), concentrations of assimilated total carbon and rNO\textsubscript{3} reached 60 and 8 mmol m-2, respectively, leading to a complete nitrate depletion. The quantities of total carbon and nitrate assimilated during the 2016 PSB in the water column were 562 and 97 mmol m\textsuperscript{-2}, respectively.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig11.pdf}
+	\caption{Temporal evolution of primary production a in ice and water (depth-integrated) for both ice camp missions.}
+\end{figure}
+
+\subsubsection{Phytoplankton taxonomy}
+
+The phytoplankton community species composition was determined using an Imaging FlowCytobot (IFCB, Woods Hole Oceanographic Institute, \citet{Sosik2007}, \citet{Olson2007}). The size range targeted was between 1 and 150 \textmu m, while the image resolution of approximately 3.4 pixels \textmu m\textsuperscript{-1} limited the identification of cell < 10 \textmu m to broad functional groups. A 150 \textmu m Nitex mesh was used to avoid clogging of the fluidics system by large particles, although this might have induced a bias in the results by preventing large cells to be sampled. For each melted ice and seawater sample, 5 mL were analyzed and Milli-Q water was run between samples with high biomass in order to prevent contamination between samples. Image acquisition was triggered by chl a in vivo fluorescence, with excitation and emission wavelengths of 635 and 680 nm, respectively. Grayscale images were processed to extract regions of interest (ROIs) and their associated features (e.g.: geometry, shape, symmetry, texture, etc.), using a custom made MATLAB (2013b) code (\citet{Sosik2007}, \citet{Olson2007}; processing codes are available at \url{https://github.com/hsosik/ifcb-analysis}). A total of 231 features (see the full list and description at \url{https://github.com/hsosik/ifcb-analysis/wiki/feature-file-documentation}) were derived on the resulting ROIs and were used for automatic classification using random forest algorithms with the EcoTaxa application \citep{Picheral2017}. A learning set was manually prepared for each year, with ca. 20 000 images annotated and used for automatic prediction. Each automatically annotated image was further validated by visual examination and corrected when necessary. The final 2015 and 2016 datasets consist of 124 247 and 57 397 annotated images and their associated features in 39 and 35 taxonomic categories, respectively (Fig. 12). As it was impossible to count the number of cells in each image, we assumed one cell per image. To account for potential underestimations of cell abundance when colonies or chains were imaged, the biovolume of each living protist on images was computed during image processing according to ­\citet{Moberg2012}. Using carbon to volume ratios from \citet{Menden-Deuer2000}, biovolume was converted into carbon estimates, as described in \citet{Laney2014}. Detailed information about sea ice algae and phytoplankton community composition can be found in \citet{Grondin2019}. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig12.pdf}
+	\caption{Images of protists sampled with the IFCB. Scale bar on images is 10 \textmu m. Note that images are not to scale. (\textbf{A}) \textit{Anabaena} sp. (\textbf{B}) \textit{Nitzschia frigida} (\textbf{C}) \textit{Polarella glacialis} (\textbf{D}) Flagellate (\textbf{E}) Euglena (\textbf{F}) \textit{Pseudo-nitzschia} sp. (\textbf{G}) \textit{Ceratium} sp. (\textbf{H}) \textit{Thalassiosira nordenskioeldii} with \textit{Attheya septentrionalis} (\textbf{I}) \textit{Peridiniella catenata} (\textbf{J}) \textit{Navicula pelagica} (\textbf{K}) \textit{Phaeocystis} sp. colony (\textbf{L}) \textit{Chaetoceros} sp. (\textbf{M}) \textit{Entomoneis} sp. (\textbf{N}) \textit{Synedropsis hyperborea} (\textbf{O}) Ciliate (\textbf{P}) Pennate diatom (\textbf{Q}) \textit{Eucampia} sp. (\textbf{R}) \textit{Melosira} sp.}
+\end{figure}
+
+\subsubsection{Physiology of the phytoplankton community}
+
+The photosynthetic potential of microalgae was assessed by measuring $Fv/Fm$, namely the maximum photochemical efficiency of Photosystem II (PSII), via dynamic chl a fluorescence:
+
+\begin{equation}
+	\frac{Fv}{Fm} = \frac{(Fm - F0)}{Fm}
+\end{equation}
+
+\noindent where $Fm$ and $F0$ are the maximum and minimum PSII chl a fluorescence yields, respectively. Chl a fluorescence was recorded with a Water-PAM fluorometer (Walz, Germany) on melted sea-ice (last centimeter of the cores) and water samples collected at different depths (i.e. 1.5 m, 10 m, 40 m, 60 m). Measurements were performed after storing samples in 50 mL dark Falcon tubes (Corning Life Sciences, USA) on ice for at least 1 h. For further technical details, see \citet{Galindo2017}. $Fv/Fm$ is often used as an index for evaluating the physiological condition of microalgal communities.  For algae that are growing optimally, the $Fv/Fm$ ratio ranges between 0.50 and 0.75 in the absence of cyanobacteria. Below 0.50, algal growth is considered to be limited by nutrient availability and/or light stress \citep{Suggett2010}. Figure 13 shows the temporal evolution of $Fv/Fm$ for ice algae and phytoplankton for the ice camp in 2016. At the beginning of the sampling period, all samples showed $Fv/Fm$ above 0.55. While in ice $Fv/Fm$ ranged between 0.60 and 0.75 until the beginning of June, it decreased to ca. 0.20-0.35 in water. This decrease of $Fv/Fm$ (Fig. 13A) is coincident with a sharp increase in PAR under the ice sheet (Fig. 5), which may have induced light stress in phytoplankton and ice algae communities. After approximately 1 month, phytoplankton became acclimated to this new light environment and $Fv/Fm$ increased back to 0.60-0.75 by the beginning of June. From that time on (corresponding to higher irradiance transmittance through ice, see Fig. 5), $Fv/Fm$ in ice decreased dramatically to an approximate value of 0.20 while $Fv/Fm$ in the water column generally remained between 0.60 and 0.75 for depths between 10 and 60 m (note however the large decrease at 40 m on June 13). In contrast, $Fv/Fm$ at 1.5 m was lower and noisier with values varying between 0.45 and 0.60.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig13.pdf}
+	\caption{(\textbf{A}) Temporal evolution of $F_v/F_m$ for ice (last cm) and water underneath the ice (depths 1.5 m, 10 m, 40 m) samples for the ice camp 2016 between May 6\textsuperscript{th} and July 8\textsuperscript{th}. $F_v/F_m$ monitoring on ice samples stopped on June 20th because the chl a fluorescence signal was not reliable anymore. $F_v/F_m$ monitoring on 40 m and 60 m depth samples was limited between May 13th and June 24th and between June 29th and July 08th, respectively. The gray shaded area represents the range at which the algae are optimally growing. (\textbf{B}) The light saturation parameter, $E_k$, an index of photoadaptation of the phytoplankton community measured at 1.5 m, 5 m and 10 m depth. Note de log scale on the $y$ axis.}
+\end{figure}
+
+In addition to the photosynthetic potential of microalgae, photosynthetic parameters were measured from seawater incubated at different irradiance levels in the presence of \textsuperscript{14}C labelled sodium bicarbonate. The light saturation parameter, $E_k$, is an indication of the physiological state of the phytoplankton community. Figure 13B shows the increase of $E_k$ as the phytoplankton community grows between May and July of 2016 at 1.5 m, 5 m and 10 m depth. Between 1.5 m and 10 m depth, $E_k$ varied between 15 and 194 \textmu mol m\textsuperscript{-2} s\textsuperscript{-1} (61 $\pm$ 37 \textmu mol m\textsuperscript{-2} s\textsuperscript{-1}, $n$ = 69) which fall in range within values reported in other marine studies conducted at high-latitudes \citep{Bouman2018, Massicotte2019}. The observed increase in $E_k$ over the growing season suggests that the phytoplankton community became more photo-adapted to increasing available irradiance (Fig. 5). 
+
+\subsection{Zooplankton}
+
+Zooplankton was collected from a ring net deployed under the ice at the ice camp between April 22 and June 10 in 2015 and between May 16 and July 18 in 2016. This sampler, composed of a 1 m diameter circular frame mounted with a 4 m long 200 \textmu m mesh size conical plankton net was lowered cod-end first to avoid filtration during the descent, using an electric winch. An additional 50 \textmu m net with an aperture of 10 cm in diameter was attached to the side of the metal ring to sample eggs and small zooplankton larvae while the main net collected the mesozooplankton fraction. This sampling device was hauled vertically from a depth of 100 m (2015 and 2016) or 350 m (only in 2016), 10 m above the seafloor to the surface at a speed of about 30m min-1. The filtered volume was estimated by a KC Denmark flowmeter placed in the mouth of the 200 \textmu m mesh net. Samples were preserved in 10\% buffered formalin seawater solution for further taxonomic analyses. Classification and count of the 200 \textmu m mesh net samples from both campaigns were performed using the zooscan by the PIQv team at l’Observatoire Océanographique de Villefranchesur-Mer, France, following their protocol. Figure 14 shows the time series of the abundance of copepods (the dominant group of zooplankton in the Arctic) for the first 100 m and 350 m of the water column in 2016.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/fig14.pdf}
+	\caption{Time series of the abundance of the copepods (ind m\textsuperscript{-3}) measured over the first 100 m and 350 m of the water column in 2016 using the zooscan. For visualization, only the six most abundant groups are presented in decreasing order of importance. Note the different $y$ axes in both panels.}
+\end{figure}
+
+Highest copepod abundance was observed in late May and early June in both the top 100 m and over 350 m hauling depths. At the beginning of the sampling period, abundance was approximately 10 times higher in the first 100 m of the water column than over 350 m, suggesting that copepods were agglomerating near the surface to exploit the ice algae production before the start of phytoplankton production. Abundance started to decrease during the first week of June. The family of Oithonidae and the order of Calanoida were the two most abundant groups over the 2 sampling depths. Oithonidae was more abundant over the top 100m layer as this group is probably mainly composed of small epipelagic \textit{Oithona similis} one of the most numerous copepods in the Arctic. Calanoida, the most common copepod order, which includes the families Calanidae (including species such as \textit{Calanus spp.}) and Acartiidae, was the dominant group over the 350m depth haul.
+
+\subsection{Other data}
+
+An exhaustive list of all measured variables is presented in Table 2 along with contact information of principal investigators associated with each measured parameter.
+
+\section{Recommendations and lessons learned}
+
+As with any Arctic surveys, a large number of measurements were acquired during the Green Edge project. Although initial recommendations on good practices about collection, processing and storage of collected data were communicated to all scientists, extensive efforts, such as data standardization, had to be performed to assemble the data. It is important for reducing possible errors, that a uniformized data management plan should be prepared and distributed prior to each mission. Furthermore, dedicated data management specialists should be involved from the beginning of the project to ensure the data are adequately collected, tidied, stored, backed up and archived.
+
+\conclusions  %% \conclusions[modified heading if necessary]
+
+The comprehensive data set assembled during both Green Edge ice-camp campaigns allowed us to study the fundamental physical, chemical and biological processes controlling the Arctic PSB. In this paper, only a handful of variables have been presented. The reader can find the complete list of measured variables in Table 2, all of which are also fully available in the data repository. Furthermore, a collection of scientific research papers is currently being submitted to a special issue of the Elementa journal entitled \textit{Green Edge -The phytoplankton spring bloom in the Arctic Ocean: past, present and future response to climate variations, and impact on carbon fluxes and the marine food web}. The uniqueness and comprehensiveness of this data set offer more opportunities to reuse it for other applications.
+
+%% The following commands are for the statements about the availability of data sets and/or software code corresponding to the manuscript.
+%% It is strongly recommended to make use of these sections in case data sets and/or software code have been part of your research the article is based on.
+
+\codedataavailability{The raw data provided by all the researchers, as well as metadata, are available on the LEFE-CYBER repository (\url{http://www.obs-vlfr.fr/proof/php/GREENEDGE/greenedge.php}). The data presented in this paper and in Table 2 are hosted at SEANOE (SEA scieNtific Open data Edition) under the CC-BY license (link to be provided upon acceptance of the paper). Detailed metadata are associated with each file including the principal investigator’s contact information. For specific questions, please contact the principal investigator associated with the data (see Table 2).} %% use this section when having data sets and software code available
+
+\appendix
+
+\section{Surface tidal height}
+
+\renewcommand{\thefigure}{A\arabic{figure}}%
+\renewcommand{\thetable}{A\arabic{table}}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 1]{../../../graphs/supp_fig01.pdf}
+	\caption{Surface tidal height versus time at Qikiqtarjuaq measured on 2015-06-09.}
+\end{figure}
+
+\clearpage
+\newpage
+
+\section{GoPro Hero 4 photos}
+
+\renewcommand{\thefigure}{B\arabic{figure}}%
+\renewcommand{\thetable}{B\arabic{table}}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 0.35]{../../../gopro_images/Frame_720P_at_00_58_LowSnow_20150518.png}
+	\caption{Video frame (00:58) from GoPro Hero 4 recording of C-OPS descent from 0 to 30 m, 18 May 2015 at the "low snow" hole. Note the streaks of nekton swimming across the upper left quadrant of the frame. Many planktons were seen in this profile, indicating an active under-ice community. A profile of the "high snow" hole on the same day, just 40 m away, showed no such plankton activity.}
+\end{figure}
+
+\begin{center}
+	\captionof{table}{Examples of GoPro Hero 4 photos at the low and high snow holes in 2015 demonstrating the spatial variability of the ice bottom across time and space.}
+	\begin{tabular}{| m{.1\textwidth} | m{.25\textwidth} | m{.25\textwidth} | m{.25\textwidth} |}
+		\hline
+		\textbf{} & \textbf{18 May 2015}                                                                              & \textbf{31 May 2015}                                                                              & \textbf{12 June 2015}                                                                             \\
+		\hline
+		Low~snow  & \includegraphics[scale=0.1] {../../../gopro_images/Frame_1_1_720P_at_00_43_LowSnow_20150518.png}  & \includegraphics[scale=0.1] {../../../gopro_images/Frame_1_2_720P_at_06_02_LowSnow_20150531.png}  & \includegraphics[scale=0.1] {../../../gopro_images/Frame_1_3_720P_at_06_37_LowSnow_20150612.png}  \\
+		\hline
+		High~snow & \includegraphics[scale=0.1] {../../../gopro_images/Frame_2_1_720P_at_00_50_HighSnow_20150518.png} & \includegraphics[scale=0.1] {../../../gopro_images/Frame_2_2_720P_at_05_15_HighSnow_20150531.png} & \includegraphics[scale=0.1] {../../../gopro_images/Frame_2_3_720P_at_11_20_HighSnow_20150612.png} \\
+		\hline
+	\end{tabular}
+
+\end{center}
+
+\noappendix       %% use this to mark the end of the appendix section
+
+%% Regarding figures and tables in appendices, the following two options are possible depending on your general handling of figures and tables in the manuscript environment:
+
+%% Option 1: If you sorted all figures and tables into the sections of the text, please also sort the appendix figures and appendix tables into the respective appendix sections.
+%% They will be correctly named automatically.
+
+%% Option 2: If you put all figures after the reference list, please insert appendix tables and figures after the normal tables and figures.
+%% To rename them correctly to A1, A2, etc., please add the following commands in front of them:
+
+\appendixfigures  %% needs to be added in front of appendix figures
+
+\appendixtables   %% needs to be added in front of appendix tables
+
+%% Please add \clearpage between each table and/or figure. Further guidelines on figures and tables can be found below.
+
+
+
+\authorcontribution{Ghislain Picard designed the snow optical measurements and participated in the 2015 campaign along with Gauthier Verin who sampled the 2015 and 2016 snow-related measurements. Anda Vladoiu, Caroline Sevigny and Dany Dumont deployed and Marie-Noëlle Houssais added her contribution to the analysis of the Self-Contained Autonomous MicroProfiler (SCAMP) on 23 June 2016 and quality-controlled, processed, analyzed and interpreted the data. Guislain Becu, Claudie Marec performed the setup and deployment of the CTD inside the tent in 2015. CTD setup and deployment was performed by José Lagunas, Christiane Dufresne,  in 2016. Guislain Becu, Griet Neukermans, Eric Rehm, Simon Lambert-Girard and Laurent Oziel, Jade Larivière, Joannie Ferland, Julien Laliberté, performed the setup, calibration, and deployments of the ICE-Pro optical profiler outside the tent and the IOP frame inside the tent. Eric Rehm performed the 13-h tidal cycle measurements in 2015. Griet Neukermans and Eric Rehm deployed the GoPro Hero on the ICE-Pro. Claudie Marec performed the setup and installation of IFCB in the lab in 2015. Joannie Ferland performed the setup and installation of the IFCB in the lab in 2016. Joannie Ferland, Erin Reimer, Atsushi Matsuoka, Marie-Hélène Forget and Pierre-Luc Grondin performed the measurements. Pierre-Luc Grondin analyzed the data. Claudie Marec and José Lagunas performed the setup and deployment of an In-water profiler for particle size distribution and zooplankton vertical distribution (UVP Underwater Visio Profiler). Claudie Marec and José Lagunas performed setup and water sampling in both 2015 and 2016 campaigns. Claudie Marec was involved in the design and deployment of the ADCP in 2015, José Lagunas deployed the instrument in 2016. Atsushi Matsuoka coordinated the sampling strategy of discrete waters in terms of examining the linkages between optical and organic matter properties. Atsushi Matsuoka and Annick Bricaud wrote the protocols for both CDOM and particulate absorptions. For aCDOM, Atsushi Matsuoka, Joannie Ferland, Marie-Hélène Forget, Erin Reimer, and Pierre-Luc Grondin contributed to the measurements. For ap, Atsushi Matsuoka, Céline Dimier, Léo Lacour, Joséphine Ras, Mathieu Ardyna, Henry Bittig, Blanche St-Béat and Thomas Lacour contributed to the measurements. In 2015, particulate spectral absorption was also done by Lisa Matthes, Christine Quiring and Jens Ehn. Nicole Pogorzelec (who also did snow and ice salinity and overall chl-a filtrations in the field lab). Marie-Pier Amyot worked on tidying and uniformizing the data. Martí Galí ran the radiative transfer calculations and compared them to irradiance measurements taken on the ice camps. Lisa Matthes, Simon Lambert-Girard, Bob Hodgson, Jens Ehn, Nicole Pogorzelec and CJ Mundy designed and/or carried out the TriOS and ROV under-ice irradiance measurements Christos Panagiotopoulos and Richard Sempéré coordinated the sampling strategy for sugars/DOC and the analyses. Remi Amiraux collected the samples. Between October 2014 and July 2016, Éric Brossier and France Pinczon du Sel conducted measurements, collected clams, maintained equipment, kept a time-lapse photography record and represented the Greenedge team in Qikiqtarjuaq outside of the sampling season. Debra Christiansen Stowe coordinated logistics in Qikiqtarjuaq, in support of the 2016 ice camp. Makoto Sampei designed and curried copepods incubations to collect fecal pellets out at the ice camp in 2016. Makoto Sampei made microscopic observations on the collected fecal pellets in the laboratory. Sea ice and snow hemispherical directional reflectance were measured on the ice camp in 2015 by Sabine Marty and Clémence Goyens. The set-up was designed by Sabine Marty, Edouard Leymarie, Simon Bélanger and Clémence Goyens. They also processed and analyzed the data.} %% this section is mandatory for the journals ACP and GMD. For all other journals it is strongly recommended to make use of this section
+
+\competinginterests{The authos declar no competing interests.} %% this section is mandatory even if you declare that no competing interests are present
+
+\begin{acknowledgements}
+    The GreenEdge project is funded by the following French and Canadian programs and agencies: ANR (Contract \#111112), CNES (project \#131425), IPEV (project \#1164), CSA, Fondation Total, ArcticNet, LEFE and the French Arctic Initiative (GreenEdge project). This project would not have been possible without the support of the Hamlet of Qikiqtarjuaq and the members of the community as well as the Inuksuit School and its Principal Jacqueline Arsenault. The project was conducted under the scientific coordination of the Canada Excellence Research Chair in Remote Sensing of Canada's new Arctic frontier and the CNRS \& Université Laval Takuvik Joint International laboratory (UMI3376). The field campaign was successful thanks to the contribution of A. Wells, M. Benoît-Gagné, and E. Devred from the Takuvik laboratory as well as R. Hodgson from the University of Manitoba. Pascale Bouruet-Aubertot and Yannis Cuypers who provided the SCAMP and contributed to the processing, quality control, analysis and interpretation of the data. We also thank Michel Gosselin, Québec-Océan, the CCGS Amundsen and the Polar Continental Shelf Program for their in-kind contribution to the logistic and scientific equipment. Thanks to Etienne Ouellet for IT support and data infrastructure management.
+\end{acknowledgements}
+
+
+%% Since the Copernicus LaTeX package includes the BibTeX style file copernicus.bst,
+%% authors experienced with BibTeX only have to include the following two lines:
+%%
+\bibliographystyle{copernicus}
+\bibliography{/home/pmassicotte/Documents/library.bib}
+%%
+%% URLs and DOIs can be entered in your BibTeX file as:
+%%
+%% URL = {http://www.xyz.org/~jones/idx_g.htm}
+%% DOI = {10.5194/xyz}
+
+
+%% LITERATURE CITATIONS
+%%
+%% command                        & example result
+%% \citet{jones90}|               & Jones et al. (1990)
+%% \citep{jones90}|               & (Jones et al., 1990)
+%% \citep{jones90,jones93}|       & (Jones et al., 1990, 1993)
+%% \citep[p.~32]{jones90}|        & (Jones et al., 1990, p.~32)
+%% \citep[e.g.,][]{jones90}|      & (e.g., Jones et al., 1990)
+%% \citep[e.g.,][p.~32]{jones90}| & (e.g., Jones et al., 1990, p.~32)
+%% \citeauthor{jones90}|          & Jones et al.
+%% \citeyear{jones90}|            & 1990
+
+
+
+%% FIGURES
+
+%% When figures and tables are placed at the end of the MS (article in one-column style), please add \clearpage
+%% between bibliography and first table and/or figure as well as between each table and/or figure.
+
+
+%% ONE-COLUMN FIGURES
+
+%%f
+%\begin{figure}[t]
+%\includegraphics[width=8.3cm]{FILE NAME}
+%\caption{TEXT}
+%\end{figure}
+%
+%%% TWO-COLUMN FIGURES
+%
+%%f
+%\begin{figure*}[t]
+%\includegraphics[width=12cm]{FILE NAME}
+%\caption{TEXT}
+%\end{figure*}
+%
+%
+%%% TABLES
+%%%
+%%% The different columns must be seperated with a & command and should
+%%% end with \\ to identify the column brake.
+%
+%%% ONE-COLUMN TABLE
+%
+%%t
+%\begin{table}[t]
+%\caption{TEXT}
+%\begin{tabular}{column = lcr}
+%\tophline
+%
+%\middlehline
+%
+%\bottomhline
+%\end{tabular}
+%\belowtable{} % Table Footnotes
+%\end{table}
+%
+%%% TWO-COLUMN TABLE
+%
+%%t
+%\begin{table*}[t]
+%\caption{TEXT}
+%\begin{tabular}{column = lcr}
+%\tophline
+%
+%\middlehline
+%
+%\bottomhline
+%\end{tabular}
+%\belowtable{} % Table Footnotes
+%\end{table*}
+%
+%%% LANDSCAPE TABLE
+%
+%%t
+%\begin{sidewaystable*}[t]
+%\caption{TEXT}
+%\begin{tabular}{column = lcr}
+%\tophline
+%
+%\middlehline
+%
+%\bottomhline
+%\end{tabular}
+%\belowtable{} % Table Footnotes
+%\end{sidewaystable*}
+%
+%
+%%% MATHEMATICAL EXPRESSIONS
+%
+%%% All papers typeset by Copernicus Publications follow the math typesetting regulations
+%%% given by the IUPAC Green Book (IUPAC: Quantities, Units and Symbols in Physical Chemistry,
+%%% 2nd Edn., Blackwell Science, available at: http://old.iupac.org/publications/books/gbook/green_book_2ed.pdf, 1993).
+%%%
+%%% Physical quantities/variables are typeset in italic font (t for time, T for Temperature)
+%%% Indices which are not defined are typeset in italic font (x, y, z, a, b, c)
+%%% Items/objects which are defined are typeset in roman font (Car A, Car B)
+%%% Descriptions/specifications which are defined by itself are typeset in roman font (abs, rel, ref, tot, net, ice)
+%%% Abbreviations from 2 letters are typeset in roman font (RH, LAI)
+%%% Vectors are identified in bold italic font using \vec{x}
+%%% Matrices are identified in bold roman font
+%%% Multiplication signs are typeset using the LaTeX commands \times (for vector products, grids, and exponential notations) or \cdot
+%%% The character * should not be applied as mutliplication sign
+%
+%
+%%% EQUATIONS
+%
+%%% Single-row equation
+%
+%\begin{equation}
+%
+%\end{equation}
+%
+%%% Multiline equation
+%
+%\begin{align}
+%& 3 + 5 = 8\\
+%& 3 + 5 = 8\\
+%& 3 + 5 = 8
+%\end{align}
+%
+%
+%%% MATRICES
+%
+%\begin{matrix}
+%x & y & z\\
+%x & y & z\\
+%x & y & z\\
+%\end{matrix}
+%
+%
+%%% ALGORITHM
+%
+%\begin{algorithm}
+%\caption{...}
+%\label{a1}
+%\begin{algorithmic}
+%...
+%\end{algorithmic}
+%\end{algorithm}
+%
+%
+%%% CHEMICAL FORMULAS AND REACTIONS
+%
+%%% For formulas embedded in the text, please use \chem{}
+%
+%%% The reaction environment creates labels including the letter R, i.e. (R1), (R2), etc.
+%
+%\begin{reaction}
+%%% \rightarrow should be used for normal (one-way) chemical reactions
+%%% \rightleftharpoons should be used for equilibria
+%%% \leftrightarrow should be used for resonance structures
+%\end{reaction}
+%
+%
+%%% PHYSICAL UNITS
+%%%
+%%% Please use \unit{} and apply the exponential notation
+
+
+\end{document}

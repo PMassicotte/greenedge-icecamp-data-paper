@@ -42,7 +42,8 @@ tibble(
     "Name(s) of the principal investigator(s) responsible of the measured variable."
   )) %>%
   kable("latex", longtable = TRUE, booktabs = TRUE, caption = "Descriptions of the minimal variables included in each data set (i.e. in each CSV file).") %>%
-  kable_styling(latex_options = c("repeat_header"), font_size = 10)
+  kable_styling(latex_options = c("repeat_header"), font_size = 10) 
+
 
 ```
 
