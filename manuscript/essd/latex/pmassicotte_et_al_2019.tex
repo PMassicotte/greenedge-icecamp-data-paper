@@ -14,6 +14,7 @@
 \usepackage[default, scale=0.95]{opensans}
 \usepackage[section]{placeins}
 \usepackage{amsmath}
+\usepackage[final]{pdfpages}
 
 %% Journal abbreviations (please use the same for discussion papers and final revised papers)
 
@@ -256,7 +257,7 @@
 \maketitle
 
 \begin{abstract}
-	The Green Edge initiative was developed to investigate the processes controlling the primary productivity and the fate of organic matter produced during the Arctic phytoplankton spring bloom (PSB) and to determine its role in the ecosystem. Two field campaigns were conducted in 2015 and 2016 at an ice camp located on landfast sea ice southeast of Qikiqtarjuaq Island in Baffin Bay (67.4797N, 63.7895W). During both expeditions, a large suite of physical, chemical and biological variables was measured beneath a consolidated sea ice cover from the surface to the bottom at 360 m depth to better understand the factors driving the PSB. Key variables such as temperature, salinity, radiance, irradiance, nutrient concentrations, chlorophyll-a concentration, bacteria, phytoplankton and zooplankton abundance and taxonomy, carbon stocks and fluxes were routinely measured at the ice camp. Here, we present the results of a joint effort to tidy and standardize the collected data sets that will facilitate their reuse in other Arctic studies.
+	The Green Edge initiative was developed to investigate the processes controlling the primary productivity and the fate of organic matter produced during the Arctic phytoplankton spring bloom (PSB) and to determine its role in the ecosystem. Two field campaigns were conducted in 2015 and 2016 at an ice camp located on landfast sea ice southeast of Qikiqtarjuaq Island in Baffin Bay (67.4797N, 63.7895W). During both expeditions, a large suite of physical, chemical and biological variables was measured beneath a consolidated sea ice cover from the surface to the bottom at 360 m depth to better understand the factors driving the PSB. Key variables such as temperature, salinity, radiance, irradiance, nutrient concentrations, chlorophyll-a concentration, bacteria, phytoplankton and zooplankton abundance and taxonomy, carbon stocks and fluxes were routinely measured at the ice camp. Here, we present the results of a joint effort to tidy and standardize the collected data sets that will facilitate their reuse in other Arctic studies. The dataset is available at https://www.seanoe.org/data/00487/59892/ \citep{Massicotte201b}.
 \end{abstract}
 
 
@@ -445,7 +446,10 @@ The comprehensive data set assembled during both Green Edge ice-camp campaigns a
 %% The following commands are for the statements about the availability of data sets and/or software code corresponding to the manuscript.
 %% It is strongly recommended to make use of these sections in case data sets and/or software code have been part of your research the article is based on.
 
-\codedataavailability{The raw data provided by all the researchers, as well as metadata, are available on the LEFE-CYBER repository (\url{http://www.obs-vlfr.fr/proof/php/GREENEDGE/greenedge.php}). The data presented in this paper and in Table 2 are hosted at SEANOE (SEA scieNtific Open data Edition) under the CC-BY license (link to be provided upon acceptance of the paper). Detailed metadata are associated with each file including the principal investigator’s contact information. For specific questions, please contact the principal investigator associated with the data (see Table 2).} %% use this section when having data sets and software code available
+\codedataavailability{The raw data provided by all the researchers, as well as metadata, are available on the LEFE-CYBER repository (\url{http://www.obs-vlfr.fr/proof/php/GREENEDGE/greenedge.php}). The data presented in this paper and in Table 2 are hosted at SEANOE (SEA scieNtific Open data Edition) under the CC-BY license (https://www.seanoe.org/data/00487/59892/, \citet{Massicotte201b}). Detailed metadata are associated with each file including the principal investigator’s contact information. For specific questions, please contact the principal investigator associated with the data (see Table 2).} %% use this section when having data sets and software code available
+
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../tables/tables.pdf}
+
 
 \appendix
 
