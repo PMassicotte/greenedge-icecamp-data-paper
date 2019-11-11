@@ -11,7 +11,6 @@ rm(list = ls())
 # ne_ocean <- rnaturalearth::ne_download(category = "physical", type = "ocean", returnclass = "sf", scale = "large")
 ne_land <- rnaturalearth::ne_download(category = "physical", type = "land", returnclass = "sf", scale = "medium")
 
-
 # plot --------------------------------------------------------------------
 
 arrow <- tibble(
@@ -25,7 +24,7 @@ station_coords <- tibble(lon = c(-63.78953333), lat = c(67.47973333))
 
 p <- ggplot() +
   # geom_sf(data = ne_ocean, size = 0.25) +
-  geom_sf(data = ne_land, size = 0.15) +
+  geom_sf(data = ne_land, size = 0.1) +
   coord_sf(xlim = c(-90, 0), ylim = c(55, 85)) +
   geom_point(
     data = station_coords,
@@ -60,9 +59,9 @@ p <- ggplot() +
   ) +
   theme(
     panel.grid.major = element_line(
-      color = gray(0.75),
+      color = "#999999",
       linetype = "dashed",
-      size = 0.25
+      size = 0.1
     ),
     panel.background = element_rect(fill = "aliceblue")
   ) +
