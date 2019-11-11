@@ -58,12 +58,8 @@ p <- ggplot() +
     size = 3
   ) +
   theme(
-    panel.grid.major = element_line(
-      color = "#999999",
-      linetype = "dashed",
-      size = 0.1
-    ),
-    panel.background = element_rect(fill = "aliceblue")
+    panel.grid.major = element_blank(),
+    panel.background = element_rect(fill = "#BCD3E9")
   ) +
   geom_curve(
     data = arrow,
