@@ -45,6 +45,10 @@ mylabels <- c(
   "2016" = "Ice camp 2016"
 )
 
+scientific_10x <- function(x) {
+  parse(text = gsub("e", "%*%10^", scales::scientific_format()(x)))
+}
+
 p <- ge_fcm_ic %>% 
   unnest(interpolated_bact_m_l) %>% 
   ggplot(aes(x = yday, y = depth_m, fill = bact_m_l, z = bact_m_l)) +
@@ -62,12 +66,14 @@ p <- ge_fcm_ic %>%
 scale_fill_viridis_c(
   option = "plasma",
   alpha = 1,
-  trans = "log", label = scales::scientific, breaks = c(0e5, 1e5, 2e5, 4e5, 8e5, 16e5)
+  trans = "log", 
+  label = scientific_10x,
+  breaks = c(0e5, 1e5, 2e5, 4e5, 8e5, 16e5)
 ) +
   theme(legend.text = element_text(size = 6)) +
   theme(legend.title = element_text(size = 6)) +
   theme(legend.key.size = unit(0.25, "cm")) +
-  labs(fill = bquote("Bacteria" ~ mL^{-1})) +
+  labs(fill = bquote("Bacteria per" ~ mL^{-1})) +
   xlab(NULL) +
   ylab("Depth (m)") 
 # +
@@ -75,4 +81,4 @@ scale_fill_viridis_c(
 # +
 #   geom_contour(breaks = seq(1e5, 8e5, by = 1e5 / 2), color = "black", size = 0.05)
 
-ggsave("graphs/fig09.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
+ggsave("graphs/fig09.pdf", width = 8.3, height = 10, units = "cm", device = cairo_pdf)
