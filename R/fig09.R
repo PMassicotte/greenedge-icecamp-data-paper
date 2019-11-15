@@ -40,6 +40,8 @@ ge_fcm_ic <- ge_fcm_ic %>%
     return(res2)
   }))
 
+# Plot --------------------------------------------------------------------
+
 mylabels <- c(
   "2015" = "Ice camp 2015",
   "2016" = "Ice camp 2016"
@@ -68,12 +70,13 @@ scale_fill_viridis_c(
   alpha = 1,
   trans = "log", 
   label = scientific_10x,
-  breaks = c(0e5, 1e5, 2e5, 4e5, 8e5, 16e5)
+  breaks = c(0e5, 1e5, 2e5, 4e5, 8e5, 16e5),
+  guide = guide_colorbar(barwidth = unit(0.25, "cm"), barheight = unit(4, "cm"))
 ) +
-  theme(legend.text = element_text(size = 6)) +
-  theme(legend.title = element_text(size = 6)) +
-  theme(legend.key.size = unit(0.25, "cm")) +
-  labs(fill = bquote("Bacteria per" ~ mL^{-1})) +
+  theme(legend.text = element_text(size = 8, vjust = 1)) +
+  theme(legend.title = element_text(size = 8)) +
+  # theme(legend.key.size = unit(0.25, "cm")) +
+  labs(fill = "Bacteria\nper mL") +
   xlab(NULL) +
   ylab("Depth (m)") 
 # +

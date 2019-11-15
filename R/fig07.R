@@ -10,7 +10,7 @@ rm(list = ls())
 
 source("https://gist.githubusercontent.com/friendly/67a7df339aa999e2bcfcfec88311abfc/raw/761a7688fba3668a84b2dfe42a655a1b246ca193/wavelength_to_rgb.R")
 
-iop <- feather::read_feather("../../greenedge-underice-kd/data/clean/iop.feather") %>% 
+iop <- feather::read_feather("../../green_edge/underice_kd/data/clean/iop.feather") %>% 
   filter(date %in% as.Date(c("2016-06-17", "2016-06-29"))) %>% 
   drop_na(mean_c)
 
@@ -33,12 +33,12 @@ p <- iop %>%
   scale_x_continuous(expand = c(0.05, 0.05)) +
   scale_colour_gradientn(
     colours = color,
-    breaks = seq(400, 800, by = 50), limits = c(400, 750)
+    breaks = seq(400, 800, by = 50), limits = c(400, 750),
+    guide = guide_colorbar(barwidth = unit(0.25, "cm"), barheight = unit(4, "cm"))
   ) +
   ylab("Depth (m)") +
   xlab(bquote("Beam attenuation" ~ (m^{-1}))) +
-  labs(color = bquote(lambda*(nm))) +
-  guides(colour = guide_colourbar(barwidth = 0.5))
+  labs(color = bquote(lambda*(nm)))
 
 ggsave("graphs/fig07.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)
 

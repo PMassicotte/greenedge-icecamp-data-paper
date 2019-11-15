@@ -40,6 +40,9 @@ data.table::fread("/mnt/nfs/scratch/mariepieramyot/backup/ctd/greenedge_ctd.csv"
   group_by(mission) %>%
   filter(asal_g_kg == min(asal_g_kg) | asal_g_kg == max(asal_g_kg))
 
+
+# Plot --------------------------------------------------------------------
+
 df %>%
   drop_na() %>%
   ggplot(aes(
@@ -61,15 +64,18 @@ df %>%
     limits = c(31.5, 33),
     oob = scales::squish,
     breaks = seq(31.5, 33, by = 0.5),
-    direction = 1
+    direction = 1,
+    guide = guide_colorbar(barwidth = unit(0.25, "cm"), barheight = unit(4, "cm"))
   ) +
   geom_isobands(breaks = seq(30, 45, by = 0.1), color = NA) +
   facet_wrap(~year, labeller = labeller(year = mylabels), ncol = 1) +
   xlab(NULL) +
   ylab("Depth (m)") +
-  labs(fill = "Salinity\n(g/kg)") +
-  theme(legend.text = element_text(size = 8)) +
-  theme(legend.title = element_text(size = 8)) +
-  theme(legend.key.size = unit(0.25, "cm"))
+  labs(fill = "Absolute\nsalinity\n(g kg\u207b\u00b9)") +
+  # labs(fill = bquote(atop("Asbolute\nsalinity", (g ~ kg^{-1})))) +
+  theme(
+    legend.text = element_text(size = 8),
+    legend.title = element_text(size = 8)
+  )
 
 ggsave("graphs/fig03.pdf", width = 8, height = 10, units = "cm", device = cairo_pdf)

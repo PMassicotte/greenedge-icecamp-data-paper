@@ -53,6 +53,8 @@ df <- df %>%
 # %>%
 #   mutate(date = as.Date(date, origin = "1970-01-01", tz = "UTC"))
 
+# Plot --------------------------------------------------------------------
+
 mylabels <- c(
   "ice_camp_2015" = "Ice camp 2015",
   "ice_camp_2016" = "Ice camp 2016"
@@ -61,7 +63,9 @@ mylabels <- c(
 p <- df %>%
   ggplot(aes(x = yday, y = depth_m, fill = no3_um_l, z = no3_um_l)) +
   geom_tile() +
-  scale_fill_viridis_c() +
+  scale_fill_viridis_c(
+    guide = guide_colorbar(barwidth = unit(0.25, "cm"), barheight = unit(4, "cm"))
+  ) +
   geom_isobands(color = NA, breaks = seq(0, 8, by = 0.5)) +
   scale_y_reverse(expand = c(0, 0)) +
   # scale_fill_manual(values = colorRampPalette(viridis::viridis(16))(16)) +
@@ -73,9 +77,11 @@ p <- df %>%
     }
   ) +
   facet_wrap(~mission, ncol = 1, labeller = labeller(mission = mylabels)) +
-  theme(legend.text = element_text(size = 6)) +
-  theme(legend.title = element_text(size = 6)) +
-  theme(legend.key.size = unit(0.25, "cm")) +
+  theme(
+    legend.text = element_text(size = 8),
+    legend.title = element_text(size = 8)
+  ) +
+  # labs(fill = "NO\u2083\n(\u03BCmol L\u207b\u00b9)") +
   labs(fill = bquote(atop(NO[3^{"-"}], (mu * mol ~ L^{-1})))) +
   xlab(NULL) +
   ylab("Depth (m)")
