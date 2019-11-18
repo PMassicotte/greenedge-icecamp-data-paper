@@ -1,0 +1,474 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+    \setmainfont[]{Open Sans}
+    \setsansfont[]{Open Sans}
+    \setmonofont[Mapping=tex-ansi]{Open Sans}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Tables},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Tables}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\begin{document}
+\maketitle
+
+\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{ll}
+\caption{\label{tab:table1}Descriptions of the minimal variables included in each data set (i.e. in each CSV file).}\\
+\toprule
+Variable & Description\\
+\midrule
+\endfirsthead
+\caption[]{Descriptions of the minimal variables included in each data set (i.e. in each CSV file). \textit{(continued)}}\\
+\toprule
+Variable & Description\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+date & Sampling date (UTC)\\
+latitude & Latitude of the sampling location (degree decimals).\\
+longitude & Longitude of the sampling location (degree decimals).\\
+sample\_type & Origin of the water ("water", "ice", "meltpond").\\
+sample\_source & Source of the water ("niskin", "underice" "0-1 cm", "0-3 cm", "3-10 cm", "rosette" ).\\
+\addlinespace
+depth\_m & Depth at which measurement was made.\\
+snow\_thickness & Qualitative value describing the snow cover under which measurement was made ("thin\_snow", "thick\_snow").\\
+mission & Mission identifier ("ice\_camp\_2015", "ice\_camp\_2016")\\
+pi & Name(s) of the principal investigator(s) responsible of the measured variable.\\*
+\end{longtable}
+\endgroup{}
+
+\begin{landscape}\begingroup\fontsize{10}{12}\selectfont
+
+\begin{longtable}[t]{rllll}
+\caption{\label{tab:table2}Parameters measured during the Green Edge ice camp surveys. Parameters are ordered by alphabetical order and sampling year.}\\
+\toprule
+Year & Parameter & Sampling method & Principal investigators & Processed\\
+\midrule
+\endfirsthead
+\caption[]{Parameters measured during the Green Edge ice camp surveys. Parameters are ordered by alphabetical order and sampling year. \textit{(continued)}}\\
+\toprule
+Year & Parameter & Sampling method & Principal investigators & Processed\\
+\midrule
+\endhead
+\
+\endfoot
+\bottomrule
+\endlastfoot
+2015 & Absorption coefficient & In-water profiler & Becu G. / Babin M. & Available\\
+2015 & Absorption (particulate) & Camp ice sample & Ehn J. / Cox C. & Available\\
+2015 & Absorption (particulate) & Camp water sample & Ehn J. / Cox C. & Available\\
+2015 & Absorption (particulate) & Camp ice sample & Matsuoka A. / Bricaud A. / Ferland J. & Available\\
+2015 & Absorption (particulate) & Camp water sample & Matsuoka A. / Bricaud A. / Ferland J. & Available\\
+\addlinespace
+2015 & ADCP (Mooring) & Mooring & Marec C. & Available\\
+2015 & Aerosol optical depth & Surface mode & Belanger S. / Goyens C. / Leymarie E. & Available\\
+2015 & Aerosol relative humidity & Surface mode & Belanger S. / Goyens C. / Leymarie E. & Available\\
+2015 & Air Relative Humidity & Meteorological Tower & Massé G. & Available\\
+2015 & Air Temperature & Meteorological Tower & Massé G. & Available\\
+\addlinespace
+2015 & Alkalinity total (TA) & Camp water sample & Else B. / Whitehead J. & Available\\
+2015 & Ammonium (NH$^+_4$) & Camp water sample & Raimbault P. & Data not available yet\\
+2015 & Ammonium (NH$^+_4$, assimilation) & Camp water sample & Raimbault P. & Available\\
+2015 & Ammonium (NH$^+_4$, regeneration) & Camp water sample & Raimbault P. & Available\\
+2015 & Angstrom coefficient & Surface mode & Belanger S. / Goyens C. / Leymarie E. & Available\\
+\addlinespace
+2015 & Attenuation coefficient & In-water profiler & Becu G. / Babin M. & Available\\
+2015 & Backscattering coefficient & In-water profiler & Becu G. / Babin M. & Available\\
+2015 & Bacterial sequencing & Air filtration & Amiraux R. & Available\\
+2015 & Bacterial sequencing & Camp water sample & Amiraux R. & Available\\
+2015 & Bacterial sequencing & Ice core & Amiraux R. & Available\\
+\addlinespace
+2015 & Bacterial sequencing & Sediment trap & Amiraux R. & Available\\
+2015 & Brine salinity and volume & Sea ice core & Galindo V./ Rysgaard S. & Available\\
+2015 & Chlorophyll a & In-water profiler & Becu G. / Babin M. & Available\\
+2015 & Chlorophyll a & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2015 & Chlorophyll a and Phaeopigments (concentration) & Camp water sample & Babin M. / Ferland J. & Available\\
+\addlinespace
+2015 & Chlorophyll a and phaeopigments (concentration) & Camp water sample & Raimbault P. & Data not available yet\\
+2015 & Chromophoric dissolved organic matter absorption & In-water profiler & Becu G. / Babin M. & Available\\
+2015 & Chromophoric dissolved organic matter absorption & Camp water sample & Matsuoka A. / Ferland J. / Babin M. & Available\\
+2015 & Conductivity, temperature, and depth (CTD) & In-water profiler & Becu G. / Babin M. & Available\\
+2015 & Conductivity, temperature, and depth (CTD) & In-water profiler & Guillot P. / Babin M. / Marec C. & Available\\
+\addlinespace
+2015 & Cryptophytes (abundance) & Camp water sample & Vaulot D. / Marie D. & Available\\
+2015 & Diffuse attenuation coefficient (Kd) & Profile mode & Becu G. / Babin M. & Available\\
+2015 & Dimethyl sulfide (DMS) & Camp water sample & Levasseur M. & Available\\
+2015 & Dimethyl sulfide (DMS) & Melt pond water sample & Levasseur M. & Available\\
+2015 & Dimethyl sulfide (DMS) & Sea ice core & Levasseur M. & Available\\
+\addlinespace
+2015 & Dimethylsulfoniopropionate (DMSP) & Camp water sample & Levasseur M. & Available\\
+2015 & Dimethylsulfoniopropionate (DMSP) & Melt pond water sample & Levasseur M. & Available\\
+2015 & Dimethylsulfoniopropionate (DMSP) & Sea ice core & Levasseur M. & Available\\
+2015 & Dissolved inorganic Carbon (DIC) & Camp water sample & Else B. / Whitehead J. & Available\\
+2015 & Dissolved organic matter (sugars) & Rosette & Sempéré R. / Panagiotopoulos C. & Available\\
+\addlinespace
+2015 & Dissolved organic nitrogen (release) & Camp water sample & Raimbault P. & Available\\
+2015 & Downwelling irradiance & Surface mode & Belanger S. / Goyens C. / Leymarie E. & Available\\
+2015 & Downwelling Irradiance above the surface ($E_d(0^+)$) & Surface mode & Babin M. / Galí M. & Available\\
+2015 & Downwelling Irradiance above the surface ($E_d(0^+)$) & Profile mode & Becu G. / Babin M. & Available\\
+2015 & Downwelling Irradiance ($E_d(z)$) & Profile mode & Becu G. / Babin M. & Available\\
+\addlinespace
+2015 & $E_d(0^+)$ spectra from SBDART radiative transfer simulations & Surface mode & Babin M. / Galí M. & Available\\
+2015 & Faecal pellets flux & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2015 & Fluorescence Variable (phytoplankton) & Camp water sample & Galindo V. / Rysgaard S. & Data not available yet\\
+2015 & Fluorescence Variable (phytoplankton) & Sediment Trap & Galindo V. / Rysgaard S. & Available\\
+2015 & Fluorescence Variable (phytoplankton) & Surface mode & Galindo V. / Rysgaard S. & Data not available yet\\
+\addlinespace
+2015 & Hemispherical directional reflectance distribution function & Surface mode & Belanger S. / Goyens C. / Leymarie E. & Available\\
+2015 & Hemispherical Directional Reflectance Factor & Surface mode & Belanger S. / Goyens C. / Leymarie E. & Available\\
+2015 & Heterotrophic bacteria (abundance) & Camp water sample & Vaulot D. / Marie D. & Available\\
+2015 & Heterotrophic nanoflagellates & Camp water sample & Joux F. & Available\\
+2015 & Ice and snow temperature & Meteorological Tower & Massé G. & Available\\
+\addlinespace
+2015 & Ice thickness & Camp ice sample & Galindo V. / Rysgaard S. & Available\\
+2015 & Irradiance (downwelling, upwelling) & Surface-, Under-water profile-mode & Matthes L. / Ehn J. / Lambert-Girard S./ Mundy C.J. & Available\\
+2015 & Isoprenoid lipids & Camp water sample & Massé G. / Guilmette C. & Available\\
+2015 & Isoprenoid lipids & Sea ice core & Massé G. / Guilmette C. & Available\\
+2015 & Net radiation & Surface mode & Else B. & Available\\
+\addlinespace
+2015 & Nitrate (NO$^-_3$) & Camp water sample & Raimbault P. & Available\\
+2015 & Nitrate (NO$^-_3$) & Sea ice core & Raimbault P. & Available\\
+2015 & Nitrate (NO$^-_3$, assimilation) & Camp water sample & Raimbault P. & Available\\
+2015 & Nitrification & Camp water sample & Raimbault P. & Available\\
+2015 & Nitrite (NO$^-_2$) & Camp water sample & Raimbault P. & Available\\
+\addlinespace
+2015 & Nitrite (NO$^-_2$) & Sea ice core & Raimbault P. & Available\\
+2015 & PAR from SBDART radiative transfer simulations & Surface mode & Babin M. / Galí M. & Available\\
+2015 & Particle Size Distribution & In-water profiler & Becu G. / Babin M. & Available\\
+2015 & Particles size & Underwater Vision Profiler (UVP) & Marec C. / Picheral M. & Available\\
+2015 & Particulate Carbon (PC) & Camp water sample & Babin M. / Ferland J. & Available\\
+\addlinespace
+2015 & Particulate mass & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2015 & Particulate Nitrogen (PN) & Camp water sample & Babin M. / Ferland J. & Available\\
+2015 & Particulate nitrogen (PN) & Sediment Trap & Fortier L. / Lalande C. & Data not available yet\\
+2015 & Particulate organic carbon (POC) & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2015 & Particulate organic carbon (POC) & Camp water sample & Raimbault P. & Available\\
+\addlinespace
+2015 & Particulate organic nitrogen (PON) & Camp water sample & Raimbault P. & Available\\
+2015 & Particulate Organic Phosphorus (POP) & Camp water sample & Raimbault P. & Data not available yet\\
+2015 & PDMPO uptake & Camp water sample & Leynaert A. & Data not available yet\\
+2015 & PDMPO uptake per species & Camp water sample & Leynaert A. & Data not available yet\\
+2015 & Phosphate ((PO$_4)^{3-}$) & Camp water sample & Raimbault P. & Available\\
+\addlinespace
+2015 & Phosphate ((PO$_4)^{3-}$) & Sea ice core & Raimbault P. & Available\\
+2015 & Photosynthetically available radiation (PAR) & Surface mode & Babin M. / Galí M. & Available\\
+2015 & Photosynthetically available radiation (PAR) & Profile mode & Becu G. / Babin M. & Available\\
+2015 & Photosynthetic nanoeukaryotes (abundance) & Camp water sample & Vaulot D. / Marie D. & Available\\
+2015 & Photosynthetic parameters & Camp water sample & Ferland J. / Babin M. & Available\\
+\addlinespace
+2015 & Photosynthetic picoeukaryotes (abundance) & Camp water sample & Vaulot D. / Marie D. & Available\\
+2015 & Phytoplankton & Camp water sample & Ferland J. / Grondin P.L. / Babin M. / Marec C. & Available\\
+2015 & Phytoplankton (taxonomy) & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2015 & Pigments & Sea ice core & Galindo V. / Rysgaard S. & Available\\
+2015 & Pigments & Camp water sample & Ras J. / Claustre H. & Available\\
+\addlinespace
+2015 & Primary production & Camp water sample & Raimbault P. & Available\\
+2015 & Rrs ($0^+$) & Profile mode & Becu G. / Babin M. & Available\\
+2015 & Salinity & Sea ice core & Galindo V. / Rysgaard S. & Available\\
+2015 & Salinity-induced bacterial biomarker & Ice core & Amiraux R./ Rontani J-F. & Available\\
+2015 & Salinity-induced bacterial biomarker & Sediment trap & Amiraux R./ Rontani J-F. & Available\\
+\addlinespace
+2015 & Sea ice concentration & Surface mode & Massicotte P. & Available\\
+2015 & Silica Biogenic (BSi) & Camp water sample & Leynaert A. & Available\\
+2015 & Silica Biogenic (BSi) dissolution rate & Camp water sample & Leynaert A. & Available\\
+2015 & Silicate $Si(OH)_4$ - absorption kinetics & Camp water sample & Leynaert A. & Available\\
+2015 & Silica (uptake rate) & Camp water sample & Leynaert A. & Available\\
+\addlinespace
+2015 & $Si(OH)_4$ & Camp water sample & Leynaert A. & Available\\
+2015 & $Si(OH)_4$ & Camp water sample & Raimbault P. & Available\\
+2015 & $Si(OH)_4$ & Sea ice core & Raimbault P. & Available\\
+2015 & Snow depth & Camp snow sample & Galindo V./ Rysgaard S. & Available\\
+2015 & Snow depth & Meteorological Tower & Massé G. & Available\\
+\addlinespace
+2015 & Sugars & Sediment Trap & Sempéré R. / Panagiotopoulos C. & Available\\
+2015 & Surface Albedo & Surface mode & Verin G./Picard. G. & Available\\
+2015 & Suspended particulate material (SPM) & Camp water sample & Babin M. / Ferland J. & Available\\
+2015 & Swimmers & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2015 & Synechococcus (abundance) & Camp water sample & Vaulot D. / Marie D. & Available\\
+\addlinespace
+2015 & Temperature & Sea ice core & Galindo V. / Rysgaard S. & Available\\
+2015 & Total organic carbon (TOC) & Rosette & Sempéré R. / Panagiotopoulos C. & Available\\
+2015 & Total organic carbon (TOC) & Camp water sample & Raimbault P. & Available\\
+2015 & Total organic nitrogen (TON) & Camp water sample & Raimbault P. & Available\\
+2015 & Total organic phosphorus (TOP) & Camp water sample & Raimbault P. & Available\\
+\addlinespace
+2015 & Transmittance through ice & Surface mode & Verin G. & Available\\
+2015 & Under-ice export fluxes of biogenic matter (fresh) & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2015 & Under-ice photos and video & GoPro Hero 4 on radiometer profiler & Rehm E. & Available\\
+2015 & Upwelling Irradiance ($E_u(z)$) & Profile mode & Becu G. / Babin M. & Available\\
+2015 & Upwelling radiance ($L_u(z)$) & Surface mode & Belanger S. / Goyens C. / Leymarie E. & Available\\
+\addlinespace
+2015 & Upwelling radiance ($L_u(z)$) & Profile mode & Becu G. / Babin M. & Available\\
+2015 & Vertical profile of snow density & Surface mode & Verin G./Picard. G. & Available\\
+2015 & Vertical profile of Specific Surface Area & Surface mode & Verin G./Picard. G. & Available\\
+2015 & Virus (abundance) & Camp water sample & Joux F. & Available\\
+2015 & Wind Direction & Meteorological Tower & Massé G. & Available\\
+\addlinespace
+2015 & Wind Speed & Meteorological Tower & Massé G. & Available\\
+2015 & Zooplancton (Abundances) & Plankton net & Fortier L. / Aubry C & Available\\
+2015 & Zooplancton (Abundances) & Plankton net (LOKI) & Fortier L. / Aubry C & Data not available yet\\
+2015 & Zooplancton (Taxonomy) & Plankton Net & Fortier L. / Aubry C & Available\\
+2015 & Zooplancton (Taxonomy) & Plankton net (LOKI) & Fortier L. / Aubry C & Data not available yet\\
+\addlinespace
+2015 & Zooplankton vertical distribution & Underwater Vision Profiler (UVP) & Marec C. / Sophie R. / Picheral M. & Available\\
+2016 & 234Th (dissolved) & Rosette & Schmidt S. & Data not available yet\\
+2016 & 234Th (particulate) & Rosette & Schmidt S. & Data not available yet\\
+2016 & Absorption coefficient & In-water IOP profiler & Becu G. / Babin M. & Available\\
+2016 & Absorption (particulate) & Camp ice sample & Matsuoka A. / Bricaud A. / Ferland J. & Available\\
+\addlinespace
+2016 & Absorption (particulate) & Camp water sample & Matsuoka A. / Bricaud A. / Ferland J. & Available\\
+2016 & ADCP (Mooring) & Mooring & Oziel L. / Houssais M.-N. / Babin M./ Lagunas J. & Available\\
+2016 & Air Relative Humidity & Meteorological Tower & Massé G. & Available\\
+2016 & Air Temperature & Meteorological Tower & Massé G. & Available\\
+2016 & Ammonium (NH$^+_4$) & Camp water sample & Raimbault P. & Data not available yet\\
+\addlinespace
+2016 & Ammonium (NH$^+_4$, assimilation) & Camp water sample & Raimbault P. & Available\\
+2016 & Ammonium (NH$^+_4$, regeneration) & Camp water sample & Raimbault P. & Available\\
+2016 & Attenuation coefficient & In-water IOP profiler & Becu G. / Babin M. & Available\\
+2016 & Backscattering coefficient & In-water IOP profiler & Becu G. / Babin M. & Available\\
+2016 & Bacterial cultures & Camp water sample & Joux F. & Available\\
+\addlinespace
+2016 & Bacterial cultures & Sea ice core & Joux F. & Available\\
+2016 & Bacterial production & Sea ice core & Joux F. / Galindo V. & Available\\
+2016 & Bacterial production & Camp water sample & Joux F. / Galindo V. & Available\\
+2016 & Brine salinity and volume & Sea ice core & Galindo V./ Rysgaard S. & Available\\
+2016 & Chlorophyll a & In-water IOP profiler & Becu G. / Babin M. & Available\\
+\addlinespace
+2016 & Chlorophyll a & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2016 & Chlorophyll a and phaeopigments (concentration) & Camp water sample & Babin M. / Ferland J. & Available\\
+2016 & Chromophoric dissolved organic matter absorption & In-water IOP profiler & Becu G. / Babin M. & Available\\
+2016 & Chromophoric dissolved organic matter absorption & Camp water sample & Matsuoka A. / Ferland J. / Babin M. & Available\\
+2016 & Chromophoric dissolved organic matter fluorescence & Camp water sample & Matsuoka A. / Ferland J. & Available\\
+\addlinespace
+2016 & Conductivity, temperature, and depth (CTD) & In-water IOP profiler & Becu G. / Babin M. & Available\\
+2016 & Conductivity, temperature, and depth (CTD) & In-water profiler & Guillot P. / Lagunas J. & Available\\
+2016 & Cryptophytes (abundance) & Camp water sample & Vaulot D. & Available\\
+2016 & Cultures of sorted populations & Camp water sample & Vaulot D. & Available\\
+2016 & Diatoms (bacilliarophyta) abundance & Camp water sample & Leblanc K. / Quéguiner B. / Lafond.A & Available\\
+\addlinespace
+2016 & Diatoms (bacilliarophyta) taxonomy & Camp water sample & Leblanc K. / Quéguiner B. / Lafond.A & Available\\
+2016 & Diffuse attenuation coefficient (Kd) & Optical radiometers profiling system & Becu G. / Babin M. & Available\\
+2016 & Dissolved organic carbon (HTCO) & Rosette & Matsuoka A. / Benner R. / Ferland J. & Available\\
+2016 & Dissolved organic matter (Amino acids) & Rosette & Matsuoka A. / Benner R. / Ferland J. & Available\\
+2016 & Dissolved organic matter (sugars) & Rosette & Panagiotopoulos C./ R Sempéré & Available\\
+\addlinespace
+2016 & Dissolved organic nitrogen (release) & Camp water sample & Raimbault P. & Available\\
+2016 & Downwelling irradiance & Surface mode & Belanger S. / Goyens C. / Lambert Girard S. & Available\\
+2016 & Downwelling irradiance & Surface mode & Lambert-Girard S. / Leymarie E. & Data not available yet\\
+2016 & Downwelling Irradiance above the surface ($E_d(0^+)$) & Surface mode & Babin M. / Galí M. & Available\\
+2016 & Downwelling Irradiance above the surface ($E_d(0^+)$) & Optical radiometers profiling system & Becu G. / Babin M. & Available\\
+\addlinespace
+2016 & Downwelling Irradiance ($E_d(z)$) & Optical radiometers profiling system & Becu G. / Babin M. & Available\\
+2016 & $E_d(0^+)$ spectra from SBDART radiative transfer simulations & Surface mode & Babin M. / Galí M. & Available\\
+2016 & Faecal pellets flux & Sediment Trap & Fortier L. / Lalande C. & Data not available yet\\
+2016 & Hemispherical directional reflectance distribution function & Surface mode & Belanger S. / Goyens C. / Lambert-Girard S. & Data not available yet\\
+2016 & Heterotrophic bacteria (abundance) & Camp water sample & Vaulot D. & Available\\
+\addlinespace
+2016 & Hydro SCAMP (temperature, salinity, chlorophyll, turbidity, etc.) & In-water profiler & Vladoiu A. / Dumont D. / Sévigny C. & Available\\
+2016 & Ice and snow temperature & Meteorological Tower & Massé G. & Data not available yet\\
+2016 & Ice thickness & Camp ice sample & Galindo V./ Rysgaard S. & Available\\
+2016 & Irradiance (downwelling) & Surface-, Ice Bottom-mode & Matthes L. / Ehn J. / Lambert-Girard S./ Mundy C.J. & Available\\
+2016 & Irradiance (downwelling) & Under-ice irradiance transects, ROV & Matthes L. /Lambert-Girard S./ Ehn J./Mundy C.J & Available\\
+\addlinespace
+2016 & Irradiance (downwelling, upwelling) & Surface-, Under-water profile-mode & Matthes L. / Ehn J. / Lambert-Girard S./ Mundy C.J. & Available\\
+2016 & Isoprenoid lipids & Camp water sample & Massé G. / Guilmette C. & Available\\
+2016 & Isoprenoid lipids & Sea ice core & Massé G. / Guilmette C. & Available\\
+2016 & Lipid biomarkers & Collected organisms & Dufour F. / Massé G. / Ayotte P. / Lemire M. & Available\\
+2016 & Lipid tracers of bacteria stress & Camp water sample & Rontani J.-F. / Amiraux R. & Data not available yet\\
+\addlinespace
+2016 & Lipid tracers of bacteria stress & Sea ice core & Rontani J.-F. / Amiraux R. & Data not available yet\\
+2016 & Lipid tracers of bacteria stress & Sediment Trap & Rontani J.-F. / Amiraux R. & Data not available yet\\
+2016 & Nitrate (NO$^-_3$) & Camp water sample & Raimbault P. & Available\\
+2016 & Nitrate (NO$^-_3$) & Sea ice core & Raimbault P. & Available\\
+2016 & Nitrate (NO$^-_3$, assimilation) & Camp water sample & Raimbault P. & Available\\
+\addlinespace
+2016 & Nitrification & Camp water sample & Raimbault P. & Available\\
+2016 & Nitrite (NO$^-_2$) & Camp water sample & Raimbault P. & Available\\
+2016 & Nitrite (NO$^-_2$) & Sea ice core & Raimbault P. & Available\\
+2016 & Nutrients bioassay & Experiment & Delaforge A./ Mundy CJ & Data not available yet\\
+2016 & Nutrients bioassay & Experiment & Galindo V./ Rysgaard S. & Data not available yet\\
+\addlinespace
+2016 & PAR from SBDART radiative transfer simulations & Surface mode & Babin M. / Galí M. & Available\\
+2016 & Particle Size Distribution & In-water IOP profiler & Becu G. / Babin M. & Data not available yet\\
+2016 & Particle Size Distribution & In-water profiler & L. Stemmann / Lagunas J. & Data not available yet\\
+2016 & Particles size & Underwater Vision Profiler (UVP) & Lagunas J. / Picheral M. & Available\\
+2016 & Particulate Carbon (PC) & Camp water sample & Babin M. / Ferland J. & Available\\
+\addlinespace
+2016 & Particulate mass & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2016 & Particulate Nitrogen (PN) & Camp water sample & Babin M. / Ferland J. & Available\\
+2016 & Particulate nitrogen (PN) & Sediment Trap & Fortier L. / Lalande C. & Data not available yet\\
+2016 & Particulate organic carbon (POC) & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2016 & Particulate organic carbon (POC) & Camp water sample & Raimbault P. & Available\\
+\addlinespace
+2016 & Particulate organic nitrogen (PON) & Camp water sample & Raimbault P. & Available\\
+2016 & Particulate Organic Phosphorus (POP) & Camp water sample & Raimbault P. & Data not available yet\\
+2016 & PDMPO uptake & Camp water sample & Leblanc K. / Quéguiner B. & Data not available yet\\
+2016 & PDMPO uptake per species & Camp water sample & Leblanc K. / Quéguiner B. & Data not available yet\\
+2016 & Phosphate ((PO$_4)^{3-}$) & Camp water sample & Raimbault P. & Available\\
+\addlinespace
+2016 & Phosphate ((PO$_4)^{3-}$) & Sea ice core & Raimbault P. & Available\\
+2016 & Photosynthetically available radiation (PAR) & Surface mode & Babin M. / Galí M. & Available\\
+2016 & Photosynthetically available radiation (PAR) & Optical radiometers profiling system & Becu G. / Babin M. & Available\\
+2016 & Photosynthetic eukaryotes (morphology) & Camp water sample & Vaulot D. & Data not available yet\\
+2016 & Photosynthetic nanoeukaryotes (abundance) & Camp water sample & Vaulot D. & Available\\
+\addlinespace
+2016 & Photosynthetic parameters & Camp water sample & Ferland J. / Babin M. & Available\\
+2016 & Photosynthetic parameters (variable fluorescence) & Camp water sample & Lavaud J. / Galindo V. / Rysgaard S. & Data not available yet\\
+2016 & Photosynthetic parameters (variable fluorescence) & Sediment Trap & Lavaud J. / Galindo V. / Rysgaard S. & Data not available yet\\
+2016 & Photosynthetic parameters (variable fluorescence) & Sea ice core & Lavaud J. / Galindo V. / Rysgaard S. & Data not available yet\\
+2016 & Photosynthetic picoeukaryotes (abundance) & Camp water sample & Vaulot D. & Available\\
+\addlinespace
+2016 & Phytoplankton & Camp water sample & Ferland J. / Grondin P.L. / Babin M. & Available\\
+2016 & Phytoplankton (taxonomy) & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2016 & Pigments & Camp water sample & Ras J. / Claustre H./Galindo V./ Rysgaard S. & Available\\
+2016 & Primary production & Camp water sample & Raimbault P. & Available\\
+2016 & Prokaryotic diversity & Camp water sample & Joux F. & Data not available yet\\
+\addlinespace
+2016 & Prokaryotic diversity & Sea ice core & Joux F. & Data not available yet\\
+2016 & Rrs ($0^+$) & Optical radiometers profiling system & Becu G. / Babin M. & Available\\
+2016 & Salinity & Sea ice core & Galindo V. / Rysgaard S. & Available\\
+2016 & Scattering Coefficient & In-water IOP profiler & Becu G. / Babin M. & Available\\
+2016 & Sea ice concentration & Surface mode & Massicotte P. & Available\\
+\addlinespace
+2016 & Selenium & Collected organisms & Dufour F., Massé G., Ayotte P., Lemire M. & Available\\
+2016 & Silica Biogenic (BSi) & Camp water sample & Leynaert A./Moriceau B./ Leblanc K./Quéguiner B. & Available\\
+2016 & Silica Biogenic (BSi) dissolution rate & Camp water sample & Moriceau B. & Available\\
+2016 & Silica Lithogenic (LSi) & Camp water sample & Leynaert A./Moriceau B./ Leblanc K./Quéguiner B. & Data not available yet\\
+2016 & Silicate $Si(OH)_4$ - absorption kinetics & Camp water sample & Leynaert A. & Available\\
+\addlinespace
+2016 & Silica (uptake rate) & Camp water sample & Leynaert A. & Available\\
+2016 & $Si(OH)_4$ & Camp water sample & Leynaert A. / Moriceau B. & Available\\
+2016 & $Si(OH)_4$ & Camp water sample & Raimbault P. & Available\\
+2016 & $Si(OH)_4$ & Sea ice core & Raimbault P. & Available\\
+2016 & Snow depth & Camp snow sample & Galindo V./ Rysgaard S. & Available\\
+\addlinespace
+2016 & Spectral downwelling radiance angular distribution & Under-water sensor & Lambert-Girard S. / Leymarie E. & Available\\
+2016 & Spectral transmittance through ice & Surface mode & Verin G./Picard. G. & Available\\
+2016 & Surface spectral albedo & Surface mode & Verin G./Picard. G. & Available\\
+2016 & Suspended particulate material (SPM) & Camp water sample & Babin M. / Ferland J. & Available\\
+2016 & Swimmers & Sediment Trap & Fortier L. / Lalande C. & Available\\
+\addlinespace
+2016 & Synechococcus (abundance) & Camp water sample & Vaulot D. & Available\\
+2016 & Temperature & Sea ice core & Galindo V. / Rysgaard S. & Available\\
+2016 & Total organic carbon (TOC) & Camp water sample & Raimbault P. & Available\\
+2016 & Total organic carbon (TOC) and  dissolved organic carbon (DOC) & Rosette & Panagiotopoulos C./ Sempéré R. & Available\\
+2016 & Total organic nitrogen (TON) & Camp water sample & Raimbault P. & Available\\
+\addlinespace
+2016 & Total organic phosphorus (TOP) & Camp water sample & Raimbault P. & Available\\
+2016 & Under-ice export fluxes of biogenic matter (fresh) & Sediment Trap & Fortier L. / Lalande C. & Available\\
+2016 & Upwelling Irradiance ($E_u(z)$) & Optical radiometers profiling system & Becu G. / Babin M. & Available\\
+2016 & Upwelling radiance ($L_u(z)$) & Surface mode & Belanger S. / Goyens C. / Lambert-Girard S. & Data not available yet\\
+2016 & Upwelling radiance ($L_u(z)$) & Optical radiometers profiling system & Becu G. / Babin M. & Available\\
+\addlinespace
+2016 & Vertical profile of snow density & Surface mode & Verin G./Picard. G. & Available\\
+2016 & Vertical profile of Specific Surface Area & Surface mode & Verin G./Domine F. & Available\\
+2016 & Virus (abundance) & Camp water sample & Joux F. & Available\\
+2016 & Wind Direction & Meteorological Tower & Massé G. & Available\\
+2016 & Wind Speed & Meteorological Tower & Massé G. & Available\\
+\addlinespace
+2016 & Zooplancton (Abundances) & Plankton net & Fortier L. / Aubry C & Available\\
+2016 & Zooplancton fecal pellet production rate & Plankton net & Fortier L. / Sampei M & Data not available yet\\
+2016 & Zooplancton grazing rate & Plankton net & Fortier L. / Sampei M & Data not available yet\\
+2016 & Zooplancton (Taxonomy) & Plankton Net & Fortier L. / Aubry C & Available\\
+2016 & Zooplankton vertical distribution & Underwater Vision Profiler (UVP) & Lagunas J. / Picheral M. & Available\\*
+\end{longtable}
+\endgroup{}
+\end{landscape}
+
+
+\end{document}

@@ -1,0 +1,97 @@
+---
+title: "Tables"
+output: 
+  pdf_document: 
+    latex_engine: xelatex
+    keep_tex: true
+mainfont: Open Sans
+sansfont: Open Sans
+monofont: Open Sans
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(knitr)
+library(kableExtra)
+library(googlesheets)
+library(tidyverse)
+```
+
+```{r table1}
+tibble(
+  Variable = c(
+    "date",
+    "latitude",
+    "longitude",
+    "sample_type",
+    "sample_source",
+    "depth_m",
+    "snow_thickness",
+    "mission",
+    "pi"
+  ),
+  Description = c(
+    "Sampling date (UTC)",
+    "Latitude of the sampling location (degree decimals).",
+    "Longitude of the sampling location (degree decimals).",
+    'Origin of the water ("water", "ice", "meltpond").',
+    'Source of the water ("niskin", "underice" "0-1 cm", "0-3 cm", "3-10 cm", "rosette" ).',
+    "Depth at which measurement was made.",
+    'Qualitative value describing the snow cover under which measurement was made ("thin_snow", "thick_snow").',
+    'Mission identifier ("ice_camp_2015", "ice_camp_2016")',
+    "Name(s) of the principal investigator(s) responsible of the measured variable."
+  )) %>%
+  kable("latex", longtable = TRUE, booktabs = TRUE, caption = "Descriptions of the minimal variables included in each data set (i.e. in each CSV file).") %>%
+  kable_styling(latex_options = c("repeat_header"), font_size = 10) 
+
+
+```
+
+
+```{r table2}
+df <- gs_title("table2") %>%
+  gs_read(ws = "parameters") %>%
+  janitor::clean_names() %>%
+  arrange(year, parameter_for_table_2)
+
+df2 <- df %>%
+  select(
+    Year = year,
+    Parameter = parameter_for_table_2,
+    `Sampling method` = sampling,
+    `Principal investigators` = p_i,
+    Processed = r_script
+  ) %>%
+  mutate(Processed = case_when(
+    Processed == "NODATA" ~ "Data not available yet",
+    TRUE ~ "Available"
+  )) %>% 
+  mutate(
+    Parameter = str_replace_all(Parameter, "\\(Lu\\(z\\)\\)", "($L_u(z)$)"),
+    Parameter = str_replace_all(Parameter, "\\(Eu\\(z\\)\\)", "($E_u(z)$)"),
+    Parameter = str_replace_all(Parameter, "\\(Ed\\(z\\)\\)", "($E_d(z)$)"),
+    Parameter = str_replace_all(Parameter, "Ed\\(0\\+\\)", "$E_d(0^+)$"),
+    Parameter = str_replace_all(Parameter, "NH4", "NH$^+_4$"),
+    Parameter = str_replace_all(Parameter, "NO3", "NO$^-_3$"),
+    Parameter = str_replace_all(Parameter, "NO2", "NO$^-_2$"),
+    Parameter = str_replace_all(Parameter, "\\(0\\+\\)", "($0^+$)"),
+    Parameter = str_replace_all(Parameter, "Si\\(OH\\)4", "$Si(OH)_4$"),
+    Parameter = str_replace_all(Parameter, "PO4", "(PO$_4)^{3-}$"),
+  )
+
+kable(
+  df2,
+  "latex",
+  longtable = TRUE,
+  booktabs = TRUE,
+  caption = "Parameters measured during the Green Edge ice camp surveys. Parameters are ordered by alphabetical order and sampling year.",
+  escape = FALSE
+) %>%
+  kable_styling(
+    latex_options = c("repeat_header"),
+    font_size = 10
+  ) %>%
+  # row_spec(c(0), bold = TRUE) %>%
+  landscape()
+```
+
