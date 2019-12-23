@@ -178,7 +178,7 @@ p <- res %>%
   scale_y_continuous(expand = c(0, 0)) +
   scale_x_datetime(expand = c(0.05, 10), date_breaks = "2 weeks", date_labels = "%b-%d") +
   xlab(NULL) +
-  ylab(bquote("Abundance" ~ (ind~m^{-3}))) +
+  ylab(bquote("Abundance" ~ (individuals~m^{-3}))) +
   theme(legend.position = "bottom") +
   theme(legend.title = element_blank()) +
   theme(legend.text = element_text(size = 6)) +
