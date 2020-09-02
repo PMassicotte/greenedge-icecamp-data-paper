@@ -8,10 +8,20 @@
 
 rm(list = ls())
 
-df_2015 <- read_excel("~/Desktop/données production primaire P. Massicote.xlsx", range = "A5:C25", col_names = c("yday", "water", "ice")) %>% 
+df_2015 <-
+  read_excel(
+    "data/raw/données production primaire P. Massicote.xlsx",
+    range = "A5:C25",
+    col_names = c("yday", "water", "ice")
+  ) %>%
   mutate(year = 2015)
 
-df_2016 <- read_excel("~/Desktop/données production primaire P. Massicote.xlsx", range = "E5:G27", col_names = c("yday", "water", "ice")) %>% 
+df_2016 <-
+  read_excel(
+    "data/raw/données production primaire P. Massicote.xlsx",
+    range = "E5:G27",
+    col_names = c("yday", "water", "ice")
+  ) %>%
   mutate(year = 2016)
 
 df <- bind_rows(df_2015, df_2016) %>%
